@@ -231,23 +231,23 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 
 **Color Palette:**
 
-- Background
+- Background (dark blue)
    -  `#060606F` (main)
    -  `#0B0C1E`
    -  `#18102A`
    -  `#13133A`
 
-- Primary
+- Primary (purple)
    - `#7C5AED` (main)
    - `#A78BFA`
    - `#4C1D95`
 
-- Secondary & Accents
+- Secondary & Accents (yellow)
    - `#F5C800` (main)
    - `#FC0340`
    - `#FE4444`
 
-- Text
+- Text (black and white)
    - `#EBE8F4` (for dark background)
    - `#8689A`
    - `#1E1E45` (for light background)
