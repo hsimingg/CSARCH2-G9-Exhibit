@@ -227,19 +227,36 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 
 ## Tentative Style Guide Snapshot
 
-**Visual Theme:** [e.g., retro computing / futuristic museum / technical blueprint / dark mode archive]
+**Visual Theme:** galaxy aesthetic with cosmic elements such as stars, planets, spacecrafts (can be Ariane 5 in particular) for background visuals. paired with futuristic system terminal-style typography that play into a sci-fi theme.
 
 **Color Palette:**
 
-* Primary Color: [Insert color]
-* Secondary Color: [Insert color]
-* Background Color: [Insert color]
-* Accent Color: [Insert color]
+- Background
+   -  `#060606F` (main)
+   -  `#0B0C1E`
+   -  `#18102A`
+   -  `#13133A`
+
+- Primary
+   - `#7C5AED` (main)
+   - `#A78BFA`
+   - `#4C1D95`
+
+- Secondary & Accents
+   - `#F5C800` (main)
+   - `#FC0340`
+   - `#FE4444`
+
+- Text
+   - `#EBE8F4` (for dark background)
+   - `#8689A`
+   - `#1E1E45` (for light background)
 
 **Typography:**
 
-* Headings: [Insert font or style]
-* Body Text: [Insert font or style]
+* Title or Headings: Chakra Petch 
+* Body Text: DM Sans
+* Code / Telemetry: JetBrains Mono
 
 **Design Elements:**
 
@@ -248,6 +265,8 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 * Diagrams and callout boxes
 * Interactive section with clear instructions
 * Consistent spacing and visual hierarchy
+
+See Figma for working style guide file [here](https://www.figma.com/design/8mziXVxXo5SOnHLOq4FTQs/CSARCH2_Style-Guide-Snapshot?node-id=0-1&t=oGs4HKj2BUpslrLG-1).
 
 ---
 
