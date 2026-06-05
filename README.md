@@ -1,122 +1,78 @@
-# Astro Starter Kit: Basics
-
-```sh
-npm create astro@latest -- --template basics
-```
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
 # CSARCH2 Virtual Exhibit Case Study Proposal
 
-## “Computer Architecture is Forever”
+---
+## Group Title: "Ariane 5: The Overflow That Brought Down a Rocket"
 
-## Group Title
+#### Category: Problem Solving Stories
 
-**[Insert your group/exhibit title here]**
+#### Group Members
 
-## Category
-
-**Problem Solving Stories**
-
-## Group Members
-
-| Name       | Role / Responsibility                   |
-| ---------- | --------------------------------------- |
-| [Member 1] | [e.g., Research Lead / Content Writer]  |
-| [Member 2] | [e.g., UI/UX Designer]                  |
-| [Member 3] | [e.g., Front-End Developer]             |
-| [Member 4] | [e.g., Interactive Component Developer] |
-| [Member 5] | [e.g., Documentation / QA]              |
+| Name                |
+| ------------------- |
+| Chong, Kimberly     |
+| Hereula, Adolfo Jr. |
+| Ho, Denise Liana    |
+| Miranda, Isaiah     |
+| Sarroza, Mikael     |
 
 ---
 
-## Proposed Exhibit Topic
-
-**[Insert chosen topic here]**
-Example format: *Intel Pentium FDIV Bug (1994): How a Tiny Hardware Error Became a Major Computing Crisis*
-
----
-
-## Topic Theme / Exhibit Concept
+## Ariane 5 Flight 501: Integer Overflow Failure
 
 Our virtual exhibit will present **[briefly describe the problem-solving story]**. The exhibit will focus on the computer architecture issue, why it mattered, how it was discovered, how it affected users or the industry, and how the problem was addressed.
 
+**[tweak below to whatever suits our project]**
+
 The exhibit will guide visitors through the story using a museum-style layout with sections such as:
 
-1. **Introduction to the Problem**
-
-   * What happened?
-   * When did it happen?
-   * Why is it important in computer architecture?
-
-2. **Architecture Background**
-
-   * What hardware/software concept is involved?
-   * Which part of computer architecture does the issue relate to?
-
-3. **The Problem / Failure**
-
-   * What went wrong?
-   * How was the issue discovered?
-   * What made the problem difficult to solve?
-
-4. **Solution and Response**
-
-   * How was the problem fixed or handled?
-   * What engineering decisions were made?
-
-5. **Legacy and Lessons Learned**
-
-   * What changed after this event?
-   * What can modern computer architecture learn from it?
+1. Mission Launch: Introduction to the Problem
+	- What was the Ariane 5 rocket?
+	- What was Flight 501 supposed to do?
+	- What happened during the launch?
+	- Why did this failure become significant in computing and engineering history?
+2. The Hidden Assumption: Architecture Background
+	- Binary data representation
+	- Integer and floating-point data types
+	- Range limitations of data storage
+	- Overflow and data conversion concepts
+	- Why a value that fits in one data type may not fit in another
+3. The Data Representation Problem
+	- Reuse of Ariane 4 software
+	- Conversion of a 64-bit floating-point value into a 16-bit signed integer
+	- Why the converted value exceeded the allowed range
+	- How overflow occurs when a value cannot be represented
+4. The Overflow Chain Reaction
+	- Overflow exception
+	- Inertial reference system shutdown
+	- Loss of guidance information
+	- Rocket deviation and destruction
+	- How one data conversion issue became a full system failure
+5. Solution and Response
+	- Investigation findings
+	- Software redesign and validation improvements
+	- Better exception handling
+	- Stronger testing for reused software
+	- Safety checks for critical systems
+6. Legacy and Lessons Learned
+	- Importance of handling overflow conditions
+	- Risks of reusing software without validating new conditions
+	- Importance of testing assumptions
+	- How small representation errors can create real-world consequences
+	- Why computer architecture concepts matter outside the classroom
+	- Modern engineering practices influenced by the incident
 
 ---
 
 ## Objectives of the Exhibit
 
+**[tweak below to whatever suits our project]**
+
 The proposed virtual exhibit aims to:
 
-* Explain a real-world computer architecture problem in a clear and engaging way.
-* Help visitors understand how architecture-level decisions can affect reliability, performance, security, or compatibility.
-* Present the historical and technical importance of the chosen problem-solving story.
-* Use an interactive component to help users actively explore or test the concept.
+- Explain the Ariane 5 Flight 501 failure and the software error that led to the destruction of the rocket.
+- Help visitors understand the concepts of data representation, integer overflow, and data type conversion in computer systems.
+- Demonstrate how a small software and architecture-related mistake can result in major real-world consequences.
+- Present the historical and technical significance of the Ariane 5 incident and its impact on software engineering practices.
 
 ---
 
@@ -141,42 +97,73 @@ This interactive component will help users understand **[specific concept/proble
 4. The component gives visual feedback or explanation.
 5. User proceeds to the conclusion and lessons learned section.
 
+**[BELOW IS ABOUT OUR INTERACTIVE ELEMENT]**
+
+The main interactive element will be titled **“Mission Control: Prevent the Overflow.”** It will combine a story-based decision simulation with an integer overflow demonstration.
+
+Visitors will take the role of an engineer reviewing the Ariane 5 flight software before launch. They will make decisions related to software reuse, data conversion, range checking, and exception handling. One part of the simulation will show whether a value can fit inside a 16-bit signed integer range. If the value exceeds the range of `-32768` to `32767`, the component will show an overflow warning and explain why the conversion is unsafe.
+
+This interactive element will help visitors understand how data representation, type conversion, and overflow can affect real-world safety-critical systems.
+
+
 ---
 
 ## Tech Stack Plan
 
-The project will follow the required technical specifications for the CSARCH2 virtual exhibit.
-
-| Requirement         | Planned Implementation                                             |
-| ------------------- | ------------------------------------------------------------------ |
-| Framework           | Astro 6                                                            |
-| Runtime             | Node.js 26                                                         |
-| Content Format      | MDX file for main exhibit content                                  |
-| Components          | React JSX components and/or Astro components                       |
-| Styling             | CSS / Tailwind / template-based styling                            |
-| Repository          | GitHub repository forked from the provided Astro template          |
-| Interactive Element | [React component / Astro component / embedded interactive feature] |
-| Media Resources     | Images, diagrams, icons, screenshots, or videos if needed          |
-| Responsiveness      | Layout will be designed for desktop and mobile viewing             |
+| Requirement         | Planned Implementation                                                                                               |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Framework           | Astro 6                                                                                                              |
+| Runtime             | Node.js 26                                                                                                           |
+| Content Format      | MDX file                                                                                                             |
+| Components          | React JSX components and Astro components                                                                            |
+| Styling             | CSS + template-based styling of the museum exhibit                                                                   |
+| Repository          | GitHub Repository (forked from the provided Astro template)                                                          |
+| Main Exhibit Page   | `ariane-5-integer-overflow.mdx`                                                                                      |
+| Interactive Element | React JSX Component                                                                                                  |
+| Media Resources     | Rocket images, data conversion diagrams, overflow visuals, icons, timeline assets, and background graphics if needed |
+| Responsiveness      | Designed for desktop and mobile viewing                                                                              |
+| Documentation       | Google Docs and README file will be maintained in GitHub                                                             |
 
 ---
 
 ## Proposed Repository Structure
 
 ```txt
+CSARCH2-G9-Exhibit/
 ├── astro.config.mjs
 ├── package.json
 ├── package-lock.json
-├── src
-│   ├── components
-│   │   ├── [InteractiveComponent].jsx
-│   │   └── [OptionalAstroComponent].astro
-│   ├── layouts
-│   │   └── ExhibitLayout.astro
-│   └── pages
-│       └── [topic_name].mdx
-└── tsconfig.json
+├── tsconfig.json
+├── README.md
+├── public
+│   ├── favicon.ico
+│   └── favicon.svg
+└── src
+    ├── assets
+    │   ├── ariane5-rocket.svg
+    │   ├── overflow-diagram.svg
+    │   ├── data-conversion-diagram.svg
+    │   ├── mission-control-bg.svg
+    │   └── timeline-assets
+    │       ├── launch.svg
+    │       ├── software-reuse.svg
+    │       ├── overflow-warning.svg
+    │       └── rocket-failure.svg
+    ├── components
+    │   ├── MissionControlSimulation.jsx
+    │   ├── OverflowChecker.jsx
+    │   ├── DecisionCard.jsx
+    │   ├── FailureTimeline.astro
+    │   ├── InfoCard.astro
+    │   └── Welcome.astro
+    ├── layouts
+    │   ├── ExhibitLayout.astro
+    │   └── Layout.astro
+    └── pages
+        ├── index.astro
+        └── ariane-5-integer-overflow.mdx
 ```
+
 
 ---
 
@@ -185,7 +172,6 @@ The project will follow the required technical specifications for the CSARCH2 vi
 The exhibit page may contain the following sections:
 
 1. **Hero Section**
-
    * Exhibit title
    * Short subtitle
    * Main visual/banner
@@ -262,37 +248,6 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 * Diagrams and callout boxes
 * Interactive section with clear instructions
 * Consistent spacing and visual hierarchy
-
----
-
-## Development Timeline
-
-| Phase    | Task                                        | Target Date / Week | Assigned To |
-| -------- | ------------------------------------------- | ------------------ | ----------- |
-| Phase 1  | Finalize topic and scope                    | [Date]             | [Name/s]    |
-| Phase 2  | Research and collect sources                | [Date]             | [Name/s]    |
-| Phase 3  | Draft exhibit content                       | [Date]             | [Name/s]    |
-| Phase 4  | Create design/style guide snapshot          | [Date]             | [Name/s]    |
-| Phase 5  | Set up GitHub repository and Astro template | [Date]             | [Name/s]    |
-| Phase 6  | Build MDX page structure                    | [Date]             | [Name/s]    |
-| Phase 7  | Develop interactive component               | [Date]             | [Name/s]    |
-| Phase 8  | Test responsiveness and compatibility       | [Date]             | [Name/s]    |
-| Phase 9  | Final documentation and polishing           | [Date]             | [Name/s]    |
-| Phase 10 | Final demo preparation                      | [Date]             | [Name/s]    |
-
----
-
-## Documentation Plan
-
-All project documentation will be maintained in GitHub. This includes:
-
-* Proposal README
-* Planning notes
-* Content drafts
-* Component descriptions
-* Design decisions
-* Observations and feedback
-* Final exhibit documentation
 
 ---
 

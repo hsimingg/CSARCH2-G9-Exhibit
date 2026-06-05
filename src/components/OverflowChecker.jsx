@@ -1,0 +1,1 @@
+// Supporting component that checks whether a value fits inside the 16-bit signed integer range.

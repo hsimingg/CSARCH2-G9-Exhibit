@@ -1,0 +1,1 @@
+// Reusable card component for decision choices inside the simulation.
