@@ -105,6 +105,11 @@ Visitors will take the role of an engineer reviewing the Ariane 5 flight softwar
 
 This interactive element will help visitors understand how data representation, type conversion, and overflow can affect real-world safety-critical systems.
 
+How it could work:
+1. User is prompted with a situation and question regarding the rocket launch.
+2. User is given multiple decisions to choose from in response to the question asked.
+3. The action chosen by the user is explained as well as the consequences that come with it.
+4. User can proceed to the next lesson.
 
 ---
 
