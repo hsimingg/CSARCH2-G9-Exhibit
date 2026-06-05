@@ -227,7 +227,7 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 
 ## Tentative Style Guide Snapshot
 
-**Visual Theme:** galaxy aesthetic with cosmic elements such as stars, planets, spacecrafts (can be Ariane 5 in particular) for background visuals. paired with futuristic system terminal-style typography that play into a sci-fi theme.
+**Visual Theme:** galaxy aesthetic with cosmic elements such as stars, planets, spacecrafts (can be Ariane 5 in particular) for background visuals. Paired with futuristic system terminal-style typography that play into a sci-fi theme. See Figma for working style guide file [here](https://www.figma.com/design/8mziXVxXo5SOnHLOq4FTQs/CSARCH2_Style-Guide-Snapshot?node-id=0-1&t=oGs4HKj2BUpslrLG-1).
 
 **Color Palette:**
 
@@ -256,20 +256,22 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 
 * Title or Headings: Chakra Petch 
 * Body Text: DM Sans
-* Code / Telemetry: JetBrains Mono
+* Code / Mono: JetBrains Mono
 
 **Design Elements:**
+- Video embed of Ariane 5 Flight 501 crash
+- Images of Ariane 5 spacecraft
+- Buttons
+- Info cards or callout boxes for important information
+- Timeline of events diagram
+- Interactive game with decision buttons
 
-* Museum-style exhibit cards
-* Timeline or story-based navigation
-* Diagrams and callout boxes
-* Interactive section with clear instructions
-* Consistent spacing and visual hierarchy
-
-See Figma for working style guide file [here](https://www.figma.com/design/8mziXVxXo5SOnHLOq4FTQs/CSARCH2_Style-Guide-Snapshot?node-id=0-1&t=oGs4HKj2BUpslrLG-1).
 
 ---
 
 ## References
+[1] Retro Space HD, “ARIANE 5 First Flight Failure - Flight 501, June 4, 1996, European Space Agency, Rocket Launch,” YouTube, Apr. 15, 2021. Available: https://www.youtube.com/watch?v=wGeZEUjUKvc
 
-[List all references here in the required citation format.]
+[2] European Space Agency, “Ariane 501 - Presentation of Inquiry Board report,” www.esa.int, Jul. 23, 1996. Available: https://www.esa.int/Newsroom/Press_Releases/Ariane_501_-_Presentation_of_Inquiry_Board_report
+
+[3] National Aeronautics and Space Administration, “Deep Impact Deadly Embrace: Beware of Register Overflow Conditions,” llis.nasa.gov, Sep. 18, 2014. Available: https://llis.nasa.gov/lesson/10701[4]M. Stroe, “How a single line of code brought down a half-billion euro rocket launch,” Jam Blog, Feb. 02, 2023. Available: https://jam.dev/blog/famous-bugs-rocket-launch/
