@@ -19,9 +19,7 @@
 
 ## Ariane 5 Flight 501: Integer Overflow Failure
 
-Our virtual exhibit will present **[briefly describe the problem-solving story]**. The exhibit will focus on the computer architecture issue, why it mattered, how it was discovered, how it affected users or the industry, and how the problem was addressed.
-
-**[tweak below to whatever suits our project]**
+Our virtual exhibit will present the historical and catastrophic maiden flight failure of the Ariane 5 rocket, which self-destructed just 37 seconds after launch due to a preventable software error. The exhibit will focus on the computer architecture issue, why it mattered, how it was discovered, how it affected users or the industry, and how the problem was addressed.
 
 The exhibit will guide visitors through the story using a museum-style layout with sections such as:
 
@@ -65,8 +63,6 @@ The exhibit will guide visitors through the story using a museum-style layout wi
 
 ## Objectives of the Exhibit
 
-**[tweak below to whatever suits our project]**
-
 The proposed virtual exhibit aims to:
 
 - Explain the Ariane 5 Flight 501 failure and the software error that led to the destruction of the rocket.
@@ -78,22 +74,22 @@ The proposed virtual exhibit aims to:
 
 ## Proposed Interactive Element
 
-**Interactive Element Title:** [Insert title here]
+**Interactive Element Title:** Mission Control: Prevent the Overflow
 
 **Type of Interaction:**
-[Choose one or more: interactive timeline, quiz, simulation, clickable diagram, animation, comparison tool, etc.]
+Interactive Story-Based Decision Simulation & Numerical Overflow Demonstration
 
 **Description:**
-The exhibit will include **[describe the interactive element in detail]**. Visitors will be able to **[describe what users can click, drag, answer, reveal, compare, or simulate]**.
+The exhibit will include an immersive story-based web simulation where visitors assume the role of an systems engineer reviewing the Ariane 5 flight control software before liftoff. Visitors will be able to click through real-world design dilemmas regarding software reuse, data conversion, and exception handling. During the simulation, users will encounter a live component showing whether an active flight trajectory value can successfully fit inside a 16-bit signed integer container. If the conversion value mathematically steps outside the bounds of `-32768` to `32767`, the system will trigger a visual overflow warning accompanied by an explanation of why the data conversion failed.
 
 **Purpose:**
-This interactive component will help users understand **[specific concept/problem]** by allowing them to actively explore **[what the interaction teaches]** instead of only reading static text.
+This interactive component will help users understand data representation, memory limitations, and signed integer overflow by allowing them to actively explore the technical and operational consequences of unchecked data transformations instead of only reading static text.
 
 **Possible User Flow:**
 
 1. User enters the exhibit page.
 2. User reads a short introduction to the problem.
-3. User interacts with the component by **[clicking/choosing/answering/simulating]**.
+3. User interacts with the component by making engineering decisions on scenario cards and seeing how data types handle real-time values.
 4. The component gives visual feedback or explanation.
 5. User proceeds to the conclusion and lessons learned section.
 
