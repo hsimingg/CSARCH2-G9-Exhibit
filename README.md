@@ -231,6 +231,8 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 
 **Color Palette:**
 
+![Color Palette Visual](color-palette.png)
+
 - Background (dark blue)
    -  `#06060F` (main)
    -  `#0B0C1E`
@@ -253,6 +255,10 @@ The exhibit will be designed to be readable and accessible on both desktop and m
    - `#1E1E45` (for light background)
 
 **Typography:**
+
+![Typography Visual](typography.png)
+
+
 - Title or Headings: Chakra Petch 
 - Body Text: DM Sans
 - Code / Mono: JetBrains Mono
