@@ -271,6 +271,8 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 - Timeline of events diagram
 - Interactive game with decision buttons
 
+**Tentative Layout:**
+![Tentative Website Layout Visual](layout.png)
 
 ---
 
