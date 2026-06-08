@@ -14,6 +14,16 @@
 | Ho, Denise Liana    |
 | Miranda, Isaiah     |
 | Sarroza, Mikael     |
+## Proposal Revisions  
+  
+Based on the feedback received, the proposal was revised with the following changes:  
+  
+- Changed the topic from Ariane 5 to **Apollo 11: The 1202 Alarm That Almost Stopped the Moon Landing** due to topic duplication.  
+- Updated the exhibit concept to focus on the Apollo Guidance Computer, processor workload, task prioritization, real-time execution, and error handling.  
+- Revised the interactive element into **“Mission Control: Handle the 1202 Alarm,”** an interactive story-based decision simulation with a CPU task-priority demonstration.  
+- Updated the tech stack plan, proposed repository structure, file names, media resources, page sections, and references to match the Apollo 11 topic.  
+- Included the style guide snapshot and tentative layout in the README.  
+- Clarified that the interactive element will require user decisions and dynamic feedback, not a static slide-like presentation.
 
 ---
 
@@ -88,6 +98,8 @@ Interactive Story-Based Decision Simulation & CPU Task-Priority Demonstration
 The exhibit will include an interactive story-based simulation where visitors assume the role of a Mission Control engineer during the Apollo 11 lunar descent. Visitors will be presented with a simplified mission status display showing computer load, active tasks, and program alarm warnings. As the 1202 alarm appears, users must decide whether to continue or abort the landing based on the status of the computer and the priority of its tasks.
 
 The simulation will also include a simplified CPU task-priority demonstration. Visitors will see different tasks competing for limited processing resources, such as landing guidance, navigation updates, attitude control, display updates, and extra radar-related data. They must choose which tasks should be prioritized. If visitors prioritize critical tasks, the simulation will show that the mission can continue. If they prioritize lower-priority tasks, the simulation will show worsening overload and explain why poor prioritization can endanger a real-time system.
+
+This component will not function as a static slide presentation because users will click decision buttons, change the mission status, choose which tasks receive priority, and receive different feedback depending on their choices.
 
 **Purpose:**
 This interactive component will help users understand processor workload, task scheduling, priority-based execution, and error handling by allowing them to actively explore how a computer system can continue operating during overload conditions. Instead of only reading about the Apollo 11 alarm, visitors will experience the decision-making pressure of determining whether a computer alarm means “GO” or “ABORT.”
