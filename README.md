@@ -126,38 +126,38 @@ This interactive component will help users understand processor workload, task s
 
 ```txt
 CSARCH2-G9-Exhibit/
-├── astro.config.mjs
-├── package.json
-├── package-lock.json
-├── tsconfig.json
-├── README.md
-├── public
-│   ├── favicon.ico
-│   └── favicon.svg
-└── src
-    ├── assets
-    │   ├── ariane5-rocket.svg
-    │   ├── overflow-diagram.svg
-    │   ├── data-conversion-diagram.svg
-    │   ├── mission-control-bg.svg
-    │   └── timeline-assets
-    │       ├── launch.svg
-    │       ├── software-reuse.svg
-    │       ├── overflow-warning.svg
-    │       └── rocket-failure.svg
-    ├── components
-    │   ├── MissionControlSimulation.jsx
-    │   ├── OverflowChecker.jsx
-    │   ├── DecisionCard.jsx
-    │   ├── FailureTimeline.astro
-    │   ├── InfoCard.astro
-    │   └── Welcome.astro
-    ├── layouts
-    │   ├── ExhibitLayout.astro
-    │   └── Layout.astro
-    └── pages
-        ├── index.astro
-        └── ariane-5-integer-overflow.mdx
+├── astro.config.mjs 
+├── package.json 
+├── package-lock.json 
+├── tsconfig.json 
+├── README.md 
+├── public 
+│ ├── favicon.ico 
+│ └── favicon.svg 
+└── src 
+	├── assets 
+	│ ├── apollo11-lunar-module.svg 
+	│ ├── agc-diagram.svg 
+	│ ├── alarm-1202-screen.svg 
+	│ ├── mission-control-bg.svg 
+	│ └── timeline-assets 
+	│ ├── lunar-descent.svg 
+	│ ├── program-alarm.svg 
+	│ ├── task-priority.svg 
+	│ └── moon-landing.svg 
+	├── components 
+	│ ├── MissionControlSimulation.jsx 
+	│ ├── TaskPrioritySimulator.jsx 
+	│ ├── DecisionCard.jsx 
+	│ ├── AlarmTimeline.astro 
+	│ ├── InfoCard.astro 
+	│ └── Welcome.astro 
+	├── layouts 
+	│ ├── ExhibitLayout.astro 
+	│ └── Layout.astro 
+	└── pages 
+		├── index.astro 
+		└── apollo-11-1202-alarm.mdx
 ```
 
 
@@ -227,11 +227,11 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 
 ## Tentative Style Guide Snapshot
 
-**Visual Theme:** galaxy aesthetic with cosmic elements such as stars, planets, spacecrafts (can be Ariane 5 in particular) for background visuals. Paired with futuristic system terminal-style typography that play into a sci-fi theme. See Figma for working style guide file [here](https://www.figma.com/design/8mziXVxXo5SOnHLOq4FTQs/CSARCH2_Style-Guide-Snapshot?node-id=0-1&t=oGs4HKj2BUpslrLG-1).
+**Visual Theme:** Galaxy aesthetic with cosmic elements such as stars, planets, the Moon, Apollo 11, the Lunar Module, and Mission Control-inspired visuals. See Figma for working style guide file [here](https://www.figma.com/design/8mziXVxXo5SOnHLOq4FTQs/CSARCH2_Style-Guide-Snapshot?node-id=0-1&t=oGs4HKj2BUpslrLG-1).
 
 **Color Palette:**
 
-![Color Palette Visual](color-palette.png)
+![Color Palette](public/style-guide/color-palette.png)
 
 - Background (dark blue)
    -  `#06060F` (main)
@@ -256,7 +256,7 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 
 **Typography:**
 
-![Typography Visual](typography.png)
+![Typography](public/style-guide/typography.png)
 
 
 - Title or Headings: Chakra Petch 
@@ -264,15 +264,16 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 - Code / Mono: JetBrains Mono
 
 **Design Elements:**
-- Video embed of Ariane 5 Flight 501 crash
-- Images of Ariane 5 spacecraft
+- Video embed or visual reference of the Apollo 11 lunar landing / 1202 alarm incident
+- Images of Apollo 11, the Lunar Module, the Apollo Guidance Computer, or Mission Control
 - Buttons
-- Info cards or callout boxes for important information
+- Info cards or callout boxes
 - Timeline of events diagram
-- Interactive game with decision buttons
+- Interactive simulation with decision buttons
 
 **Tentative Layout:**
-![Tentative Website Layout Visual](layout.png)
+
+![Tentative Layout](public/style-guide/layout.png)
 
 ---
 
