@@ -205,9 +205,8 @@ section{
     z-index:1000;
 
     backdrop-filter:blur(18px);
-    background: var(--bg-primary);
-
-    border-bottom:1px solid var(--border);
+    background: color-mix(in srgb, var(--bg-primary) 75%);
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
 }
 
 .navbar-container{
@@ -298,9 +297,9 @@ section{
         flex-direction:column;
         align-items:center;
 
-        background: var(--bg-surface);
+        background: color-mix(in srgb, var(--bg-primary) 96%, transparent);
 
-        border-bottom:1px solid var(--border);
+        border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
 
         padding:1.5rem 0;
 
