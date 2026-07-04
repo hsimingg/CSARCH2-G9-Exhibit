@@ -1,7 +1,18 @@
 ---
+import MissionControlSimulation from '../MissionControlSimulation.jsx';
+/* 
+1. Connect the simulation to the section wrapper in src/components/sections/Interactive.astro.
+2. This file should become the exhibit section that imports and displays the React component.
+3. It should stay thin, just a section title plus the simulation.
+
+4. Make sure the one-page flow stays intact in src/pages/index.astro.
+5. The homepage should keep rendering all sections in order.
+6. The navbar should still jump to the interactive section by anchor, not by a separate page.
+*/
 
 ---
 
 <section id="interactive">
   <h1 class="section-title">Interactive Simulation</h1>
+  <MissionControlSimulation client:load />
 </section>
