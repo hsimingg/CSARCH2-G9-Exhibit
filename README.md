@@ -297,3 +297,5 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 [3] NASA History, “Apollo 11 Lunar Surface Journal.” Available: [https://history.nasa.gov/alsj/a11/a11.html](https://history.nasa.gov/alsj/a11/a11.html)
 
 [4] MIT Instrumentation Laboratory, “Apollo Guidance Computer documentation.” Available: [https://www.ibiblio.org/apollo/](https://www.ibiblio.org/apollo/)
+
+[5] Virtual AGC, “Luminary099: Apollo Lunar Module Guidance Computer Software.” Available: [https://github.com/virtualagc/virtualagc/tree/master/Luminary099](https://github.com/virtualagc/virtualagc/tree/master/Luminary099)
