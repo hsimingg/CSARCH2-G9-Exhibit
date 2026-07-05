@@ -58,7 +58,7 @@ function getSystemStatus(stage) {
 
 /* ------------ TEXT DIALOG ------------ */
 function getComputerText(stage, context) {
-    const { alarmDecision, finalRecommendation } = context;
+    const { alarmDecision, finalRecommendation, endingMode } = context;
 
     switch (stage) {
         case STAGES.ALARM:
@@ -721,8 +721,7 @@ export default function MissionControlSimulation() {
 
 .mc-monitor {
     width: min(1000px, 88vw);
-    aspect-ratio: 3 / 2;
-    max-height: 84vh;
+    height: min(680px, 84vh);
     background: #0b100c;
     border: 4px solid #0a120b;
     border-radius: 28px;
@@ -739,6 +738,8 @@ export default function MissionControlSimulation() {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    padding: 2.3rem 2.1rem 1.8rem;
+    box-sizing: border-box;
     background:
         radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05), transparent 18%),
         radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.03), transparent 16%),
@@ -1035,11 +1036,59 @@ export default function MissionControlSimulation() {
 
 @media (max-width: 700px) {
     .mc-monitor {
-        width: 96vw;
+        width: min(92vw, 430px);
+        height: 76vh;
+        min-height: 620px;
+        padding: 1rem;
+        border-radius: 22px;
+    }
+
+    .mc-screen {
+        height: 100%;
+        padding: 1.4rem 1rem;
+        border-radius: 16px;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+
+    .mc-menu-stage {
+        gap: 1.6rem;
+        padding: 0.5rem;
     }
 
     .mc-title {
-        font-size: 1.1rem;
+        font-size: clamp(1.7rem, 9vw, 3rem);
+        line-height: 1.25;
+    }
+
+    .mc-menu-copy {
+        font-size: clamp(1.1rem, 5vw, 1.5rem);
+        line-height: 1.5;
+    }
+
+    .mc-main-text {
+        gap: 1rem;
+    }
+
+    .mc-computer-line,
+    .mc-detail-text,
+    .mc-status-lines,
+    .mc-user-line {
+        font-size: clamp(1.05rem, 4.5vw, 1.35rem);
+        line-height: 1.5;
+    }
+
+    .mc-user-line {
+        margin-top: 0.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .mc-status-lines {
+        margin-bottom: 0.5rem;
+    }
+
+    .mc-footer {
+        margin-top: 0.75rem;
     }
 
     .mc-detail-text,
@@ -1047,14 +1096,19 @@ export default function MissionControlSimulation() {
         margin-left: 1rem;
     }
 
+    .mc-footer {
+        transform: none;
+        margin-top: 1.5rem;
+    }
+
     .mc-actions {
         flex-direction: column;
-        gap: 0.7rem;
+        align-items: stretch;
+        gap: 0.75rem;
     }
 
     .mc-actions button {
         width: 100%;
-        max-width: 320px;
     }
 }`}
             </style>
