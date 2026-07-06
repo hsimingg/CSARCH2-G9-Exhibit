@@ -2,6 +2,8 @@
 
 Live Website: [CSARCH2 G9 Virtual Exhibit](PASTE_DEPLOYMENT_LINK_HERE)
 
+---
+
 # MC02 Mid-Milestone Development Update
 
 ## Current Progress
@@ -18,6 +20,7 @@ Current website sections include:
 - References Section
 
 ---
+
 ## Hero & Background Progress
 [insert here]
 
@@ -44,7 +47,6 @@ The simulation is designed to be interactive rather than static. User decisions 
 
 ## Lessons Learned & References Progress
 [insert here]
-
 
 ---
 
