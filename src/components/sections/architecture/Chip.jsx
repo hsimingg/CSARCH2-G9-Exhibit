@@ -36,6 +36,8 @@ const traces = [
 export default function Chip() {
     const [selected, setSelected] = useState(null);
 
+    const closePanel = () => setSelected(null);
+
     return (
         <div className="architecture-layout">
             <div className="chip-container">
@@ -71,7 +73,12 @@ export default function Chip() {
 
             </div>
 
-            <div className="info-panel">
+            <div
+                className={`info-overlay ${selected ? "is-open" : ""}`}
+                onClick={closePanel}
+                aria-hidden={selected ? "false" : "true"}
+            >
+                <div className="info-panel" onClick={(event) => event.stopPropagation()}>
                 {selected ? (
                     <>
                         <p className="info-panel-short">{selected.short}</p>
@@ -90,6 +97,7 @@ export default function Chip() {
                         </p>
                     </div>
                 )}
+                </div>
             </div>
         </div>
     );
