@@ -402,12 +402,22 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 ---
 
 ## References
-[1] Discover Magazine, “Apollo 11’s 1202 Alarm Explained.” Available: [https://www.discovermagazine.com/apollo-11s-1202-alarm-explained-185](https://www.discovermagazine.com/apollo-11s-1202-alarm-explained-185)
+[1] P. Adler, “Apollo 11 Lunar Surface Journal: Program Alarms.” [Online]. Available: https://www.nasa.gov/wp-content/uploads/static/history//alsj/a11/a11.1201-pa.html
 
-[2] NASA, “Apollo 11 Mission Overview.” Available: [https://www.nasa.gov/mission/apollo-11/](https://www.nasa.gov/mission/apollo-11/)
+[2] C. Averill, “A Brief Analysis of the Apollo Guidance Computer.” [Online]. Available: https://arxiv.org/pdf/2201.08230
 
-[3] NASA History, “Apollo 11 Lunar Surface Journal.” Available: [https://history.nasa.gov/alsj/a11/a11.html](https://history.nasa.gov/alsj/a11/a11.html)
+[3] GeeksforGeeks, “Preemptive Priority CPU Scheduling Algorithm.” [Online]. Available: https://www.geeksforgeeks.org/operating-systems/preemptive-priority-cpu-scheduling-algortithm/
 
-[4] MIT Instrumentation Laboratory, “Apollo Guidance Computer documentation.” Available: [https://www.ibiblio.org/apollo/](https://www.ibiblio.org/apollo/)
+[4] J. Kutner, “We're Go On That Alarm: Inside the Apollo Operating System.” [Online]. Available: https://medium.com/softwares-giant-leap/were-go-on-that-alarm-inside-the-apollo-operating-system-8d753e7a1e17
 
-[5] Virtual AGC, “Luminary099: Apollo Lunar Module Guidance Computer Software.” Available: [https://github.com/virtualagc/virtualagc/tree/master/Luminary099](https://github.com/virtualagc/virtualagc/tree/master/Luminary099)
+[5] M. Mattioli, “Apollo Guidance Computer,” *IEEE Micro*, vol. 41, no. 6, 2021. [Online]. Available: https://www.computer.org/csdl/magazine/mi/2021/06/09623432/1yJTxgRWQgg
+
+[6] MIT Instrumentation Laboratory, “Apollo Guidance Computer Documentation.” [Online]. Available: https://www.ibiblio.org/apollo/
+
+[7] NASA, “Apollo 11 Mission Overview.” [Online]. Available: https://www.nasa.gov/mission/apollo-11/
+
+[8] NASA History Division, “Apollo 11 Lunar Surface Journal.” [Online]. Available: https://history.nasa.gov/alsj/a11/a11.html
+
+[9] K. Shirriff, “A Computer Built from NOR Gates: Inside the Apollo Guidance Computer.” [Online]. Available: https://www.righto.com/2019/09/
+
+[10] Virtual AGC, “Luminary099: Apollo Lunar Module Guidance Computer Software.” [Online]. Available: https://github.com/virtualagc/virtualagc/tree/master/Luminary099
