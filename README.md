@@ -58,7 +58,7 @@ While developing the simulation, we clarified that the Apollo 11 1202 alarm was 
 [insert your own here - MJ]
 [insert your own here - Adolfo]
 
-**Tophi** I learned a lot about responsive design. Sometimes, we have to allow a horizontal scroll (`overflow-x: auto`) for a fixed-width container because it is a much more user-friendly solution on mobile than trying to force a difficult desktop layout to squish and shrink
+**Tophi**: I learned a lot about responsive design. Sometimes, we have to allow a horizontal scroll (`overflow-x: auto`) for a fixed-width container because it is a much more user-friendly solution on mobile than trying to force a difficult desktop layout to squish and shrink
 
 ## Challenges Encountered
 
