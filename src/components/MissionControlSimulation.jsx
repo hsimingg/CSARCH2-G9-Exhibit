@@ -435,7 +435,7 @@ export default function MissionControlSimulation() {
                 setAlarmDecision('check');
                 setUserTargetText('Check Tasks.');
                 setPendingNextStage(STAGES.TASK1);
-                setPendingLoadDelta(-5);
+                setPendingLoadDelta(0);
                 setPendingEndingMode(null);
                 setScreenPhase('userTyping');
                 return;
