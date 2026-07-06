@@ -25,7 +25,20 @@ Current website sections include:
 [insert here]
 
 ## Architecture Concept Progress
-[insert here]
+
+The interactive architecture exhibit, **Apollo Guidance Computer Architecture**, has been developed as a React component:
+`src/components/ArchitectureChip.jsx`
+
+The exhibit currently includes:
+- Interactive AGC chip visualization with clickable architecture nodes
+- Processor workload explanation
+- Task prioritization and preemptive scheduling
+- Real-time execution and WAITLIST overview
+- 1201/1202 program alarm explanations
+- Error recovery through the BAILOUT1 restart routine
+- Desktop and mobile responsive layout
+
+The exhibit is designed to encourage exploration rather than passive reading. Selecting different nodes updates the information panel, allowing users to learn how the Apollo Guidance Computer's architecture enabled the Apollo 11 Lunar Module to continue operating despite limited hardware resources and processor overload.
 
 ## Timeline Progress
 [insert here]
@@ -54,7 +67,8 @@ The simulation is designed to be interactive rather than static. User decisions 
 
 While developing the simulation, we clarified that the Apollo 11 1202 alarm was not a total computer failure. It was an overload condition where the Apollo Guidance Computer had to keep critical landing tasks active while managing limited processing resources.
 
-[insert your own here - Denise]
+While researching the Apollo Guidance Computer, one thing that surprised us was learning that its processor was built almost entirely from NOR gates. We also found it remarkable that a computer with only 4 KB of RAM could successfully guide Apollo 11 to the Moon. It was astounding to see how they worked with the hardware limitations of the 1960s and still made the most of the technology available to achieve something as big as the first crewed Moon landing.
+
 [insert your own here - MJ]
 [insert your own here - Adolfo]
 [insert your own here - Tophi]
@@ -65,7 +79,11 @@ While developing the simulation, we clarified that the Apollo 11 1202 alarm was 
 - Balancing and making the simulation dynamic instead of slide-like
 - Designing a retro terminal UI that works on both desktop and mobile
 
-[insert your own here - Denise]
+- Creating an interactive computer-chip component with SVG with little experience with SVG
+- Organizing computer chip and info panel layout and preventing them from overlapping
+- CSS layout issues, particularly keeping div sizes from dynamically changing incorrectly
+
+
 [insert your own here - MJ]
 [insert your own here - Adolfo]
 [insert your own here - Tophi]
@@ -76,7 +94,7 @@ While developing the simulation, we clarified that the Apollo 11 1202 alarm was 
 
 - Complete the remaining exhibit section content
 - Improve section layouts and responsiveness
-- Polish UI and cohesiveness of website
+- Polish UI, animation, and cohesiveness of website
 - Apply revisions from sir Rog's comments if there's any
 
 ## Section Progress Log
