@@ -14,11 +14,14 @@ export const nodes = [
       "How the AGC handled many tasks with limited computing resources.",
 
     content: `
-The Apollo Guidance Computer (AGC) ran many software jobs simultaneously using its EXECUTIVE operating system. Every scheduled job required a limited processing resource called a core set. During Apollo 11, repeated rendezvous radar requests generated unnecessary work that competed for these resources. As more jobs accumulated, the computer approached its scheduling limits.
+    The AGC used a real-time operating system called EXECUTIVE to manage software jobs such as navigation, 
+    engine control, radar processing, astronaut input, and display updates. Every job competed for a limited 
+    number of scheduling resources called core sets. As more jobs were scheduled, processor workload increased. 
+    Efficient workload management allowed the AGC to continue executing critical computations despite its limited hardware.
     `,
 
     takeaway:
-      "Multiple tasks competed for only a handful of processing resources."
+      "The AGC continuously managed competing jobs using a small pool of processing resources."
   },
 
   {
@@ -32,14 +35,17 @@ The Apollo Guidance Computer (AGC) ran many software jobs simultaneously using i
     },
 
     short:
-      "Critical flight operations always came first.",
+      "How the AGC decided which jobs should run first.",
 
     content: `
-Every job in the AGC was assigned a priority level. Guidance, navigation, engine control, and attitude control received the highest priority, while display updates and other nonessential work were assigned lower priority. When the computer became overloaded, lower-priority jobs were discarded so critical flight operations could continue uninterrupted.
+    Every job in the AGC was assigned a priority level. Navigation, guidance, engine control, and attitude 
+    control were treated as high-priority tasks, while display updates and other nonessential work received 
+    lower priority. During heavy processor load, lower-priority jobs could be delayed or discarded so the 
+    computer could continue executing the operations required to safely control the spacecraft.
     `,
 
     takeaway:
-      "Priority scheduling ensured mission-critical tasks always executed first."
+      "Priority scheduling ensured that critical flight operations always executed first."
   },
 
   {
@@ -53,14 +59,18 @@ Every job in the AGC was assigned a priority level. Guidance, navigation, engine
     },
 
     short:
-      "Some computations had to finish at precise moments.",
+      "Why correct timing was as important as correct computation.",
 
     content: `
-The AGC was a real-time computer. Programs such as WAITLIST scheduled short, time-critical tasks that had to execute at exact moments, including sensor processing and guidance updates. During lunar descent, missing these timing deadlines could have produced incorrect navigation and jeopardized the landing.
-    `,
+    The AGC was a real-time system, meaning certain jobs had to execute before strict deadlines. 
+  Its WAITLIST program scheduled short, time-critical jobs such as processing sensor measurements 
+  and triggering spacecraft events. 
+  If these jobs were delayed, guidance calculations could become inaccurate and affect the Lunar Module's 
+  navigation during descent.
+`,
 
     takeaway:
-      "Correct timing was just as important as correct computation."
+      "Executing critical jobs at the correct time was essential for accurate guidance and control."
   },
 
   {
@@ -74,14 +84,17 @@ The AGC was a real-time computer. Programs such as WAITLIST scheduled short, tim
     },
 
     short:
-      "1201 and 1202 were overload warnings, not system failures.",
+      "What the program alarms actually meant during the Apollo 11 landing.",
 
     content: `
-The famous 1201 and 1202 alarms indicated Executive Overflow rather than a computer failure. Alarm 1202 meant no core sets were available for additional jobs, while 1201 meant no VAC (Vector Accumulator) areas remained. These alarms warned that scheduling resources had been exhausted, but the AGC continued executing critical software.
+    The 1201 and 1202 alarms indicated an Executive Overflow, meaning the operating system had exhausted its
+     scheduling resources. A 1202 alarm meant no core sets were available to schedule another job, while a 1201 
+     alarm meant no Vector Accumulator (VAC) areas remained for temporary storage. The alarms reported resource 
+     exhaustion rather than a hardware or software failure.
     `,
 
     takeaway:
-      "The alarms reported resource exhaustion instead of a computer crash."
+      "The alarms warned that scheduling resources were exhausted, not that the computer had crashed."
   },
 
   {
@@ -95,13 +108,15 @@ The famous 1201 and 1202 alarms indicated Executive Overflow rather than a compu
     },
 
     short:
-      "The AGC recovered automatically instead of failing.",
+      "How the AGC continued operating during overload..",
 
     content: `
-When overload occurred, the AGC executed its restart mechanism through the BAILOUT routine. The computer discarded unnecessary low-priority jobs, restored essential programs, and resumed execution close to where they had previously stopped. This automatic recovery allowed Apollo 11 to continue its lunar landing despite repeated overload conditions.
+    Instead of shutting down, the AGC executed its BAILOUT1 recovery routine. The system performed a software restart,
+     discarded unnecessary low-priority jobs, and restored essential guidance and control programs near where they
+      had previously stopped. This allowed mission-critical operations to continue despite processor overload.
     `,
 
     takeaway:
-      "Automatic recovery transformed a potential failure into a successful landing."
+      "Automatic recovery allowed the AGC to continue operating without interrupting critical flight functions."
   }
 ];
