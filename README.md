@@ -1,5 +1,9 @@
 # MC02 Mid-Milestone Development Update
 
+## Deployment Link
+
+Live Website: [CSARCH2 G9 Virtual Exhibit](PASTE_DEPLOYMENT_LINK_HERE)
+
 ## Current Progress
 
 The group has started converting the proposal into a working Astro-based virtual exhibit website. The site now uses a section-based structure with a homepage, navigation bar, shared layout, global styling, and reusable exhibit components.
