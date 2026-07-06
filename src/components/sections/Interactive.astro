@@ -1,45 +1,66 @@
 ---
-import MissionControlSimulation from '../MissionControlSimulation.jsx';
-
+import MissionControlSimulation from "../MissionControlSimulation.jsx";
 ---
 
 <section id="interactive" class="interactive-section">
   <div class="interactive-shell">
     <header class="interactive-header">
-      <p class="interactive-kicker">Apollo 11 / Mission Control</p>
-      <h1 class="section-title">Mission Control: Handle the 1202 Alarm</h1>
-      <hr class="interactive-rule" />
+      <p class="section-kicker">Apollo 11 / Mission Control</p>
+      <h1 class="section-heading">Mission Control: Handle the 1202 Alarm</h1>
+      <hr class="section-rule" />
       <p class="interactive-briefing">
-        The Apollo 11 1202 alarm was not a simple system crash. It was a program alarm caused by computer overload during the lunar descent.           
-        The Apollo Guidance Computer had to keep supporting critical landing tasks while managing limited processing resources.
+        The Apollo 11 1202 alarm was not a simple system crash. It was a program
+        alarm caused by computer overload during the lunar descent. The Apollo
+        Guidance Computer had to keep supporting critical landing tasks while
+        managing limited processing resources.
       </p>
       <p class="interactive-briefing">
-        In this simulation, you act as a Mission Control engineer responding to the alarm. Your decisions shape the computer load and the final GO or ABORT recommendation.
+        In this simulation, you act as a Mission Control engineer responding to
+        the alarm. Your decisions shape the computer load and the final GO or
+        ABORT recommendation.
       </p>
     </header>
 
     <article class="interactive-card interactive-explanation card">
-        <h2>What This Shows</h2>
-        <p>
-          This simulation shows how computer architecture concepts apply in real-time systems. During an overload, the key issue is not only raw speed,
-          but how the system prioritizes tasks, handles errors, and preserves critical operations.
-        </p>
-        <p>
-          The activity connects the Apollo 11 1202 alarm to processor workload, task prioritization, real-time execution, and fault recovery.
-        </p>
-      </article>
+      <h2>What This Shows</h2>
+      <p>
+        This simulation shows how computer architecture concepts apply in
+        real-time systems. During an overload, the key issue is not only raw
+        speed, but how the system prioritizes tasks, handles errors, and
+        preserves critical operations.
+      </p>
+      <p>
+        The activity connects the Apollo 11 1202 alarm to processor workload,
+        task prioritization, real-time execution, and fault recovery.
+      </p>
+    </article>
 
-      <MissionControlSimulation client:load />
+    <MissionControlSimulation client:load />
 
-      <div class="interactive-grid">
+    <div class="interactive-grid">
       <div class="interactive-card how-to-card card">
         <div class="how-to-details">
           <ul>
-            <li>Review the computer message, mission details, and current system status.</li>
-            <li>Choose whether to abort, continue the descent, or check task priority.</li>
-            <li>Prioritize the task that should receive processor attention during the overload.</li>
-            <li>Monitor how each decision changes the computer load and risk level.</li>
-            <li>Use the final system recommendation to decide whether to give a GO or ABORT command.</li>
+            <li>
+              Review the computer message, mission details, and current system
+              status.
+            </li>
+            <li>
+              Choose whether to abort, continue the descent, or check task
+              priority.
+            </li>
+            <li>
+              Prioritize the task that should receive processor attention during
+              the overload.
+            </li>
+            <li>
+              Monitor how each decision changes the computer load and risk
+              level.
+            </li>
+            <li>
+              Use the final system recommendation to decide whether to give a GO
+              or ABORT command.
+            </li>
           </ul>
         </div>
 
@@ -49,7 +70,6 @@ import MissionControlSimulation from '../MissionControlSimulation.jsx';
           <h3>How to<br />Play</h3>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -81,22 +101,8 @@ import MissionControlSimulation from '../MissionControlSimulation.jsx';
     gap: var(--space-sm);
   }
 
-  .interactive-header .section-title {
+  .interactive-header .section-heading {
     line-height: 1.3;
-  }
-
-  .interactive-rule {
-    width: 100%;
-    border-top: 1px solid color-mix(in srgb, var(--border) 140%, transparent);
-    margin: 0.5rem 0 1.5rem;
-  }
-
-  .interactive-kicker {
-    font-family: var(--font-mono);
-    font-size: 0.9rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--amber);
   }
 
   .interactive-briefing {
@@ -113,8 +119,11 @@ import MissionControlSimulation from '../MissionControlSimulation.jsx';
   .interactive-card {
     width: 100%;
     padding: clamp(1.25rem, 2.5vw, 2rem);
-    background:
-      linear-gradient(180deg, rgba(19, 19, 58, 0.92), rgba(16, 16, 42, 0.96));
+    background: linear-gradient(
+      180deg,
+      rgba(19, 19, 58, 0.92),
+      rgba(16, 16, 42, 0.96)
+    );
     border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
     box-shadow: var(--shadow-md);
   }
