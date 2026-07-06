@@ -154,11 +154,15 @@ const sorted = [...references].sort((a, b) =>
 
 <script>
   (() => {
+    interface Window {
+      __moonSpin?: boolean;
+    }
+
     const start = () => {
       const section = document.getElementById("references");
       if (!section) return;
 
-      const wrap = section.querySelector(".references__moon-wrap");
+      const wrap = section.querySelector<HTMLElement>(".references__moon-wrap");
       if (wrap) {
         let clipTicking = false;
         const clip = () => {
@@ -185,23 +189,25 @@ const sorted = [...references].sort((a, b) =>
       }
 
       // Shared moon scroll-spin — set up once (guarded by window.__moonSpin).
-      const reduce = window.matchMedia(
+      const moonWindow = window;
+      const moonState = moonWindow as Window & { __moonSpin?: boolean };
+      const reduce = moonWindow.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
-      if (!reduce && !window.__moonSpin) {
-        window.__moonSpin = true;
+      if (!reduce && !moonState.__moonSpin) {
+        moonState.__moonSpin = true;
         let rot = 0;
-        let lastY = window.scrollY || window.pageYOffset || 0;
+        let lastY = moonWindow.scrollY || moonWindow.pageYOffset || 0;
         let spinTicking = false;
         const FACTOR = 0.1; // degrees of spin per pixel scrolled
         const apply = () => {
-          const y = window.scrollY || window.pageYOffset || 0;
+          const y = moonWindow.scrollY || moonWindow.pageYOffset || 0;
           rot += (y - lastY) * FACTOR; // down -> clockwise, up -> counter-clockwise
           lastY = y;
           document.documentElement.style.setProperty("--moon-rot", rot + "deg");
           spinTicking = false;
         };
-        window.addEventListener(
+        moonWindow.addEventListener(
           "scroll",
           () => {
             if (!spinTicking) {
@@ -226,7 +232,7 @@ const sorted = [...references].sort((a, b) =>
   .references {
     position: relative;
     isolation: isolate; /* confines the fixed moon's stacking to this section */
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
     border-top: 1px solid var(--border);
     scroll-margin-top: 72px; /* offset for the fixed navbar */
 
