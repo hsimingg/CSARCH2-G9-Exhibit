@@ -5,9 +5,9 @@ export const nodes = [
     title: "Processor Workload",
 
     position: {
-      top: "5%",
+      top: "4%",
       left: "50%",
-      transform: "translateX(-50%)"
+      transform: "translate(-50%, -50%)"
     },
 
     short:
@@ -30,8 +30,9 @@ export const nodes = [
     title: "Task Prioritization",
 
     position: {
-      top: "28%",
-      left: "5%"
+      top: "9%",
+      left: "14%",
+      transform: "translate(-50%, -50%)"
     },
 
     short:
@@ -54,8 +55,9 @@ export const nodes = [
     title: "Real-Time Execution",
 
     position: {
-      bottom: "8%",
-      left: "12%"
+      top: "85%",
+      left: "6%",
+      transform: "translate(-50%, -50%)"
     },
 
     short:
@@ -79,8 +81,9 @@ export const nodes = [
     title: "Program Alarms",
 
     position: {
-      top: "28%",
-      right: "5%"
+      top: "42%",
+      left: "96%",
+      transform: "translate(-50%, -50%)"
     },
 
     short:
@@ -103,8 +106,9 @@ export const nodes = [
     title: "Error Recovery",
 
     position: {
-      bottom: "8%",
-      right: "12%"
+      top: "94%",
+      left: "82%",
+      transform: "translate(-50%, -50%)"
     },
 
     short:

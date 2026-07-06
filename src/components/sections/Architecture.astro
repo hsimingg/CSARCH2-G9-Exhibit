@@ -10,12 +10,23 @@ import Chip from "./architecture/Chip.jsx";
     <h2>How the Apollo Guidance Computer Managed a Moon Landing</h2>
 
     <p class="section-description">
-      Despite having only 4 KB of RAM and a processor slower than many modern
-      calculators, the Apollo Guidance Computer successfully guided astronauts
-      to the Moon. Explore the architectural concepts that enabled the Apollo 11
-      landing.
+      The Apollo Guidance Computer (AGC) guided and controlled the Lunar Module
+      during the Apollo missions. Although it had only a 2.048 MHz processor, 4
+      KB of RAM, and 72 KB of ROM, its software architecture allowed it to
+      perform reliable real-time navigation under strict hardware limitations.
+      Explore the concepts below to see how the AGC managed processor resources,
+      prioritized critical tasks, and recovered from overloads.
     </p>
 
     <Chip client:load />
+    <footer>
+      The Apollo Guidance Computer achieved reliable real-time control with only
+      4 KB of RAM and 72 KB of ROM. Rather than relying on powerful hardware, it
+      depended on efficient software architecture, including workload
+      management, priority scheduling, real-time execution, program alarms, and
+      automatic recovery. These same architectural principles are still used
+      today in embedded and real-time systems such as spacecraft, aircraft,
+      automobiles, and medical devices.
+    </footer>
   </div>
 </section>
