@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { nodes } from "./data";
+import { nodes } from "./data.jsx";
 
 // Each side just needs a pin count — CSS flexbox spaces them evenly,
 // so no per-pin left/top math has to live here.
@@ -60,9 +60,9 @@ export default function Chip() {
                 {nodes.map((node) => (
                     <button
                         key={node.id}
-                        className={`chip-node ${selected?.id === node.id ? "active" : ""}`}
+                        className={`chip-node ${selected?.id === node.id ? "active" : ""} ${selected?.id !== node.id ? "hinted" : ""}`}
                         style={node.position}
-                        onClick={() => setSelected(node)}
+                        onClick={() => setSelected(selected?.id === node.id ? null : node)}
                         aria-label={node.title}
                     />
                 ))}
@@ -81,8 +81,8 @@ export default function Chip() {
                 <div className="info-panel" onClick={(event) => event.stopPropagation()}>
                 {selected ? (
                     <>
-                        <p className="info-panel-short">{selected.short}</p>
                         <h3>{selected.title}</h3>
+                        <p className="info-panel-short">{selected.short}</p>
                         <p>{selected.content}</p>
                         <div className="takeaway">
                             <h4>Key Takeaway</h4>
@@ -91,9 +91,9 @@ export default function Chip() {
                     </>
                 ) : (
                     <div className="info-panel-empty">
-                        <p className="info-panel-short">
-                            Select one of the connected nodes to learn more about Apollo 11's
-                            AGC architecture.
+                        <p className="info-panel-hint">
+                            Select a yellow node to learn more about Apollo 11's
+                            AGC architecture!
                         </p>
                     </div>
                 )}

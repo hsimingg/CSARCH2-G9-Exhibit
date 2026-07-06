@@ -1,8 +1,11 @@
 .architecture-layout{
     display:grid;
     grid-template-columns:minmax(250px, 0.34fr) minmax(390px, 0.66fr);
-    gap:2.75rem;
+    gap:4rem;
     align-items:center;
+    margin-bottom:2rem;
+    min-height: 500px;
+
 }
 
 /* ---------- CHIP CONTAINER ---------- */
@@ -159,6 +162,14 @@
     transition:transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
 
+.chip-node.hinted{
+    animation:pulseGlow 1.5s ease-in-out infinite;
+    box-shadow:
+        0 0 0 6px rgba(245,192,0,0.12),
+        0 0 22px rgba(255, 224, 110, 0.72),
+        0 0 38px rgba(167,139,250,0.22);
+}
+
 .chip-node::before{
     content:"";
     position:absolute;
@@ -180,11 +191,20 @@
 }
 
 .chip-node.active{
-    transform:scale(1.4);
     box-shadow:
         0 0 18px rgba(245,192,0,0.65),
         0 0 0 8px rgba(167,139,250,0.15);
     background:linear-gradient(145deg, #fff2a8, var(--gold));
+}
+
+@keyframes pulseGlow{
+    0%, 100%{
+        filter:brightness(1);
+    }
+
+    50%{
+        filter:brightness(1.12);
+    }
 }
 
 /* ---------- INFO PANEL ---------- */
@@ -210,10 +230,18 @@
 }
 
 .info-panel-short{
+    font-style: italic;
     margin:0;
     text-transform:none;
     letter-spacing:0.02em;
     color:var(--primary-light);
+}
+
+.info-panel-hint{
+    margin:0;
+    text-align:center;
+    letter-spacing:0.02em;
+    width:100%;
 }
 
 .info-panel h3{

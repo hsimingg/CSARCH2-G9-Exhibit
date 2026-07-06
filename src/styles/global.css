@@ -158,6 +158,12 @@ code,
 pre,
 .mono{
     font-family:var(--font-mono);
+    color:var(--amber);
+}
+
+a{
+    color:var(--amber);
+    text-decoration: underline;
 }
 
 /* SECTION DEFAULTS */
