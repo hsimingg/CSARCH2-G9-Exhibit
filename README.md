@@ -91,8 +91,7 @@ While developing the simulation, we clarified that the Apollo 11 1202 alarm was 
 | Timeline               | Developed an interactive, responsive constellation-style timeline using React, featuring manual coordinate mapping and mobile horizontal scrolling. | Tophi |
 | Interactive Simulation | React-based decision simulation has been implemented with computer load updates, task-priority choices, GO / ABORT outcomes, and responsive retro terminal styling. | Kimberly |
 | Lessons Learned        |                                                                                                                                                                     |          |
-| References             |                                                                                                                                                                     |          |
-
+| | References             | Compiled and formatted historical sources (NASA, Royal Museums Greenwich) to support the timeline's accuracy. |      |
 ---
 
 # CSARCH2 Virtual Exhibit Case Study Proposal
@@ -395,3 +394,11 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 [4] MIT Instrumentation Laboratory, “Apollo Guidance Computer documentation.” Available: [https://www.ibiblio.org/apollo/](https://www.ibiblio.org/apollo/)
 
 [5] Virtual AGC, “Luminary099: Apollo Lunar Module Guidance Computer Software.” Available: [https://github.com/virtualagc/virtualagc/tree/master/Luminary099](https://github.com/virtualagc/virtualagc/tree/master/Luminary099)
+
+[6] NASA Science, “Margaret Hamilton.” Available: [https://science.nasa.gov/people/margaret-hamilton/](https://science.nasa.gov/people/margaret-hamilton/)
+
+[7] NASA, “The Apollo Lunar Surface Journal and Apollo Flight Journal.” Available: [https://www.hq.nasa.gov/alsj/](https://www.hq.nasa.gov/alsj/)
+
+[8] Royal Museums Greenwich, “Apollo 11 Moon landing: minute by minute.” Available: [https://www.rmg.co.uk/stories/topics/apollo-11-moon-landing-minute-minute](https://www.rmg.co.uk/stories/topics/apollo-11-moon-landing-minute-minute)
+
+[9] NASA, “Apollo 11 Mission Overview.” Available: [https://www.nasa.gov/mission_pages/apollo/missions/apollo11.html](https://www.nasa.gov/mission_pages/apollo/missions/apollo11.html)
