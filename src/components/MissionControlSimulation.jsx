@@ -70,13 +70,13 @@ function getComputerText(stage, context) {
                 : 'Task priority status opened. Critical and lower-priority tasks are now visible. Select a task to prioritize.';
 
         case STAGES.STATUS1:
-            return 'System check complete. Review the updated load and decide your next action.';
+            return 'System check complete. Review the updated computer load and decide your next action.';
 
         case STAGES.TASK2:
             return 'Additional system check requested. The computer is still processing descent tasks. Choose the next task priority.';
 
         case STAGES.STATUS2:
-            return 'System check complete. Review the updated system condition before making a decision.';
+            return 'Another system check complete. Review the updated system condition before making a decision.';
 
         case STAGES.TASK3:
             return 'Final task-priority check. Choose carefully. This will determine my final GO or ABORT recommendation.';
@@ -115,13 +115,13 @@ function getDetailText(stage, context) {
                 : 'Priority data is available. The next task selection will either reduce or increase processor load.';
 
         case STAGES.STATUS1:
-            return 'Round 1 complete. The current load reflects the effect of the first task-priority decision.';
+            return 'The current load reflects the effect of the first task-priority decision.';
 
         case STAGES.TASK2:
-            return 'Processor load remains active during descent. Critical functions reduce strain; nonessential tasks increase it.';
+            return 'Processor load remains active during descent. Critical functions reduce strain, while nonessential tasks increase it.';
 
         case STAGES.STATUS2:
-            return 'Round 2 complete. The system condition has shifted again based on the selected task priority.';
+            return 'The system condition has shifted again based on the selected task priority.';
 
         case STAGES.TASK3:
             return 'Final priority check. This selection determines the last load adjustment before the GO or ABORT recommendation.';
@@ -166,7 +166,7 @@ function getStageButtons(stage) {
             return [
                 { label: 'Go Descent', action: 'go-descent' },
                 { label: 'Abort Descent', action: 'abort' },
-                { label: 'Check Tasks Again', action: 'continue-tasks' },
+                { label: 'Continue Task Priority', action: 'continue-tasks' },
             ];
         case STAGES.TASK2:
             return [
@@ -178,7 +178,7 @@ function getStageButtons(stage) {
             return [
                 { label: 'Go Descent', action: 'go-descent' },
                 { label: 'Abort Descent', action: 'abort' },
-                { label: 'Check Tasks Again', action: 'continue-tasks' },
+                { label: 'Continue Task Priority', action: 'continue-tasks' },
             ];
         case STAGES.TASK3:
             return [
