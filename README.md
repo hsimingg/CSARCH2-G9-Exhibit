@@ -1,6 +1,102 @@
-# CSARCH2 Virtual Exhibit Case Study Proposal
+# MC02 Mid-Milestone Development Update
+
+## Current Progress
+
+The group has started converting the proposal into a working Astro-based virtual exhibit website. The site now uses a section-based structure with a homepage, navigation bar, shared layout, global styling, and reusable exhibit components.
+
+Current website sections include:
+- Hero / Landing Section
+- Background Section
+- Architecture Concept Section
+- Timeline Section
+- Interactive Simulation Section
+- Lessons Learned Section
+- References Section
 
 ---
+## Hero & Background Progress
+[insert here]
+
+## Architecture Concept Progress
+[insert here]
+
+## Timeline Progress
+The "Problem Timeline" has been developed as an interactive React component. Instead of a standard vertical list, it uses a star-map-style UI (`ConstellationTimeline.jsx`).
+
+Current features include:
+- Clickable star nodes that trigger and permanently display event info cards
+- Manual "zig-zag" layout positioning to prevent UI clutter and overlapping text
+- Strict Z-index layering so interactive buttons always sit perfectly below/above readable text
+- Horizontally scrollable container wrapped around a fixed-width timeline to maintain the layout's integrity on mobile devices
+
+## Interactive Simulation Progress
+
+The main interactive element, **Mission Control: Handle the 1202 Alarm**, has been developed as a React component:
+`src/components/MissionControlSimulation.jsx`
+
+The simulation currently includes:
+- Retro terminal-style computer interface
+- 1202 alarm scenario
+- User decision prompts + task priority choices
+- Computer load and risk level updates
+- GO / ABORT decision points (multiple endings)
+- Desktop and mobile responsive styling
+
+The simulation is designed to be interactive rather than static. User decisions change the system state, computer load, risk level, final recommendation, and ending.
+
+## Lessons Learned & References Progress
+[insert here]
+
+
+---
+
+## Aha Moments / Things Learned
+
+While developing the simulation, we clarified that the Apollo 11 1202 alarm was not a total computer failure. It was an overload condition where the Apollo Guidance Computer had to keep critical landing tasks active while managing limited processing resources.
+
+[insert your own here - Denise]
+[insert your own here - MJ]
+[insert your own here - Adolfo]
+[insert your own here - Tophi]
+**[Tophi]**: I learned a lot about responsive design. Sometimes, we have to allow a horizontal scroll (`overflow-x: auto`) for a fixed-width container because it is a much more user-friendly solution on mobile than trying to force a difficult desktop layout to squish and shrink
+
+## Challenges Encountered
+
+- Making the game logic and story game flow understandable for all 
+- Balancing and making the simulation dynamic instead of slide-like
+- Designing a retro terminal UI that works on both desktop and mobile
+
+[insert your own here - Denise]
+[insert your own here - MJ]
+[insert your own here - Adolfo]
+-  **[Tophi]** Trying to keep 6 timeline text cards open permanently 
+-  **[Tophi]** The text boxes were overlapping and the clickable stars were rendering on top of the text
+
+---
+
+## Next Steps
+
+- Complete the remaining exhibit section content
+- Improve section layouts and responsiveness
+- Polish UI and cohesiveness of website
+- Apply revisions from sir Rog's comments if there's any
+
+## Section Progress Log
+
+| Section                | Progress / Update                                                                                                                                                   | Member   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Hero / Landing         |                                                                                                                                                                     |          |
+| Background             |                                                                                                                                                                     |          |
+| Architecture Concept   |                                                                                                                                                                     |          |
+| Timeline               | Developed an interactive, responsive constellation-style timeline using React, featuring manual coordinate mapping and mobile horizontal scrolling. | Tophi |
+| Interactive Simulation | React-based decision simulation has been implemented with computer load updates, task-priority choices, GO / ABORT outcomes, and responsive retro terminal styling. | Kimberly |
+| Lessons Learned        |                                                                                                                                                                     |          |
+| References             |                                                                                                                                                                     |          |
+
+---
+
+# CSARCH2 Virtual Exhibit Case Study Proposal
+
 ## Group Title: "GO or ABORT: The Apollo 11 1202 Alarm"
 
 #### Category: Problem Solving Stories
