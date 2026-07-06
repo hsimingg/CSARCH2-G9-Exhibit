@@ -27,19 +27,82 @@
  */
 
 const references = [
-  // ---- EXAMPLE ENTRY (delete once you paste the real list) ----
+  {
+    authors: "Adler, P.",
+    year: "1998",
+    title: "Apollo 11 Lunar Surface Journal: Program Alarms.",
+    source: "NASA.",
+    url: "https://www.nasa.gov/wp-content/uploads/static/history//alsj/a11/a11.1201-pa.html",
+  },
   {
     authors: "Averill, C.",
     year: "2021",
-    title: "A brief analysis of the Apollo Guidance Computer.",
+    title: "A Brief Analysis of the Apollo Guidance Computer.",
     source: "arXiv.",
     url: "https://arxiv.org/pdf/2201.08230",
   },
-  // ---- PASTE REFERENCES BELOW ----
-
+  {
+    authors: "GeeksforGeeks",
+    year: "2022",
+    title: "Preemptive Priority CPU Scheduling Algorithm.",
+    source: "GeeksforGeeks.",
+    url: "https://www.geeksforgeeks.org/operating-systems/preemptive-priority-cpu-scheduling-algortithm/",
+  },
+  {
+    authors: "Kutner, J.",
+    year: "2019",
+    title: "We're Go On That Alarm: Inside the Apollo Operating System.",
+    source: "Software's Giant Leap (Medium).",
+    url: "https://medium.com/softwares-giant-leap/were-go-on-that-alarm-inside-the-apollo-operating-system-8d753e7a1e17",
+  },
+  {
+    authors: "Mattioli, M.",
+    year: "2021",
+    title: "Apollo Guidance Computer.",
+    source: "IEEE Micro, 41(6).",
+    url: "https://www.computer.org/csdl/magazine/mi/2021/06/09623432/1yJTxgRWQgg",
+  },
+  {
+    authors: "NASA",
+    year: "2025",
+    title: "Apollo 11 Mission Overview.",
+    source: "NASA.",
+    url: "https://www.nasa.gov/mission/apollo-11/",
+  },
+  {
+    authors: "NASA History",
+    year: "n.d.",
+    title: "Apollo 11 Lunar Surface Journal.",
+    source: "NASA History.",
+    url: "https://history.nasa.gov/alsj/a11/a11.html",
+  },
+  {
+    authors: "MIT Instrumentation Laboratory",
+    year: "n.d.",
+    title: "Apollo Guidance Computer Documentation.",
+    source: "ibiblio Apollo Guidance Computer Archive.",
+    url: "https://www.ibiblio.org/apollo/",
+  },
+  {
+    authors: "Shirriff, K.",
+    year: "2019",
+    title:
+      "A Computer Built from NOR Gates: Inside the Apollo Guidance Computer.",
+    source: "Righto.",
+    url: "https://www.righto.com/2019/09/",
+  },
+  {
+    authors: "Virtual AGC",
+    year: "n.d.",
+    title: "Luminary099: Apollo Lunar Module Guidance Computer Software.",
+    source: "GitHub.",
+    url: "https://github.com/virtualagc/virtualagc/tree/master/Luminary099",
+  },
 ];
 
-const sorted = [...references].sort((a, b) => a.authors.localeCompare(b.authors));
+const sorted = [...references].sort((a, b) =>
+  a.authors.localeCompare(b.authors),
+);
 ---
 
 <section id="references" class="references">
@@ -55,33 +118,37 @@ const sorted = [...references].sort((a, b) => a.authors.localeCompare(b.authors)
       explanations in this exhibit.
     </p>
 
-    {sorted.length === 0 ? (
-      <p class="references__empty">References will be listed here.</p>
-    ) : (
-      <ol class="references__list">
-        {sorted.map((ref) => (
-          <li class="reference">
-            <span class="reference__authors">{ref.authors}</span>
-            {ref.year && <span class="reference__year"> ({ref.year}).</span>}
-            <span class="reference__ref-title"> {ref.title}</span>
-            {ref.source && <span class="reference__source"> {ref.source}</span>}
-            {ref.url && (
-              <>
-                {" "}
-                <a
-                  class="reference__link"
-                  href={ref.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {ref.url}
-                </a>
-              </>
-            )}
-          </li>
-        ))}
-      </ol>
-    )}
+    {
+      sorted.length === 0 ? (
+        <p class="references__empty">References will be listed here.</p>
+      ) : (
+        <ol class="references__list">
+          {sorted.map((ref) => (
+            <li class="reference">
+              <span class="reference__authors">{ref.authors}</span>
+              {ref.year && <span class="reference__year"> ({ref.year}).</span>}
+              <span class="reference__ref-title"> {ref.title}</span>
+              {ref.source && (
+                <span class="reference__source"> {ref.source}</span>
+              )}
+              {ref.url && (
+                <>
+                  {" "}
+                  <a
+                    class="reference__link"
+                    href={ref.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {ref.url}
+                  </a>
+                </>
+              )}
+            </li>
+          ))}
+        </ol>
+      )
+    }
   </div>
 </section>
 
@@ -98,7 +165,8 @@ const sorted = [...references].sort((a, b) => a.authors.localeCompare(b.authors)
           clipTicking = false;
           const r = section.getBoundingClientRect();
           const h = wrap.offsetHeight || 1;
-          const vh = window.innerHeight || document.documentElement.clientHeight;
+          const vh =
+            window.innerHeight || document.documentElement.clientHeight;
           const wrapTop = vh / 2 - h / 2;
           const wrapBottom = vh / 2 + h / 2;
           const top = Math.min(Math.max(r.top - wrapTop, 0), h);
@@ -117,7 +185,9 @@ const sorted = [...references].sort((a, b) => a.authors.localeCompare(b.authors)
       }
 
       // Shared moon scroll-spin — set up once (guarded by window.__moonSpin).
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const reduce = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
       if (!reduce && !window.__moonSpin) {
         window.__moonSpin = true;
         let rot = 0;
@@ -139,7 +209,7 @@ const sorted = [...references].sort((a, b) => a.authors.localeCompare(b.authors)
               requestAnimationFrame(apply);
             }
           },
-          { passive: true }
+          { passive: true },
         );
       }
     };
@@ -246,7 +316,9 @@ const sorted = [...references].sort((a, b) => a.authors.localeCompare(b.authors)
     text-decoration: none;
     word-break: break-word;
     border-bottom: 1px solid transparent;
-    transition: border-color var(--transition), color var(--transition);
+    transition:
+      border-color var(--transition),
+      color var(--transition);
   }
 
   .reference__link:hover,
