@@ -97,7 +97,9 @@ const lessons = [
 
       // Clip the pinned moon to this section's on-screen bounds so it is cut at
       // the section edges and never bleeds into the sections above/below.
-      const wrap = section.querySelector<HTMLElement>(".lessons__moon-wrap");
+      const wrap = section.querySelector(
+        ".lessons__moon-wrap",
+      ) as HTMLElement | null;
       if (wrap) {
         let clipTicking = false;
         const clip = () => {
@@ -142,7 +144,7 @@ const lessons = [
       }
 
       // Shared moon scroll-spin — set up once, even though both sections ship it.
-      const moonState = window as Window & { __moonSpin?: boolean };
+      const moonState = window as any;
       const reduce = moonState.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
