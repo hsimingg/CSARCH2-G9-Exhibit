@@ -1,8 +1,8 @@
-# MC02 Mid-Milestone Development Update
-
 ## Deployment Link
 
 Live Website: [CSARCH2 G9 Virtual Exhibit](PASTE_DEPLOYMENT_LINK_HERE)
+
+# MC02 Mid-Milestone Development Update
 
 ## Current Progress
 
