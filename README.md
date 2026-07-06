@@ -91,7 +91,7 @@ While developing the simulation, we clarified that the Apollo 11 1202 alarm was 
 | Timeline               | Developed an interactive, responsive constellation-style timeline using React, featuring manual coordinate mapping and mobile horizontal scrolling. | Tophi |
 | Interactive Simulation | React-based decision simulation has been implemented with computer load updates, task-priority choices, GO / ABORT outcomes, and responsive retro terminal styling. | Kimberly |
 | Lessons Learned        |                                                                                                                                                                     |          |
-| | References             | Compiled and formatted historical sources (NASA, Royal Museums Greenwich) to support the timeline's accuracy. |      |
+| References |   Compiled and formatted historical sources (NASA, Royal Museums Greenwich) to support the timeline's accuracy. |      |
 ---
 
 # CSARCH2 Virtual Exhibit Case Study Proposal
