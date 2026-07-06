@@ -85,6 +85,7 @@
 
 html{
     scroll-behavior:smooth;
+    scroll-padding-top:96px;
 }
 
 body{
@@ -158,12 +159,19 @@ code,
 pre,
 .mono{
     font-family:var(--font-mono);
+    color:var(--amber);
+}
+
+a{
+    color:var(--amber);
+    text-decoration: underline;
 }
 
 /* SECTION DEFAULTS */
 
 section{
     padding:var(--space-2xl) 8%;
+    scroll-margin-top:96px;
 }
 
 .container{
