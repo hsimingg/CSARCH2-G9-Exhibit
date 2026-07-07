@@ -52,7 +52,13 @@ The exhibit currently includes:
 The exhibit is designed to encourage exploration rather than passive reading. Selecting different nodes updates the information panel, allowing users to learn how the Apollo Guidance Computer's architecture enabled the Apollo 11 Lunar Module to continue operating despite limited hardware resources and processor overload.
 
 ## Timeline Progress
-[insert here]
+The "Problem Timeline" has been developed as an interactive React component. Instead of a standard vertical list, it uses a star-map-style UI (`ConstellationTimeline.jsx`).
+
+Current features include:
+- Clickable star nodes that trigger and permanently display event info cards
+- Manual "zig-zag" layout positioning to prevent UI clutter and overlapping text
+- Strict Z-index layering so interactive buttons always sit perfectly below/above readable text
+- Horizontally scrollable container wrapped around a fixed-width timeline to maintain the layout's integrity on mobile devices>>>>>>> main
 
 ## Interactive Simulation Progress
 
@@ -96,7 +102,7 @@ We learned how a processor with extremely limited resources organizes and priori
 
 Researching about the Apollo 11 1202 alarm made me realize the importance of having efficient design. The system successfully reported the problem and managed the data overload by stopping low priority tasks, ensuring that critical functions did not fail or lose processing time which allowed the first humans to successfully land on the Moon.
 
-[insert your own here - Tophi]
+I learned a lot about responsive design. Sometimes, we have to allow a horizontal scroll (`overflow-x: auto`) for a fixed-width container because it is a much more user-friendly solution on mobile than trying to force a difficult desktop layout to squish and shrink
 
 ## Challenges Encountered
 
@@ -113,7 +119,9 @@ Researching about the Apollo 11 1202 alarm made me realize the importance of hav
 
 - Building the loop logic for the carousel slides so that they can infinitely move to the next or previous slide
 
-[insert your own here - Tophi]
+- Trying to keep 6 timeline text cards open permanently 
+- The text boxes were overlapping and the clickable stars were rendering on top of the text
+
 
 ---
 
@@ -136,6 +144,46 @@ Researching about the Apollo 11 1202 alarm made me realize the importance of hav
 | Lessons Learned        | The section is complete, presenting five takeaways that each tie the Apollo 11 1202 alarm to a specific computer architecture concept.                              | Adolfo   |
 | References             | The section's structure, formatting, and styling are complete, with the final source entries still being gathered before submission.                                | Adolfo   |
 
+While developing the simulation, we clarified that the Apollo 11 1202 alarm was not a total computer failure. It was an overload condition where the Apollo Guidance Computer had to keep critical landing tasks active while managing limited processing resources.
+
+[insert your own here - Denise]
+[insert your own here - MJ]
+[insert your own here - Adolfo]
+
+**Tophi**: I learned a lot about responsive design. Sometimes, we have to allow a horizontal scroll (`overflow-x: auto`) for a fixed-width container because it is a much more user-friendly solution on mobile than trying to force a difficult desktop layout to squish and shrink
+
+## Challenges Encountered
+
+- Making the game logic and story game flow understandable for all 
+- Balancing and making the simulation dynamic instead of slide-like
+- Designing a retro terminal UI that works on both desktop and mobile
+
+[insert your own here - Denise]
+[insert your own here - MJ]
+[insert your own here - Adolfo]
+-  **[Tophi]** Trying to keep 6 timeline text cards open permanently 
+-  **[Tophi]** The text boxes were overlapping and the clickable stars were rendering on top of the text
+
+---
+
+## Next Steps
+
+- Complete the remaining exhibit section content
+- Improve section layouts and responsiveness
+- Polish UI and cohesiveness of website
+- Apply revisions from sir Rog's comments if there's any
+
+## Section Progress Log
+
+| Section                | Progress / Update                                                                                                                                                   | Member   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Hero / Landing         |                                                                                                                                                                     |          |
+| Background             |                                                                                                                                                                     |          |
+| Architecture Concept   |                                                                                                                                                                     |          |
+| Timeline               | Developed an interactive, responsive constellation-style timeline using React, featuring manual coordinate mapping and mobile horizontal scrolling. | Tophi |
+| Interactive Simulation | React-based decision simulation has been implemented with computer load updates, task-priority choices, GO / ABORT outcomes, and responsive retro terminal styling. | Kimberly |
+| Lessons Learned        |                                                                                                                                                                     |          |
+| References |   Compiled and formatted historical sources (NASA, Royal Museums Greenwich) to support the timeline's accuracy. |      |
 ---
 
 # CSARCH2 Virtual Exhibit Case Study Proposal
@@ -448,4 +496,13 @@ The exhibit will be designed to be readable and accessible on both desktop and m
 
 [9] K. Shirriff, “A Computer Built from NOR Gates: Inside the Apollo Guidance Computer.” [Online]. Available: https://www.righto.com/2019/09/
 
+[5] Virtual AGC, “Luminary099: Apollo Lunar Module Guidance Computer Software.” Available: [https://github.com/virtualagc/virtualagc/tree/master/Luminary099](https://github.com/virtualagc/virtualagc/tree/master/Luminary099)
+
+[6] NASA Science, “Margaret Hamilton.” Available: [https://science.nasa.gov/people/margaret-hamilton/](https://science.nasa.gov/people/margaret-hamilton/)
+
+[7] NASA, “The Apollo Lunar Surface Journal and Apollo Flight Journal.” Available: [https://www.hq.nasa.gov/alsj/](https://www.hq.nasa.gov/alsj/)
+
+[8] Royal Museums Greenwich, “Apollo 11 Moon landing: minute by minute.” Available: [https://www.rmg.co.uk/stories/topics/apollo-11-moon-landing-minute-minute](https://www.rmg.co.uk/stories/topics/apollo-11-moon-landing-minute-minute)
+
+[9] NASA, “Apollo 11 Mission Overview.” Available: [https://www.nasa.gov/mission_pages/apollo/missions/apollo11.html](https://www.nasa.gov/mission_pages/apollo/missions/apollo11.html)
 [10] Virtual AGC, “Luminary099: Apollo Lunar Module Guidance Computer Software.” [Online]. Available: https://github.com/virtualagc/virtualagc/tree/master/Luminary099
