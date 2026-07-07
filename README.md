@@ -33,6 +33,8 @@ The sections currently include:
 - Interactive 3 slide carousel andabout the Apollo 11 mission, Lunar Module Eagle, and 1202 alarm
 - Desktop and mobile responsive layout
 
+The sections are designed to be visually appealing and introduce the user to the historical context of the Apollo 11 launch and the stakes involved so that the users are hooked before going into the technical aspects and interactive simulation of the event.	
+
 ## Architecture Concept Progress
 
 The interactive architecture exhibit, **Apollo Guidance Computer Architecture**, has been developed as a React component:
