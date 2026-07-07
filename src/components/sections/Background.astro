@@ -175,7 +175,7 @@
     background-color: #0B0C1E;
   }
 
-  // For mobile users
+/* For mobile users */
   @media (max-width: 768px) {
     .background-section {
       padding: 3rem 1.5rem;
@@ -189,14 +189,20 @@
 
     .info-box {
       padding: 1.5rem;
+      text-align: left; 
     }
 
     h2 {
-      font-size: 1.8rem; 
+      font-size: clamp(1.5rem, 6vw, 2rem); 
     }
 
     .button-group {
-      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-prev, .btn-next {
+      width: 100%; 
     }
   }
 </style>
