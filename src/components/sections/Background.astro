@@ -1,7 +1,232 @@
----
+<section id="background" class="background-section">
+  <div class="carousel-viewport">
+    <div class="carousel-track" id="slide-track">
+      
+      <div class="slide">
+        <div class="content-left">
+          <img src="/astronauts.png" alt="Apollo 11 Astronauts" class="slide-img" />
+        </div>
+        <div class="content-right">
+          <div class="info-box">
+            <h2>BACKGROUND OF APOLLO 11</h2>
+            <p class="subtitle">The historic mission to land humans on the Moon.</p>
+            
+            <p>
+              Apollo 11 is the American spaceflight mission to land humans on the Moon for the first time 
+              which launched on July 16, 1969 and returned to Earth on July 24, 1969.
+            </p>
+            <p>
+              The Saturn V launch vehicle was crewed by 3 astronauts - Neil Armstrong, Buzz Aldrin, and Michael Collins. 
+              After entering lunar orbit, Armstrong and Aldrin entered the lunar module Eagle with the goal of landing on the moon.
+            </p>
+            
+            <div class="button-group">
+              <button class="btn-prev">← PREV</button>
+              <button class="btn-next">NEXT →</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
----
+      <div class="slide">
+        <div class="content-left">
+          <img src="/eagle.png" alt="Rocket" class="slide-img" />
+        </div>
+        <div class="content-right">
+          <div class="info-box">
+            <h2>LUNAR MODULE EAGLE</h2>
+            <p class="subtitle">The lunar lander carrying the first humans to reach the Moon.</p>
 
-<section id="background">
-  <h1 class="section-title">Background</h1>
+            <p>
+              It used its single descent engine to brake and drop toward the lunar surface on a similar trajectory flown by Apollo 10, but it encountered critical problems.
+            </p>
+            <p>
+              They encountered the 1202 alarm and a crater which caused Armstrong to take manual control and consume large amounts of fuel. Despite these threats, they were able to safely land with less than 30 seconds of landing fuel remaining.
+            </p>
+            
+            <div class="button-group">
+              <button class="btn-prev">← PREV</button>
+              <button class="btn-next">NEXT →</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide">
+        <div class="content-left">
+          <img src="/landing.png" alt="The Moon" class="slide-img" />
+        </div>
+        <div class="content-right">
+          <div class="info-box">
+            <h2>THE 1202 ALARM</h2>
+            <p class="subtitle">"Houston, Tranquility Base here, The Eagle has landed."</p>
+
+            <p>
+              The 1202 alarm was a warning code flashed by the Apollo Guidance Computer (AGC) which indicates that the system was overloaded with data and dropping low priority tasks.
+            </p>
+            <p>
+              The astronauts were told not to abort the mission despite the alarms because NASA simulations before the mission showed that a landing is still possible during the 1202 alarms.
+            </p>
+            
+            <div class="button-group">
+              <button class="btn-prev">← PREV</button>
+              <button class="btn-next">NEXT →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
+<style>
+  .background-section {
+    padding: 4rem;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .carousel-viewport {
+    width: 100%;
+    overflow: hidden; 
+  }
+
+  .carousel-track {
+    display: flex; 
+    width: 100%;
+    transition: transform 0.8s ease-in-out; 
+  }
+
+  .slide {
+    min-width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  .content-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .slide-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px #06060F;
+  }
+
+  .content-right {
+    flex: 1;
+  }
+
+  .info-box {
+    background-color: #18102A;
+    border: 1px solid #1E1E45;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px #1E1E45;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: #A78BFA; 
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: #F5C800;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .btn-prev, .btn-next {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #A855F7;
+    border: 2px solid #A855F7;
+    transition: all 0.3s ease;
+  }
+
+  .btn-prev:hover, .btn-next:hover {
+    background-color: #0B0C1E;
+  }
+
+  // For mobile users
+  @media (max-width: 768px) {
+    .background-section {
+      padding: 3rem 1.5rem;
+    }
+    
+    .slide {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .info-box {
+      padding: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem; 
+    }
+
+    .button-group {
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  const track = document.getElementById('slide-track');
+  const nextButtons = document.querySelectorAll('.btn-next');
+  const prevButtons = document.querySelectorAll('.btn-prev');
+  
+  let currentSlide = 0;
+  const totalSlides = document.querySelectorAll('.slide').length; 
+
+  function updateSlidePosition() {
+    const slideAmount = currentSlide * -100;
+    if (track) {
+      track.style.transform = `translateX(${slideAmount}%)`;
+    }
+  }
+
+  nextButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlidePosition();
+    });
+  });
+
+  prevButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlidePosition();
+    });
+  });
+</script>
