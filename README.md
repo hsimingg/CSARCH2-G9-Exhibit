@@ -59,7 +59,30 @@ The simulation currently includes:
 The simulation is designed to be interactive rather than static. User decisions change the system state, computer load, risk level, final recommendation, and ending.
 
 ## Lessons Learned & References Progress
-[insert here]
+The Lessons Learned and References sections have been built as static Astro components and slot into the section-based homepage: 
+
+src/components/sections/LessonsLearned.astro 
+src/components/sections/References.astro
+
+
+Lessons Learned Progress
+
+The Lessons Learned section presents the key takeaways from the Apollo 11 1202 alarm. The section currently includes:
+
+- Five lessons covering task prioritization/scheduling, working within limited hardware, error handling and recovery, reliability over raw speed, and how system design shaped Mission Control's real-world decision
+
+Each lesson explicitly links the historical event to a computer architecture principle, reinforcing the exhibit's technical goal. 
+
+
+References Progress
+
+The References section provides the source list for the exhibit's historical and technical content. The section currently includes:
+
+- A structured, auto-sorting reference list (alphabetical by author) with APA-style formatting and hanging indent
+Numbered markers and clickable source links
+
+- The section structure and styling are complete; the final reference entries are being gathered and will be populated before final submission.
+
 
 ---
 
@@ -69,8 +92,9 @@ While developing the simulation, we clarified that the Apollo 11 1202 alarm was 
 
 While researching the Apollo Guidance Computer, one thing that surprised us was learning that its processor was built almost entirely from NOR gates. We also found it remarkable that a computer with only 4 KB of RAM could successfully guide Apollo 11 to the Moon. It was astounding to see how they worked with the hardware limitations of the 1960s and still made the most of the technology available to achieve something as big as the first crewed Moon landing.
 
+We learned how a processor with extremely limited resources organizes and prioritizes work, how it handles operations under overload, and how the system recovers from an error condition instead of failing outright. It was amazing to see that the Apollo Guidance Computer had only about 4KB of RAM and still guided the landing.
+
 [insert your own here - MJ]
-[insert your own here - Adolfo]
 [insert your own here - Tophi]
 
 ## Challenges Encountered
@@ -83,9 +107,10 @@ While researching the Apollo Guidance Computer, one thing that surprised us was 
 - Organizing computer chip and info panel layout and preventing them from overlapping
 - CSS layout issues, particularly keeping div sizes from dynamically changing incorrectly
 
+- Formatting the references with proper APA-style hanging indents and links that don't overflow on mobile
+- Keeping a large pinned moon graphic from bleeding into neighboring sections while it stayed fixed during scroll
 
 [insert your own here - MJ]
-[insert your own here - Adolfo]
 [insert your own here - Tophi]
 
 ---
@@ -106,8 +131,8 @@ While researching the Apollo Guidance Computer, one thing that surprised us was 
 | Architecture Concept   |                                                                                                                                                                     |          |
 | Timeline               |                                                                                                                                                                     |          |
 | Interactive Simulation | React-based decision simulation has been implemented with computer load updates, task-priority choices, GO / ABORT outcomes, and responsive retro terminal styling. | Kimberly |
-| Lessons Learned        |                                                                                                                                                                     |          |
-| References             |                                                                                                                                                                     |          |
+| Lessons Learned        | The section is complete, presenting five takeaways that each tie the Apollo 11 1202 alarm to a specific computer architecture concept.                              | Adolfo   |
+| References             | The section's structure, formatting, and styling are complete, with the final source entries still being gathered before submission.                                | Adolfo   |
 
 ---
 
