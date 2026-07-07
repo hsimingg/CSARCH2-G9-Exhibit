@@ -155,10 +155,43 @@ p{
     color:var(--text-secondary);
 }
 
+.section-kicker{
+    font-family:var(--font-mono);
+    font-size:0.9rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:var(--space-xs);
+}
+
+.section-heading{
+    margin:0;
+    font-size:clamp(2rem,5vw,3.25rem);
+    line-height:1.2;
+}
+
+.section-rule{
+    width:100%;
+    border:0;
+    border-top:1px solid color-mix(in srgb, var(--border) 140%, transparent);
+    margin:0.5rem 0 1.5rem;
+}
+
+.section-lede{
+    max-width:68ch;
+    color:var(--text-secondary);
+}
+
 code,
 pre,
 .mono{
     font-family:var(--font-mono);
+    color:var(--amber);
+}
+
+a{
+    color:var(--amber);
+    text-decoration: underline;
 }
 
 /* SECTION DEFAULTS */
