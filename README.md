@@ -60,9 +60,9 @@ The simulation is designed to be interactive rather than static. User decisions 
 
 ## Lessons Learned & References Progress
 The Lessons Learned and References sections have been built as static Astro components and slot into the section-based homepage: 
+`src/components/sections/LessonsLearned.astro`
+`src/components/sections/References.astro`
 
-src/components/sections/LessonsLearned.astro 
-src/components/sections/References.astro
 
 
 Lessons Learned Progress
