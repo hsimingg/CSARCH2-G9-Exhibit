@@ -149,6 +149,19 @@ Tophi:
 | References             | The section's structure, formatting, and styling are complete, with the final source entries still being gathered before submission.                                | Adolfo   |                         | Adolfo   |
 ---
 
+### Artificial Intelligence Usage Disclosure
+
+In the development of this project, we utilized generative AI tools (Google Gemini, OpenAI ChatGPT, and GitHub Copilot) to assist with technical implementation, content organization, and formatting. 
+
+**How AI was used in this project:**
+* Organizing our research process and drafting structural outlines for various exhibit sections.
+* Condensing and summarizing the existing historical and technical content that our team researched and provided. 
+* Transforming our raw, human-gathered data into structured formats (such as JSON arrays) for easier integration into the codebase.
+* Troubleshooting layout issues in CSS, resolving TypeScript logic errors, and providing general workflow assistance.
+
+All core data, historical facts, technical research, and initial content inputs were strictly sourced, provided, and verified by our group. The AI tools were used exclusively as assistive utilities to structure, summarize, and debug our work, not to generate the project's factual or historical information. All final outputs were reviewed and approved by the project contributors.
+
+
 # CSARCH2 Virtual Exhibit Case Study Proposal
 
 ## Group Title: "GO or ABORT: The Apollo 11 1202 Alarm"
