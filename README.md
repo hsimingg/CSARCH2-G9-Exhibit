@@ -121,6 +121,7 @@ Adolfo:
 
 Mikael:
 - Building the loop logic for the carousel slides so that they can infinitely move to the next or previous slide
+- Applying the UI for mobile users
 
 Isaiah:
 - Trying to keep 6 timeline text cards open permanently 
