@@ -100,9 +100,9 @@ Denise: While researching about the Apollo Guidance Computer, one thing that sur
 
 Adolfo: I learned how a processor with extremely limited resources organizes and prioritizes work, how it handles operations under overload, and how the system recovers from an error condition instead of failing outright. 
 
-MJ: Researching about the Apollo 11 1202 alarm made me realize the importance of having efficient design. The system successfully reported the problem and managed the data overload by stopping low priority tasks, ensuring that critical functions did not fail or lose processing time which allowed the first humans to successfully land on the Moon.
+Mikael: Researching about the Apollo 11 1202 alarm made me realize the importance of having efficient design. The system successfully reported the problem and managed the data overload by stopping low priority tasks, ensuring that critical functions did not fail or lose processing time which allowed the first humans to successfully land on the Moon.
 
-Tophi: I learned a lot about responsive design. Sometimes, we have to allow a horizontal scroll (`overflow-x: auto`) for a fixed-width container because it is a much more user-friendly solution on mobile than trying to force a difficult desktop layout to squish and shrink
+Isaiah: I learned a lot about responsive design. Sometimes, we have to allow a horizontal scroll (`overflow-x: auto`) for a fixed-width container because it is a much more user-friendly solution on mobile than trying to force a difficult desktop layout to squish and shrink
 
 ## Challenges Encountered
 Kimberly:
@@ -119,10 +119,10 @@ Adolfo:
 - Formatting the references with proper APA-style hanging indents and links that don't overflow on mobile
 - Keeping a large pinned moon graphic from bleeding into neighboring sections while it stayed fixed during scroll
 
-MJ:
+Mikael:
 - Building the loop logic for the carousel slides so that they can infinitely move to the next or previous slide
 
-Tophi:
+Isaiah:
 - Trying to keep 6 timeline text cards open permanently 
 - The text boxes were overlapping and the clickable stars were rendering on top of the text
 
@@ -140,10 +140,10 @@ Tophi:
 
 | Section                | Progress / Update                                                                                                                                                   | Member   |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| Hero / Landing         | Developed as an Astro component featuring an auto-scrolling rocket launch and direct navigation to jump to the interactive exhibit.                                 | MJ       |
-| Background             | Built as an Astro component with a responsive, 3-slide interactive carousel detailing Apollo 11, the LM Eagle, and the 1202 alarm.                                  | MJ       |
+| Hero / Landing         | Developed as an Astro component featuring an auto-scrolling rocket launch and direct navigation to jump to the interactive exhibit.                                 | Mikael       |
+| Background             | Built as an Astro component with a responsive, 3-slide interactive carousel detailing Apollo 11, the LM Eagle, and the 1202 alarm.                                  | Mikael       |
 | Architecture Concept   | Implemented a React component with an interactive AGC chip visualization explaining processor workload, preemptive scheduling, and error recovery.                  | Denise   |
-| Timeline               | Created a responsive, star-map-style React component with clickable nodes, manual zig-zag layout, strict z-index layering, and horizontal scrolling on mobile.      | Tophi    |
+| Timeline               | Created a responsive, star-map-style React component with clickable nodes, manual zig-zag layout, strict z-index layering, and horizontal scrolling on mobile.      | Isaiah    |
 | Interactive Simulation | React-based decision simulation has been implemented with computer load updates, task-priority choices, GO / ABORT outcomes, and responsive retro terminal styling. | Kimberly |
 | Lessons Learned        | The section is complete, presenting five takeaways that each tie the Apollo 11 1202 alarm to a specific computer architecture concept.                              | Adolfo   |
 | References             | The section's structure, formatting, and styling are complete, with the final source entries still being gathered before submission.                                | Adolfo   |                         | Adolfo   |
