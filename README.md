@@ -22,7 +22,16 @@ Current website sections include:
 ---
 
 ## Hero & Background Progress
-[insert here]
+
+The Hero and Background Sections have been developed as Astro components:
+`src/components/sections/Hero.astro`
+`src/components/sections/Background.astro`
+
+The sections currently include:
+- A rocket launch auto-scrolling to the next section
+- Navigation to jump directly to the interactive exhibit
+- Interactive 3 slide carousel andabout the Apollo 11 mission, Lunar Module Eagle, and 1202 alarm
+- Desktop and mobile responsive layout
 
 ## Architecture Concept Progress
 
@@ -94,7 +103,8 @@ While researching the Apollo Guidance Computer, one thing that surprised us was 
 
 We learned how a processor with extremely limited resources organizes and prioritizes work, how it handles operations under overload, and how the system recovers from an error condition instead of failing outright. It was amazing to see that the Apollo Guidance Computer had only about 4KB of RAM and still guided the landing.
 
-[insert your own here - MJ]
+Researching about the Apollo 11 1202 alarm made me realize the importance of having efficient design. The system successfully reported the problem and managed the data overload by stopping low priority tasks, ensuring that critical functions did not fail or lose processing time which allowed the first humans to successfully land on the Moon.
+
 [insert your own here - Tophi]
 
 ## Challenges Encountered
@@ -110,7 +120,8 @@ We learned how a processor with extremely limited resources organizes and priori
 - Formatting the references with proper APA-style hanging indents and links that don't overflow on mobile
 - Keeping a large pinned moon graphic from bleeding into neighboring sections while it stayed fixed during scroll
 
-[insert your own here - MJ]
+- Building the loop logic for the carousel slides so that they can infinitely move to the next or previous slide
+
 [insert your own here - Tophi]
 
 ---
