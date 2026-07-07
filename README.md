@@ -74,24 +74,13 @@ The Lessons Learned and References sections have been built as static Astro comp
 `src/components/sections/LessonsLearned.astro`
 `src/components/sections/References.astro`
 
-
-
-Lessons Learned Progress
-
-The Lessons Learned section presents the key takeaways from the Apollo 11 1202 alarm. The section currently includes:
-
+The Lessons Learned section now presents the key takeaways from the Apollo 11 1202 alarm. The section currently includes:
 - Five lessons covering task prioritization/scheduling, working within limited hardware, error handling and recovery, reliability over raw speed, and how system design shaped Mission Control's real-world decision
+- Each lesson explicitly links the historical event to a computer architecture principle, reinforcing the exhibit's technical goal. 
 
-Each lesson explicitly links the historical event to a computer architecture principle, reinforcing the exhibit's technical goal. 
-
-
-References Progress
-
-The References section provides the source list for the exhibit's historical and technical content. The section currently includes:
-
+For the  References section, it now provides an updated source list for the exhibit's historical and technical content. The section currently includes:
 - A structured, auto-sorting reference list (alphabetical by author) with APA-style formatting and hanging indent
 Numbered markers and clickable source links
-
 - The section structure and styling are complete; the final reference entries are being gathered and will be populated before final submission.
 
 
@@ -164,6 +153,7 @@ Researching about the Apollo 11 1202 alarm made me realize the importance of hav
 | Ho, Denise Liana    |
 | Miranda, Isaiah     |
 | Sarroza, Mikael     |
+
 ## Proposal Revisions  
   
 Based on the feedback received, the proposal was revised with the following changes:  
