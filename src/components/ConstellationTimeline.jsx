@@ -64,7 +64,7 @@ return (
       }}>
         
         {/* INNER TIMELINE CONTAINER */}
-        <div className="card" style={{ 
+        <div className="card timeline-container" style={{ 
           position: 'relative', 
           width: '100%', 
           minWidth: '1000px', 
@@ -91,8 +91,8 @@ return (
               );
             })}
           </svg>
-
-          {/* Render Stars & Popups */}
+          
+        {/* Render Stars & Popups */}
           {events.map((ev, index) => {
             const isVisited = activeStep >= index;
             const isNext = activeStep + 1 === index;
@@ -108,14 +108,31 @@ return (
                     position: 'absolute', 
                     transform: 'translate(-50%, -50%)', 
                     zIndex: isNext ? 10 : 5,
-                    width: '24px', height: '24px', borderRadius: '50%',
-                    backgroundColor: isVisited ? 'var(--amber)' : (isNext ? 'var(--primary-light)' : 'var(--bg-primary)'),
-                    border: '2px solid var(--text-primary)', 
+                    width: '32px', 
+                    height: '32px', 
+                    backgroundColor: 'transparent',
+                    border: 'none',
+                    padding: 0,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     cursor: isNext ? 'pointer' : 'default',
                     transition: 'var(--transition)'
                   }}
                   aria-label={ev.title}
-                />
+                >
+                  <svg 
+                    viewBox="0 0 24 24" 
+                    style={{ width: '100%', height: '100%', overflow: 'visible' }}
+                  >
+                    <path 
+                      d="M 12 2 Q 13 11 22 12 Q 13 13 12 22 Q 11 13 2 12 Q 11 11 12 2 Z"
+                      fill={isVisited ? 'var(--amber)' : (isNext ? 'var(--primary-light)' : 'var(--bg-primary)')} 
+                      stroke="var(--text-primary)"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                </button>
 
                 {/* Event Info Card */}
                 {isVisited && (
