@@ -1,6 +1,6 @@
 ## Deployment Link
 
-Live Website: [CSARCH2 G9 Virtual Exhibit](https://csarch2g09exhibit.vercel.app/)
+Live Website: [CSARCH2 G9 Virtual Exhibit](https://hsimingg.github.io/CSARCH2-G9-Exhibit/)
 
 ---
 
