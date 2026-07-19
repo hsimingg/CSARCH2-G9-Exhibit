@@ -12,7 +12,7 @@
  *   >>> Keep the moon `width` identical to LessonsLearned.astro. <<<
  *
  * >>> HOW TO ADD YOUR SOURCES <<<
- * Fill the `references` array below — one object per source:
+ * Each source is one object inside a group's `items` array:
  *   {
  *     authors: "Averill, C.",
  *     year: "2021",
@@ -20,110 +20,134 @@
  *     source: "arXiv.",                          // optional
  *     url: "https://arxiv.org/pdf/2201.08230",   // optional; renders as a link
  *   }
- * The list auto-sorts alphabetically by `authors`. Delete the example entry
- * once you paste in the real ones.
+ *
+ * Sources are split into three tiers, strongest first:
+ *   1. NASA & primary sources   — mission records, NASA, original AGC material
+ *   2. Technical references     — peer-reviewed / architecture analyses
+ *   3. Supporting articles      — secondary explainers and context
+ * Drop each new source into the right group; items auto-sort alphabetically by
+ * `authors` within their group, and the [n] numbers run continuously top-to-bottom.
  *
  * SECTION ID: id="references" matches the navbar anchor (#references).
  */
 
-const references = [
+const referenceGroups = [
   {
-    authors: "Adler, P.",
-    year: "1998",
-    title: "Apollo 11 Lunar Surface Journal: Program Alarms.",
-    source: "NASA.",
-    url: "https://www.nasa.gov/wp-content/uploads/static/history//alsj/a11/a11.1201-pa.html",
+    label: "NASA & Primary Sources",
+    items: [
+      {
+        authors: "Adler, P.",
+        year: "1998",
+        title: "Apollo 11 Lunar Surface Journal: Program Alarms.",
+        source: "NASA.",
+        url: "https://www.nasa.gov/wp-content/uploads/static/history//alsj/a11/a11.1201-pa.html",
+      },
+      {
+        authors: "MIT Instrumentation Laboratory",
+        year: "n.d.",
+        title: "Apollo Guidance Computer Documentation.",
+        source: "ibiblio Apollo Guidance Computer Archive.",
+        url: "https://www.ibiblio.org/apollo/",
+      },
+      {
+        authors: "NASA",
+        year: "2025",
+        title: "Apollo 11 Mission Overview.",
+        source: "NASA.",
+        url: "https://www.nasa.gov/mission/apollo-11/",
+      },
+      {
+        authors: "NASA",
+        year: "n.d.",
+        title: "The Apollo Lunar Surface Journal and Apollo Flight Journal.",
+        source: "NASA.",
+        url: "https://www.hq.nasa.gov/alsj/",
+      },
+      {
+        authors: "NASA History Division",
+        year: "n.d.",
+        title: "Apollo 11 Lunar Surface Journal.",
+        source: "NASA History.",
+        url: "https://history.nasa.gov/alsj/a11/a11.html",
+      },
+      {
+        authors: "NASA Science",
+        year: "n.d.",
+        title: "Margaret Hamilton.",
+        source: "NASA Science.",
+        url: "https://science.nasa.gov/people/margaret-hamilton/",
+      },
+      {
+        authors: "Virtual AGC",
+        year: "n.d.",
+        title: "Luminary099: Apollo Lunar Module Guidance Computer Software.",
+        source: "GitHub.",
+        url: "https://github.com/virtualagc/virtualagc/tree/master/Luminary099",
+      },
+    ],
   },
   {
-    authors: "Averill, C.",
-    year: "2021",
-    title: "A Brief Analysis of the Apollo Guidance Computer.",
-    source: "arXiv.",
-    url: "https://arxiv.org/pdf/2201.08230",
+    label: "Technical References",
+    items: [
+      {
+        authors: "Averill, C.",
+        year: "2021",
+        title: "A Brief Analysis of the Apollo Guidance Computer.",
+        source: "arXiv.",
+        url: "https://arxiv.org/pdf/2201.08230",
+      },
+      {
+        authors: "GeeksforGeeks",
+        year: "2022",
+        title: "Preemptive Priority CPU Scheduling Algorithm.",
+        source: "GeeksforGeeks.",
+        url: "https://www.geeksforgeeks.org/operating-systems/preemptive-priority-cpu-scheduling-algortithm/",
+      },
+      {
+        authors: "Mattioli, M.",
+        year: "2021",
+        title: "Apollo Guidance Computer.",
+        source: "IEEE Micro, 41(6).",
+        url: "https://www.computer.org/csdl/magazine/mi/2021/06/09623432/1yJTxgRWQgg",
+      },
+      {
+        authors: "Shirriff, K.",
+        year: "2019",
+        title:
+          "A Computer Built from NOR Gates: Inside the Apollo Guidance Computer.",
+        source: "Righto.",
+        url: "https://www.righto.com/2019/09/",
+      },
+    ],
   },
   {
-    authors: "GeeksforGeeks",
-    year: "2022",
-    title: "Preemptive Priority CPU Scheduling Algorithm.",
-    source: "GeeksforGeeks.",
-    url: "https://www.geeksforgeeks.org/operating-systems/preemptive-priority-cpu-scheduling-algortithm/",
-  },
-  {
-    authors: "Kutner, J.",
-    year: "2019",
-    title: "We're Go On That Alarm: Inside the Apollo Operating System.",
-    source: "Software's Giant Leap (Medium).",
-    url: "https://medium.com/softwares-giant-leap/were-go-on-that-alarm-inside-the-apollo-operating-system-8d753e7a1e17",
-  },
-  {
-    authors: "Mattioli, M.",
-    year: "2021",
-    title: "Apollo Guidance Computer.",
-    source: "IEEE Micro, 41(6).",
-    url: "https://www.computer.org/csdl/magazine/mi/2021/06/09623432/1yJTxgRWQgg",
-  },
-  {
-    authors: "MIT Instrumentation Laboratory",
-    year: "n.d.",
-    title: "Apollo Guidance Computer Documentation.",
-    source: "ibiblio Apollo Guidance Computer Archive.",
-    url: "https://www.ibiblio.org/apollo/",
-  },
-  {
-    authors: "NASA",
-    year: "2025",
-    title: "Apollo 11 Mission Overview.",
-    source: "NASA.",
-    url: "https://www.nasa.gov/mission/apollo-11/",
-  },
-  {
-    authors: "NASA",
-    year: "n.d.",
-    title: "The Apollo Lunar Surface Journal and Apollo Flight Journal.",
-    source: "NASA.",
-    url: "https://www.hq.nasa.gov/alsj/",
-  },
-  {
-    authors: "NASA History Division",
-    year: "n.d.",
-    title: "Apollo 11 Lunar Surface Journal.",
-    source: "NASA History.",
-    url: "https://history.nasa.gov/alsj/a11/a11.html",
-  },
-  {
-    authors: "NASA Science",
-    year: "n.d.",
-    title: "Margaret Hamilton.",
-    source: "NASA Science.",
-    url: "https://science.nasa.gov/people/margaret-hamilton/",
-  },
-  {
-    authors: "Royal Museums Greenwich",
-    year: "n.d.",
-    title: "Apollo 11 Moon landing: minute by minute.",
-    source: "Royal Museums Greenwich.",
-    url: "https://www.rmg.co.uk/stories/topics/apollo-11-moon-landing-minute-minute",
-  },
-  {
-    authors: "Shirriff, K.",
-    year: "2019",
-    title:
-      "A Computer Built from NOR Gates: Inside the Apollo Guidance Computer.",
-    source: "Righto.",
-    url: "https://www.righto.com/2019/09/",
-  },
-  {
-    authors: "Virtual AGC",
-    year: "n.d.",
-    title: "Luminary099: Apollo Lunar Module Guidance Computer Software.",
-    source: "GitHub.",
-    url: "https://github.com/virtualagc/virtualagc/tree/master/Luminary099",
+    label: "Supporting Articles",
+    items: [
+      {
+        authors: "Kutner, J.",
+        year: "2019",
+        title: "We're Go On That Alarm: Inside the Apollo Operating System.",
+        source: "Software's Giant Leap (Medium).",
+        url: "https://medium.com/softwares-giant-leap/were-go-on-that-alarm-inside-the-apollo-operating-system-8d753e7a1e17",
+      },
+      {
+        authors: "Royal Museums Greenwich",
+        year: "n.d.",
+        title: "Apollo 11 Moon landing: minute by minute.",
+        source: "Royal Museums Greenwich.",
+        url: "https://www.rmg.co.uk/stories/topics/apollo-11-moon-landing-minute-minute",
+      },
+    ],
   },
 ];
 
-const sorted = [...references].sort((a, b) =>
-  a.authors.localeCompare(b.authors),
-);
+// Sort each group alphabetically by author; preserve group order.
+const sortedGroups = referenceGroups.map((group) => ({
+  label: group.label,
+  items: [...group.items].sort((a, b) => a.authors.localeCompare(b.authors)),
+}));
+
+const totalRefs = sortedGroups.reduce((n, g) => n + g.items.length, 0);
 ---
 
 <section id="references" class="references">
@@ -140,34 +164,46 @@ const sorted = [...references].sort((a, b) =>
     </p>
 
     {
-      sorted.length === 0 ? (
+      totalRefs === 0 ? (
         <p class="references__empty">References will be listed here.</p>
       ) : (
-        <ol class="references__list">
-          {sorted.map((ref) => (
-            <li class="reference">
-              <span class="reference__authors">{ref.authors}</span>
-              {ref.year && <span class="reference__year"> ({ref.year}).</span>}
-              <span class="reference__ref-title"> {ref.title}</span>
-              {ref.source && (
-                <span class="reference__source"> {ref.source}</span>
-              )}
-              {ref.url && (
-                <>
-                  {" "}
-                  <a
-                    class="reference__link"
-                    href={ref.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {ref.url}
-                  </a>
-                </>
-              )}
-            </li>
-          ))}
-        </ol>
+        <div class="references__list">
+          {sortedGroups.map(
+            (group) =>
+              group.items.length > 0 && (
+                <div class="references__group">
+                  <h2 class="references__group-title">{group.label}</h2>
+                  <ol class="references__group-list">
+                    {group.items.map((ref) => (
+                      <li class="reference">
+                        <span class="reference__authors">{ref.authors}</span>
+                        {ref.year && (
+                          <span class="reference__year"> ({ref.year}).</span>
+                        )}
+                        <span class="reference__ref-title"> {ref.title}</span>
+                        {ref.source && (
+                          <span class="reference__source"> {ref.source}</span>
+                        )}
+                        {ref.url && (
+                          <>
+                            {" "}
+                            <a
+                              class="reference__link"
+                              href={ref.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {ref.url}
+                            </a>
+                          </>
+                        )}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              ),
+          )}
+        </div>
       )
     }
   </div>
@@ -297,7 +333,7 @@ const sorted = [...references].sort((a, b) =>
   .references__lede {
     max-width: 52ch;
     color: var(--text-secondary);
-    margin-bottom: var(--space-lg);
+    margin-bottom: 1.25rem;
   }
 
   .references__empty {
@@ -306,10 +342,44 @@ const sorted = [...references].sort((a, b) =>
   }
 
   .references__list {
-    list-style: none;
-    display: grid;
-    gap: var(--space-sm);
     counter-reset: ref;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  .references__group {
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+  }
+
+  .references__group-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 0.75rem; /* kill inherited h2 top margin — the real cause of the gap */
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: var(--fw-medium);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  /* Trailing rule so each tier reads as its own block. */
+  .references__group-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .references__group-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
   }
 
   .reference {
