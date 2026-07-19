@@ -430,22 +430,24 @@ const nodes = [
       filter 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .chip-node:hover {
-    scale: 1.15;
-  }
-
   .chip-node.hinted {
     animation: pulseGlow 2.2s ease-in-out infinite;
   }
 
-  .chip-node.hinted:hover {
-    animation: none;
-    scale: 1.15;
-    filter: brightness(1.4) contrast(1.2);
-    box-shadow:
-      0 0 0 8px rgba(245, 192, 0, 0.4),
-      0 0 35px rgba(255, 250, 160, 0.95),
-      0 0 55px rgba(167, 139, 250, 0.5);
+  @media (hover: hover) {
+    .chip-node:hover {
+      scale: 1.15;
+    }
+
+    .chip-node.hinted:hover {
+      animation: none;
+      scale: 1.15;
+      filter: brightness(1.4) contrast(1.2);
+      box-shadow:
+        0 0 0 8px rgba(245, 192, 0, 0.4),
+        0 0 35px rgba(255, 250, 160, 0.95),
+        0 0 55px rgba(167, 139, 250, 0.5);
+    }
   }
 
   .chip-node::before {
