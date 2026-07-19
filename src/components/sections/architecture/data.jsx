@@ -12,14 +12,14 @@ export const nodes = [
       <>
         The AGC used a real-time operating system called <code>EXECUTIVE</code> to
         manage software jobs. Every scheduled job required <strong>one of only
-        eight core sets</strong>, each containing <strong>12 erasable memory
-        registers</strong> that stored the job's execution state. This allowed
+          eight core sets</strong>, each containing <strong>12 erasable memory
+            registers</strong> that stored the job's execution state. This allowed
         interrupted jobs to resume later. As more jobs competed for these limited
         resources, the processor had to manage more work simultaneously,
         increasing its overall processor workload.
       </>
     ),
-    takeaway: "The AGC continuously managed competing jobs using a small pool of processing resources. Even under heavy demand during the lunar descent, this efficient workload management allowed the resource-constrained computer to support a successful landing."
+    takeaway: "The AGC continuously managed competing jobs using a small pool of processing resources. Even under heavy demand during the lunar descent, the workload management allowed the computer to support a successful landing."
   },
   {
     id: "priority",
@@ -33,7 +33,7 @@ export const nodes = [
     content: (
       <>
         The AGC used a <strong>preemptive priority-based scheduling
-        algorithm</strong>. Every job was assigned a priority level, allowing
+          algorithm</strong>. Every job was assigned a priority level, allowing
         higher-priority jobs to interrupt lower-priority ones when necessary.
         Jobs requiring additional temporary storage could also request one of
         <strong> five Vector Accumulator (VAC) areas</strong>. During processor
@@ -74,7 +74,7 @@ export const nodes = [
         The <code>1201</code> and <code>1202</code> alarms were not signs of hardware failure, but warnings of memory constraints. An <strong>Executive Overflow</strong> meant the operating system had exhausted its scheduling resources. A <code>1202</code> alarm meant <strong>no core sets were available</strong>, while a <code>1201</code> alarm meant <strong>no Vector Accumulator (VAC) areas remained</strong> for temporary storage. These alarms indicated that the computer had reached its resource limits while trying to manage unnecessary radar processing requests.
       </>
     ),
-    takeaway: "The alarms warned that scheduling resources were exhausted, not that the computer had crashed. Rather than signaling mission failure, they warned that the computer had reached its memory limits while continuing to protect critical flight operations."
+    takeaway: "The alarms warned that scheduling resources were exhausted, not that the computer had crashed. Rather than signaling mission failure, the alarms actually demonstrated that the computer was working as intended, still successfully managing resources to protect critical flight operations."
   },
   {
     id: "recovery",
@@ -90,6 +90,6 @@ export const nodes = [
         The AGC was designed for fault recovery from overloads instead of shutting down. When the <code>EXECUTIVE</code> could no longer allocate scheduling resources, it invoked the <code>BAILOUT1</code> recovery routine. The system performed a <strong>software restart</strong>, discarded unnecessary <strong>low-priority jobs</strong>, and restarted essential guidance and control programs near where they had been interrupted.
       </>
     ),
-    takeaway: "Automatic recovery allowed the AGC to continue operating without interrupting critical flight functions. Because essential flight data and high-priority tasks were preserved, the Lunar Module remained under control despite repeated overloads, ultimately enabling a successful landing."
+    takeaway: "Automatic recovery allowed the AGC to continue operating without interrupting its critical flight functions. Since essential flight data and high-priority tasks were preserved, the Lunar Module remained under control even with the repeated executive overflows, which ultimately led to a successful landing."
   }
 ];

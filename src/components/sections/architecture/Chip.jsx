@@ -47,7 +47,7 @@ export default function Chip() {
                         <g key={i}>
                             <path d={trace.d} className={`chip-trace-path ${trace.gold ? "gold" : ""}`} />
                             {trace.endpoint && (
-                                <circle cx={trace.endpoint[0]} cy={trace.endpoint[1]} r="3" className="chip-trace-node" />
+                                <circle cx={trace.endpoint[0]} cy={trace.endpoint[1]} r="4.5" className="chip-trace-node" />
                             )}
                         </g>
                     ))}
