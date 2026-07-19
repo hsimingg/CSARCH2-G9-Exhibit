@@ -1,1 +1,0 @@
-// Main interactive component where visitors make engineering decisions to prevent.

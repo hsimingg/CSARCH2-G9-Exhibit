@@ -61,28 +61,30 @@ const lessons = [
 
 <section id="lessons" class="lessons">
   <div class="lessons__moon-wrap" aria-hidden="true">
-    <img class="lessons__moon" src="/moon.svg" alt="" />
+    <img class="lessons__moon" src="/CSARCH2-G9-Exhibit/moon.svg" alt="" />
   </div>
 
   <div class="lessons__inner">
-    <p class="lessons__eyebrow">06 — Debrief</p>
-    <h2 class="lessons__title">Lessons Learned</h2>
-    <p class="lessons__lede">
+    <p class="section-kicker">Apollo 11 / Debrief</p>
+    <h1 class="section-heading">Lessons Learned</h1>
+    <p class="lessons__lede section-lede">
       What a resource-starved 1960s computer still teaches us about building
       systems that hold together under pressure.
     </p>
 
     <ol class="lessons__list">
-      {lessons.map((lesson) => (
-        <li class="lesson">
-          <div class="lesson__index">{lesson.index}</div>
-          <div class="lesson__main">
-            <span class="lesson__tag">{lesson.tag}</span>
-            <h3 class="lesson__title">{lesson.title}</h3>
-            <p class="lesson__body">{lesson.body}</p>
-          </div>
-        </li>
-      ))}
+      {
+        lessons.map((lesson) => (
+          <li class="lesson">
+            <div class="lesson__index">{lesson.index}</div>
+            <div class="lesson__main">
+              <span class="lesson__tag">{lesson.tag}</span>
+              <h3 class="lesson__title">{lesson.title}</h3>
+              <p class="lesson__body">{lesson.body}</p>
+            </div>
+          </li>
+        ))
+      }
     </ol>
   </div>
 </section>
@@ -95,14 +97,17 @@ const lessons = [
 
       // Clip the pinned moon to this section's on-screen bounds so it is cut at
       // the section edges and never bleeds into the sections above/below.
-      const wrap = section.querySelector(".lessons__moon-wrap");
+      const wrap = section.querySelector(
+        ".lessons__moon-wrap",
+      ) as HTMLElement | null;
       if (wrap) {
         let clipTicking = false;
         const clip = () => {
           clipTicking = false;
           const r = section.getBoundingClientRect();
           const h = wrap.offsetHeight || 1;
-          const vh = window.innerHeight || document.documentElement.clientHeight;
+          const vh =
+            window.innerHeight || document.documentElement.clientHeight;
           const wrapTop = vh / 2 - h / 2;
           const wrapBottom = vh / 2 + h / 2;
           const top = Math.min(Math.max(r.top - wrapTop, 0), h);
@@ -116,26 +121,47 @@ const lessons = [
           }
         };
         window.addEventListener("scroll", onScrollClip, { passive: true });
-        window.addEventListener("resize", clip);
-        clip();
+        const updateClip = () => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                clip();
+                wrap.style.visibility = "visible";
+                wrap.style.opacity = "0.6";
+              });
+            });
+          });
+        };
+
+        window.addEventListener("load", updateClip);
+        window.addEventListener("resize", updateClip);
+
+        if (document.readyState === "complete") {
+          updateClip();
+        }
+        wrap.style.visibility = "visible";
+        wrap.style.opacity = "0.6";
       }
 
       // Shared moon scroll-spin — set up once, even though both sections ship it.
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (!reduce && !window.__moonSpin) {
-        window.__moonSpin = true;
+      const moonState = window as any;
+      const reduce = moonState.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      if (!reduce && !moonState.__moonSpin) {
+        moonState.__moonSpin = true;
         let rot = 0;
-        let lastY = window.scrollY || window.pageYOffset || 0;
+        let lastY = moonState.scrollY || moonState.pageYOffset || 0;
         let spinTicking = false;
         const FACTOR = 0.1; // degrees of spin per pixel scrolled
         const apply = () => {
-          const y = window.scrollY || window.pageYOffset || 0;
+          const y = moonState.scrollY || moonState.pageYOffset || 0;
           rot += (y - lastY) * FACTOR; // down -> clockwise, up -> counter-clockwise
           lastY = y;
           document.documentElement.style.setProperty("--moon-rot", rot + "deg");
           spinTicking = false;
         };
-        window.addEventListener(
+        moonState.addEventListener(
           "scroll",
           () => {
             if (!spinTicking) {
@@ -143,7 +169,7 @@ const lessons = [
               requestAnimationFrame(apply);
             }
           },
-          { passive: true }
+          { passive: true },
         );
       }
     };
@@ -179,15 +205,6 @@ const lessons = [
     z-index: 1; /* above the moon */
     max-width: 52rem;
     margin-inline: auto; /* centers the text in the space right of the moon */
-  }
-
-  .lessons__eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--primary-light);
-    margin-bottom: var(--space-xs);
   }
 
   .lessons__title {
@@ -259,7 +276,10 @@ const lessons = [
     width: min(64vw, 96vh, 1180px);
     height: auto;
     transform: translate(-50%, -50%);
-    opacity: 0.6;
+
+    opacity: 0;
+    visibility: hidden;
+
     pointer-events: none;
     clip-path: inset(50% 0px 50% 0px);
   }

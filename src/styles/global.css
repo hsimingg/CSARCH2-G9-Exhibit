@@ -155,6 +155,33 @@ p{
     color:var(--text-secondary);
 }
 
+.section-kicker{
+    font-family:var(--font-mono);
+    font-size:0.9rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:var(--space-xs);
+}
+
+.section-heading{
+    margin:0;
+    font-size:clamp(2rem,5vw,3.25rem);
+    line-height:1.2;
+}
+
+.section-rule{
+    width:100%;
+    border:0;
+    border-top:1px solid color-mix(in srgb, var(--border) 140%, transparent);
+    margin:0.5rem 0 1.5rem;
+}
+
+.section-lede{
+    max-width:68ch;
+    color:var(--text-secondary);
+}
+
 code,
 pre,
 .mono{
@@ -327,3 +354,60 @@ section{
         pointer-events:auto;
     }
 }
+
+
+/* =======================
+   CONSTELLATION TIMELINE 
+======================= */
+
+.timeline-container {
+  background-color: #06060F; 
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px);
+  background-size: 100px 100px, 150px 150px;
+  background-position: 0 0, 50px 50px;
+}
+
+.star-node {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  filter: drop-shadow(0px 0px 8px rgba(245, 200, 0, 0.8)); 
+}
+
+.star-node:hover {
+  transform: scale(1.2);
+}
+
+.star-glow {
+  filter: drop-shadow(0 0 6px var(--amber));
+}
+
+.star-flash {
+  animation: flashStar 1.5s infinite alternate;
+}
+
+@keyframes flashStar {
+  0% { 
+    filter: drop-shadow(0 0 2px rgba(167, 139, 250, 0.4)); 
+    transform: translate(-50%, -50%) scale(1); 
+  }
+  100% { 
+    filter: drop-shadow(0 0 8px var(--glow-primary)); 
+    transform: translate(-50%, -50%) scale(1.2); 
+  }
+}
+
+.rocket-transition {
+  transition: all 1s ease-in-out;
+}
+
+.card-popup {
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+

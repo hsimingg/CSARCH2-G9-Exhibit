@@ -1,7 +1,239 @@
 ---
-
+import MissionControlSimulation from "./simulation/MissionControlSimulation.jsx";
 ---
 
-<section id="interactive">
-  <h1 class="section-title">Interactive Simulation</h1>
+<section id="interactive" class="interactive-section">
+  <div class="interactive-shell">
+    <header class="interactive-header">
+      <p class="section-kicker">Apollo 11 / Mission Control</p>
+      <h1 class="section-heading">Mission Control: Handle the 1202 Alarm</h1>
+      <hr class="section-rule" />
+      <p class="interactive-briefing">
+        The Apollo 11 1202 alarm was not a simple system crash. It was a program
+        alarm caused by computer overload during the lunar descent. The Apollo
+        Guidance Computer had to keep supporting critical landing tasks while
+        managing limited processing resources.
+      </p>
+      <p class="interactive-briefing">
+        In this simulation, you act as a Mission Control engineer responding to
+        the alarm. Your decisions shape the computer load and the final GO or
+        ABORT recommendation.
+      </p>
+    </header>
+
+    <article class="interactive-card interactive-explanation card">
+      <h2>What This Shows</h2>
+      <p>
+        This simulation shows how computer architecture concepts apply in
+        real-time systems. During an overload, the key issue is not only raw
+        speed, but how the system prioritizes tasks, handles errors, and
+        preserves critical operations.
+      </p>
+      <p>
+        The activity connects the Apollo 11 1202 alarm to processor workload,
+        task prioritization, real-time execution, and fault recovery.
+      </p>
+    </article>
+
+    <MissionControlSimulation client:load />
+
+    <div class="interactive-grid">
+      <div class="interactive-card how-to-card card">
+        <div class="how-to-details">
+          <ul>
+            <li>
+              Review the computer message, mission details, and current system
+              status.
+            </li>
+            <li>
+              Choose whether to abort, continue the descent, or check task
+              priority.
+            </li>
+            <li>
+              Prioritize the task that should receive processor attention during
+              the overload.
+            </li>
+            <li>
+              Monitor how each decision changes the computer load and risk
+              level.
+            </li>
+            <li>
+              Use the final system recommendation to decide whether to give a GO
+              or ABORT command.
+            </li>
+          </ul>
+        </div>
+
+        <div class="how-to-divider"></div>
+
+        <div class="how-to-title-wrap">
+          <h3>How to<br />Play</h3>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  /* ── Section shell ─────────────────────────────────────────────── */
+  .interactive-section {
+    position: relative;
+    width: 100%;
+    /* override global section { padding: 8% } */
+    padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 3vw, 2.5rem);
+    background:
+      radial-gradient(circle at top, rgba(124, 58, 237, 0.16), transparent 34%),
+      linear-gradient(180deg, rgba(6, 6, 15, 0.98), rgba(12, 12, 30, 1));
+  }
+
+  .interactive-shell {
+    width: min(1200px, 90vw);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.75rem, 4vw, 2.75rem);
+  }
+
+  /* ── Header ────────────────────────────────────────────────────── */
+  .interactive-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .interactive-header .section-heading {
+    line-height: 1.3;
+  }
+
+  .interactive-briefing {
+    color: var(--text-secondary);
+  }
+
+  /* ── Stacked cards ─────────────────────────────────────────────── */
+  .interactive-grid {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .interactive-card {
+    width: 100%;
+    padding: clamp(1.25rem, 2.5vw, 2rem);
+    background: linear-gradient(
+      180deg,
+      rgba(19, 19, 58, 0.92),
+      rgba(16, 16, 42, 0.96)
+    );
+    border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+    box-shadow: var(--shadow-md);
+  }
+
+  .interactive-card h2 {
+    margin-bottom: 0.85rem;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+  }
+
+  .interactive-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding-left: 1.15rem;
+    list-style: disc;
+    color: var(--text-secondary);
+  }
+
+  .interactive-list li {
+    padding-left: 0.25rem;
+    line-height: 1.45;
+  }
+
+  .interactive-card p + p {
+    margin-top: 0.9rem;
+  }
+
+  /* ── How to Play card ─────────────────────────────────────────── */
+  .how-to-card {
+    display: grid;
+    grid-template-columns: 3fr auto 1fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+    width: 100%;
+  }
+
+  .how-to-title-wrap {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .how-to-title-wrap h3 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  .how-to-divider {
+    width: 1px;
+    height: 100%;
+    min-height: 60px;
+    background: color-mix(in srgb, var(--text-primary) 45%, transparent);
+  }
+
+  .how-to-details {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .how-to-details ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style: disc;
+    color: var(--text-secondary);
+  }
+
+  .how-to-details li {
+    margin-bottom: 0.45rem;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 800px) {
+    .how-to-card {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .how-to-title-wrap {
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .how-to-title-wrap h3 {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .how-to-divider {
+      width: 100%;
+      height: 1px;
+      min-height: 0;
+    }
+  }
+
+  /* Simulation wrapper — no extra padding, just let the component fill */
+  .interactive-card-wide {
+    padding: clamp(0.5rem, 1vw, 1rem);
+    overflow: hidden;
+  }
+
+  /* ── Mobile ────────────────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .interactive-section {
+      padding: clamp(3rem, 8vw, 5rem) 1rem;
+    }
+
+    .interactive-card {
+      padding: 1.1rem;
+    }
+  }
+</style>

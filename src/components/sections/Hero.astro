@@ -1,7 +1,180 @@
----
+<section id="hero" class="hero-section">
+  <div class="content-left">
+    <h1>
+      <span class="go">GO</span> or <span class="abort">ABORT</span>:<br/>
+      The Apollo 11 1202 Alarm
+    </h1>
+    <p>
+      A virtual exhibit about how the Apollo Guidance Computer handled overload during the Moon landing.
+    </p>
+    
+    <div class="button-group">
+      <button id="btn-initiate" class="btn-primary">INITIATE LAUNCH</button>
+      
+      <a href="#interactive" class="btn-secondary">START SIMULATION</a>
+    </div>
+  </div>
 
----
-
-<section id="hero">
-  <h1 class="section-title">Hero</h1>
+  <div class="content-right">
+    <div class="rocket-wrapper">
+      <img 
+        id="rocket" 
+        src="/CSARCH2-G9-Exhibit/rocket.jpg" 
+        alt="Apollo 11 Rocket Launch" 
+      />
+    </div>
+  </div>
 </section>
+
+<style>
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80vh;
+    padding: 0 4rem;
+  }
+
+  .content-left {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .content-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .go { color: #F5C800; }
+  .abort { color: #7C3AED; }
+
+  p {
+    font-size: 1.1rem;
+    color: #cccccc;
+    margin-bottom: 2rem;
+    max-width: 80%;
+    line-height: 1.5;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-family: sans-serif;
+  }
+
+  .btn-primary {
+    background-color: #7C3AED;
+    color: white;
+    border: none;
+    box-shadow: 0 0 10px #A78BFA;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 20px #A78BFA;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: #A78BFA;
+    border: 2px solid #A78BFA;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-secondary:hover {
+    background-color: #13133A;
+  }
+
+  .rocket-wrapper {
+    overflow: visible;
+  }
+
+  #rocket {
+    width: 300px;
+    border-radius: 8px;
+    transition: transform 2s ease-in; 
+  }
+
+  .launch-animation {
+    transform: translateY(-1500px); 
+  }
+
+/* For mobile users */
+  @media (max-width: 900px) {
+    .hero-section {
+      flex-direction: column; 
+      justify-content: center;
+      padding: 6rem 1.5rem 3rem 1.5rem; 
+      text-align: left; 
+    }
+
+    .content-left {
+      max-width: 100%; 
+      width: 100%;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 10vw, 3.5rem); 
+      word-wrap: break-word;
+    }
+
+    p {
+      max-width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    .button-group {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-primary, .btn-secondary {
+      width: 100%; 
+    }
+
+    .content-right {
+      width: 100%;
+      margin-top: 2rem;
+    }
+
+    #rocket {
+      margin: 0 auto; 
+      display: block;
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>
+
+<script>
+  const initiateBtn = document.getElementById('btn-initiate');
+  const rocket = document.getElementById('rocket');
+
+  // Launch rocket and scroll to the next section after a 1 second delay
+  initiateBtn?.addEventListener('click', () => {
+    rocket?.classList.add('launch-animation');
+    setTimeout(() => {
+      document.getElementById('background')?.scrollIntoView({ behavior: 'smooth' });
+    }, 1000); 
+  });
+  
+</script>

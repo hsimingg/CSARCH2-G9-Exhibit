@@ -63,6 +63,13 @@ const references = [
     url: "https://www.computer.org/csdl/magazine/mi/2021/06/09623432/1yJTxgRWQgg",
   },
   {
+    authors: "MIT Instrumentation Laboratory",
+    year: "n.d.",
+    title: "Apollo Guidance Computer Documentation.",
+    source: "ibiblio Apollo Guidance Computer Archive.",
+    url: "https://www.ibiblio.org/apollo/",
+  },
+  {
     authors: "NASA",
     year: "2025",
     title: "Apollo 11 Mission Overview.",
@@ -70,18 +77,32 @@ const references = [
     url: "https://www.nasa.gov/mission/apollo-11/",
   },
   {
-    authors: "NASA History",
+    authors: "NASA",
+    year: "n.d.",
+    title: "The Apollo Lunar Surface Journal and Apollo Flight Journal.",
+    source: "NASA.",
+    url: "https://www.hq.nasa.gov/alsj/",
+  },
+  {
+    authors: "NASA History Division",
     year: "n.d.",
     title: "Apollo 11 Lunar Surface Journal.",
     source: "NASA History.",
     url: "https://history.nasa.gov/alsj/a11/a11.html",
   },
   {
-    authors: "MIT Instrumentation Laboratory",
+    authors: "NASA Science",
     year: "n.d.",
-    title: "Apollo Guidance Computer Documentation.",
-    source: "ibiblio Apollo Guidance Computer Archive.",
-    url: "https://www.ibiblio.org/apollo/",
+    title: "Margaret Hamilton.",
+    source: "NASA Science.",
+    url: "https://science.nasa.gov/people/margaret-hamilton/",
+  },
+  {
+    authors: "Royal Museums Greenwich",
+    year: "n.d.",
+    title: "Apollo 11 Moon landing: minute by minute.",
+    source: "Royal Museums Greenwich.",
+    url: "https://www.rmg.co.uk/stories/topics/apollo-11-moon-landing-minute-minute",
   },
   {
     authors: "Shirriff, K.",
@@ -107,13 +128,13 @@ const sorted = [...references].sort((a, b) =>
 
 <section id="references" class="references">
   <div class="references__moon-wrap" aria-hidden="true">
-    <img class="references__moon" src="/moon.svg" alt="" />
+    <img class="references__moon" src="/CSARCH2-G9-Exhibit/moon.svg" alt="" />
   </div>
 
   <div class="references__inner">
-    <p class="references__eyebrow">07 — Sources</p>
-    <h2 class="references__title">References</h2>
-    <p class="references__lede">
+    <p class="section-kicker">Apollo 11 / Sources</p>
+    <h1 class="section-heading">References</h1>
+    <p class="references__lede section-lede">
       Sources consulted for the historical account and the computer-architecture
       explanations in this exhibit.
     </p>
@@ -184,8 +205,26 @@ const sorted = [...references].sort((a, b) =>
           }
         };
         window.addEventListener("scroll", onScrollClip, { passive: true });
-        window.addEventListener("resize", clip);
-        clip();
+        const updateClip = () => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                clip();
+                wrap.style.visibility = "visible";
+                wrap.style.opacity = "0.6";
+              });
+            });
+          });
+        };
+
+        window.addEventListener("load", updateClip);
+        window.addEventListener("resize", updateClip);
+
+        if (document.readyState === "complete") {
+          updateClip();
+        }
+        wrap.style.visibility = "visible";
+        wrap.style.opacity = "0.6";
       }
 
       // Shared moon scroll-spin — set up once (guarded by window.__moonSpin).
@@ -249,15 +288,6 @@ const sorted = [...references].sort((a, b) =>
     z-index: 1; /* above the moon */
     max-width: 52rem;
     margin-inline: auto; /* centers the text in the space right of the moon */
-  }
-
-  .references__eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--primary-light);
-    margin-bottom: var(--space-xs);
   }
 
   .references__title {
@@ -342,7 +372,10 @@ const sorted = [...references].sort((a, b) =>
     width: min(64vw, 96vh, 1180px);
     height: auto;
     transform: translate(-50%, -50%);
-    opacity: 0.6;
+
+    opacity: 0;
+    visibility: hidden;
+
     pointer-events: none;
     clip-path: inset(50% 0px 50% 0px);
   }
