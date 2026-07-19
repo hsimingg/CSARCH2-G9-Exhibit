@@ -169,7 +169,7 @@
     box-shadow:
         0 0 0 6px rgba(245, 192, 0, 0.05),
         0 0 14px rgba(245, 192, 0, 0.18);
-    transition: scale 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: scale 300ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1), background 300ms cubic-bezier(0.4, 0, 0.2, 1), border-color 300ms cubic-bezier(0.4, 0, 0.2, 1), filter 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .chip-node:hover {
@@ -225,15 +225,6 @@
 
     0%,
     100% {
-        filter: brightness(1);
-        scale: 1;
-        box-shadow:
-            0 0 0 6px rgba(245, 192, 0, 0.12),
-            0 0 22px rgba(255, 224, 110, 0.72),
-            0 0 38px rgba(167, 139, 250, 0.22);
-    }
-
-    50% {
         filter: brightness(1.4) contrast(1.2);
         scale: 1.15;
         box-shadow:
@@ -241,13 +232,22 @@
             0 0 35px rgba(255, 250, 160, 0.95),
             0 0 55px rgba(167, 139, 250, 0.5);
     }
+
+    50% {
+        filter: brightness(1);
+        scale: 1;
+        box-shadow:
+            0 0 0 6px rgba(245, 192, 0, 0.12),
+            0 0 22px rgba(255, 224, 110, 0.72),
+            0 0 38px rgba(167, 139, 250, 0.22);
+    }
 }
 
 /* ---------- INFO PANEL ---------- */
 
 .info-panel {
     height: 460px;
-    padding: 2rem;
+    padding: 2rem 1rem 2rem 2rem;
     border: 1px solid color-mix(in srgb, var(--primary-light) 18%, var(--border));
     background:
         radial-gradient(circle at top right, rgba(167, 139, 250, 0.12), transparent 35%),
@@ -255,32 +255,11 @@
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 1rem;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--amber) transparent;
-
-    scrollbar-gutter: stable;
-}
-
-.info-panel::-webkit-scrollbar {
-    width: 6px;
-}
-
-.info-panel::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.info-panel::-webkit-scrollbar-thumb {
-    background: var(--gold);
-    border-radius: 4px;
 }
 
 .info-panel-empty {
     display: flex;
     align-items: center;
-    margin: auto 0;
 }
 
 .info-panel-short {
@@ -318,8 +297,32 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin: auto 0;
     animation: panelFadeIn 400ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--amber) transparent;
+}
+
+.info-panel-content::before,
+.info-panel-content::after {
+    content: "";
+    margin: auto;
+}
+
+.info-panel-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.info-panel-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.info-panel-content::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 4px;
 }
 
 @keyframes panelFadeIn {
