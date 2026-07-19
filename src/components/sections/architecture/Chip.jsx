@@ -21,7 +21,7 @@ function ChipPins({ side, count }) {
 // -> endpoint) plus the node that sits at its tip, so a line and its
 // dot can never end up out of sync.
 const traces = [
-    { d: "M 33.5 29 L 33.5 9 L 14 9", gold:true}, // endpoint: [14, 9]
+    { d: "M 33.5 29 L 33.5 9 L 14 9", gold: true }, // endpoint: [14, 9]
     { d: "M 50 29 L 50 0", gold: true }, // endpoint: [50,0], 
     { d: "M 66.5 29 L 66.5 15 L 88 15", endpoint: [88, 15] },
     { d: "M 71 43 L 99 43", gold: true }, //  endpoint: [99, 43],
@@ -29,7 +29,7 @@ const traces = [
     { d: "M 62 71 L 62 94 L 82 94", gold: true }, // endpoint: [82, 94],
     { d: "M 38 71 L 38 96", endpoint: [38, 96] },
     { d: "M 29 60 L 6 60 L 6 80", gold: true }, // endpoint: [6, 80], 
-    { d: "M 40 34 L 1 34", endpoint: [1, 34]},
+    { d: "M 40 34 L 1 34", endpoint: [1, 34] },
 
 ];
 
@@ -53,7 +53,7 @@ export default function Chip() {
                     ))}
                 </svg>
 
-                
+
 
                 <h1 className="chip">AGC</h1>
 
@@ -79,24 +79,26 @@ export default function Chip() {
                 aria-hidden={selected ? "false" : "true"}
             >
                 <div className="info-panel" onClick={(event) => event.stopPropagation()}>
-                {selected ? (
-                    <>
-                        <h3>{selected.title}</h3>
-                        <p className="info-panel-short">{selected.short}</p>
-                        <p>{selected.content}</p>
-                        <div className="takeaway">
-                            <h4>Key Takeaway</h4>
-                            <p>{selected.takeaway}</p>
-                        </div>
-                    </>
-                ) : (
-                    <div className="info-panel-empty">
-                        <p className="info-panel-hint">
-                            Select a yellow node to learn more about Apollo 11's
-                            AGC architecture!
-                        </p>
+                    <div className="info-panel-content" key={selected?.id || 'empty'}>
+                        {selected ? (
+                            <>
+                                <h3>{selected.title}</h3>
+                                <p className="info-panel-short">{selected.short}</p>
+                                <p>{selected.content}</p>
+                                <div className="takeaway">
+                                    <h4>Key Takeaway & Relevance to the Mission</h4>
+                                    <p>{selected.takeaway}</p>
+                                </div>
+                            </>
+                        ) : (
+                            <div className="info-panel-empty">
+                                <p className="info-panel-hint">
+                                    Select a yellow node to learn more about Apollo 11's
+                                    AGC architecture!
+                                </p>
+                            </div>
+                        )}
                     </div>
-                )}
                 </div>
             </div>
         </div>
