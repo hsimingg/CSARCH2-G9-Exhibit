@@ -179,36 +179,6 @@ return (
                   </svg>
                 </button>
                 
-              
-                {/* Event Info Card */}
-                {/*
-                {isVisited && (
-                  <div 
-                    className="card-popup border"
-                    style={{
-                      position: 'absolute', 
-                      ...ev.popupStyle, 
-                      width: '260px', // Made slightly wider for the new text
-                      backgroundColor: 'var(--bg-secondary)',
-                      padding: 'var(--space-md)', 
-                      borderRadius: 'var(--radius-sm)', 
-                      zIndex: 200, 
-                      boxShadow: 'var(--shadow-md)'
-                    }}
-                  >
-                    <h4 style={{ margin: '0 0 4px 0', color: 'var(--amber)', fontSize: '1rem' }}>{ev.title}</h4>
-                    <span style={{ display: 'block', fontSize: '0.75rem', color: 'var(--primary-light)', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                      {ev.timestamp}
-                    </span>
-                    <p style={{ margin: '0 0 8px 0', fontSize: '0.85rem', lineHeight: '1.4', color: 'var(--text-primary)' }}>
-                      <strong>What happened:</strong> {ev.what}
-                    </p>
-                    <p style={{ margin: 0, fontSize: '0.85rem', lineHeight: '1.4', color: 'var(--text-secondary)' }}>
-                      <strong>Why it mattered:</strong> {ev.why}
-                    </p>
-                  </div>
-                )}
-                */}
                 <div style={{
                   position: 'absolute',
                   top: '20px',
