@@ -31,7 +31,7 @@ export default function ConstellationTimeline() {
       what: "Jack Garman says 'We're Go on that alarm.'", why: "Landing trajectory remains safe."
     },
     { 
-      id: 5, x: 45, y: 80, // Bottom Center (STOPS BEFORE THE PANEL!)
+      id: 5, x: 45, y: 80, // Bottom Center 
       title: "6. Landing Continues", timestamp: "Touchdown",
       what: "Armstrong takes manual control.", why: "The Eagle lands safely."
     }
@@ -59,14 +59,11 @@ export default function ConstellationTimeline() {
     const current = events[activeStep];
     const next = events[activeStep + 1];
     
-    // Calculate difference in coordinates
     const dx = next.x - current.x;
     const dy = next.y - current.y;
     
-    // Math.atan2 gives the angle in radians, convert to degrees
     let angle = Math.atan2(dy, dx) * (180 / Math.PI);
     
-    // Add 45 degrees because the emoji 🚀 is naturally drawn pointing up/right at a 45deg angle
     return angle + 45; 
   };
 
@@ -77,7 +74,7 @@ export default function ConstellationTimeline() {
     x: Math.random() * 100,
     y: Math.random() * 100,
     size: Math.random() * 3 + 1,
-    duration: Math.random() * 3 + 2, // Twinkle speed between 2s and 5s
+    duration: Math.random() * 3 + 2, 
     delay: Math.random() * 5
   }));
 
@@ -205,9 +202,9 @@ return (
               position: 'absolute',
               left: `${activeStep >= 0 ? events[activeStep].x : events[0].x}%`,
               top: `${activeStep >= 0 ? events[activeStep].y : events[0].y}%`,
-              // USE THE NEW ROTATION FUNCTION HERE:
+              
               transform: `translate(-50%, -50%) rotate(${getRocketRotation()}deg)`,
-              transition: 'all 1s ease-in-out', // Smoothly animate position and rotation
+              transition: 'all 1s ease-in-out', 
               fontSize: '2rem', 
               zIndex: 50, 
               pointerEvents: 'none'
@@ -225,7 +222,7 @@ return (
                 bottom: 'var(--space-md)',
                 left: 'var(--space-md)',
                 width: '320px',
-                backgroundColor: 'rgba(9, 10, 15, 0.9)', /* Slightly transparent deep space background */
+                backgroundColor: 'rgba(9, 10, 15, 0.9)', 
                 backdropFilter: 'blur(8px)',
                 padding: 'var(--space-md)',
                 borderRadius: 'var(--radius-md)',
