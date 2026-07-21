@@ -7,7 +7,7 @@ Live Website: [CSARCH2 G9 Virtual Exhibit](https://hsimingg.github.io/CSARCH2-G9
 
 The group used AI/LLM tools to assist with brainstorming, wording improvement, debugging guidance, layout planning, responsiveness suggestions, and documentation drafting. AI tools were used as support during development, but the final implementation, code revisions, testing, design choices, and submission decisions were reviewed and handled by the group members.
 
---
+---
 
 ## Final Development Documentation
 
