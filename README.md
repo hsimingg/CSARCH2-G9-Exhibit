@@ -96,7 +96,7 @@ This section documents the group’s final development progress, including secti
 
 #### Lessons Learned Section
 
-**Member:** Adolfo
+**Member:** Adolfo  
 **What changed:**  
 - fixed the moon clipping issue between sections
 - adjusted the moon's position to create a smoother visual transition
@@ -113,7 +113,7 @@ This section documents the group’s final development progress, including secti
 
 #### References Section
 
-**Member:** Adolfo
+**Member:** Adolfo  
 **What changed:**  
 - reorganized references into clearer categories for easier navigation
 - grouped sources into NASA/primary sources, technical references, and supporting articles
