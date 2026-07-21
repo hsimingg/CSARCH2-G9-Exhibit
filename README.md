@@ -3,6 +3,133 @@
 Live Website: [CSARCH2 G9 Virtual Exhibit](https://hsimingg.github.io/CSARCH2-G9-Exhibit/)
 
 ---
+## AI/LLM Disclosure
+
+The group used AI/LLM tools to assist with brainstorming, wording improvement, debugging guidance, layout planning, responsiveness suggestions, and documentation drafting. AI tools were used as support during development, but the final implementation, code revisions, testing, design choices, and submission decisions were reviewed and handled by the group members.
+
+--
+
+## Final Development Documentation
+
+This section documents the group’s final development progress, including section updates, technical decisions, creative decisions, challenges encountered, CSARCH2 concepts explained.
+
+---
+
+### Member Section Updates
+
+#### Hero / Landing Section
+
+**Member:** Mikael  
+**What changed:**  
+- 
+
+**Challenge encountered:**  
+- 
+
+**CSARCH2 concept explained:**  
+- 
+
+---
+
+#### Background Section
+
+**Member:** Mikael  
+**What changed:**  
+- 
+
+**Challenge encountered:**  
+- 
+
+**CSARCH2 concept explained:**  
+- 
+---
+
+#### Architecture Concept Section
+
+**Member:** Denise  
+**What changed:**  
+- more obvious flickering nodes and current node, larger node in mobile, put the info panel below chip in mobile added relevance of each concept to the mission, added cleaner transitions when hovering and changing info text. 
+
+**Challenge encountered:**  
+- css stuff. placement of the nodes would change because of the animation but was able to refactor so that the nodes would not stray from their intended placement while animation.
+
+**CSARCH2 concept explained:**  
+- how computer architecture, organization and hardware all tied together influence the systems behavior and performance
+(feel free to add or expound)
+
+---
+
+#### Timeline Section
+
+**Member:** Isaiah  
+**What changed:**  
+- built the interactive Apollo 11 constellation timeline showing the 1202 Program Alarm descent sequence
+- added animated background stars and a rocket that rotates and smoothly flies to each star as you click through the timeline
+- created a fixed "Mission Control" dashboard panel to display event details without cluttering up the constellation layout
+
+**Challenge encountered:**  
+- making event popups fit on floating stars without crowding the screen and blocking lower stars
+- adjusting star coordinate bounds to fit cleanly alongside the fixed dashboard UI
+- ensuring smooth rocket rotation and path transitions between constellation nodes
+
+**CSARCH2 concept explained:**  
+- core memory constraints, hardware interrupts, preemptive priority scheduling, real-time task shedding, and system fault recovery
+
+---
+
+#### Interactive Simulation Section
+
+**Member:** Kimberly  
+**What changed:**  
+- fixed the layout to have better seamless design and color coordination
+- added soft subtle animations
+- fixed mobile responsiveness of the section and the game
+- tweaked wordings to make it more interactive and a story
+- added story lore in the game to make the user immersed
+
+**Challenge encountered:**  
+- making the simulation feel like a problem story mission terminal instead of like a simple quiz
+- balancing historical accuracy with simplified game mechanics
+- making the simulation understandable, responsive, and visually consistent with the rest of the website
+- making the layout for mobile responsiveness
+
+**CSARCH2 concept explained:**  
+- processor workload, task prioritization, real-time execution, error handling, and fault recovery
+
+---
+
+#### Lessons Learned Section
+
+**Member:** Adolfo  
+**What changed:**  
+- fixed the moon clipping issue between sections
+- adjusted the moon's position to create a smoother visual transition
+- refined the overall spacing and layout for better visual consistency
+
+**Challenge encountered:**  
+- preventing the moon from being partially cut off when moving between sections
+- maintaining a smooth transition across different screen sizes and resolutions
+
+**CSARCH2 concept explained:**  
+- resource management, reliability, system design, and fault tolerance.
+
+---
+
+#### References Section
+
+**Member:** Adolfo  
+**What changed:**  
+- reorganized references into clearer categories for easier navigation
+- grouped sources into NASA/primary sources, technical references, and supporting articles
+- improved formatting and spacing to enhance readability
+
+**Challenge encountered:**  
+- maintaining readability while still providing sufficient source information
+
+**CSARCH2 concept explained:**  
+- the importance of using reliable technical documentation and primary sources when studying computer systems, architecture, and historical computing technologies such as the Apollo Guidance Computer.
+
+---
 
 # MC02 Mid-Milestone Development Update
 
