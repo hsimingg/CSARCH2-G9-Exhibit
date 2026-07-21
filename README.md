@@ -9,7 +9,7 @@ The group used AI/LLM tools to assist with brainstorming, wording improvement, d
 
 ---
 
-## Final Development Documentation
+# Final Development Documentation
 
 This section documents the group’s final development progress, including section updates, technical decisions, creative decisions, challenges encountered, CSARCH2 concepts explained.
 
