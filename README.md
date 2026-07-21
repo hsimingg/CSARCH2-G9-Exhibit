@@ -96,29 +96,34 @@ This section documents the group’s final development progress, including secti
 
 #### Lessons Learned Section
 
-**Member:** Adolfo  
+**Member:** Adolfo
 **What changed:**  
-- 
+- fixed the moon clipping issue between sections
+- adjusted the moon's position to create a smoother visual transition
+- refined the overall spacing and layout for better visual consistency
 
 **Challenge encountered:**  
-- 
+- preventing the moon from being partially cut off when moving between sections
+- maintaining a smooth transition across different screen sizes and resolutions
 
 **CSARCH2 concept explained:**  
-- 
+- resource management, reliability, system design, and fault tolerance.
 
 ---
 
 #### References Section
 
-**Member:** Adolfo  
+**Member:** Adolfo
 **What changed:**  
-- 
+- reorganized references into clearer categories for easier navigation
+- grouped sources into NASA/primary sources, technical references, and supporting articles
+- improved formatting and spacing to enhance readability
 
 **Challenge encountered:**  
-- 
+- maintaining readability while still providing sufficient source information
 
 **CSARCH2 concept explained:**  
-- 
+- the importance of using reliable technical documentation and primary sources when studying computer systems, architecture, and historical computing technologies such as the Apollo Guidance Computer.
 
 ---
 
