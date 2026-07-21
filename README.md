@@ -15,9 +15,7 @@ This section documents the group’s final development progress, including secti
 
 ---
 
-### Member Section Updates
-
-#### Hero / Landing Section
+### Hero / Landing Section
 
 **Member:** Mikael  
 **What changed:**  
@@ -33,7 +31,7 @@ This section documents the group’s final development progress, including secti
 
 ---
 
-#### Background Section
+### Background Section
 
 **Member:** Mikael  
 **What changed:**  
@@ -49,7 +47,7 @@ This section documents the group’s final development progress, including secti
 - processor data overload, real-time task management, processing time for critical functions
 ---
 
-#### Architecture Concept Section
+### Architecture Concept Section
 
 **Member:** Denise  
 **What changed:**  
@@ -64,7 +62,7 @@ This section documents the group’s final development progress, including secti
 
 ---
 
-#### Timeline Section
+### Timeline Section
 
 **Member:** Isaiah  
 **What changed:**  
@@ -82,7 +80,7 @@ This section documents the group’s final development progress, including secti
 
 ---
 
-#### Interactive Simulation Section
+### Interactive Simulation Section
 
 **Member:** Kimberly  
 **What changed:**  
@@ -103,7 +101,7 @@ This section documents the group’s final development progress, including secti
 
 ---
 
-#### Lessons Learned Section
+### Lessons Learned Section
 
 **Member:** Adolfo  
 **What changed:**  
@@ -120,7 +118,7 @@ This section documents the group’s final development progress, including secti
 
 ---
 
-#### References Section
+### References Section
 
 **Member:** Adolfo  
 **What changed:**  
