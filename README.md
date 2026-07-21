@@ -63,13 +63,17 @@ This section documents the group’s final development progress, including secti
 
 **Member:** Isaiah  
 **What changed:**  
-- 
+- built the interactive Apollo 11 constellation timeline showing the 1202 Program Alarm descent sequence
+- added animated background stars and a rocket that rotates and smoothly flies to each star as you click through the timeline
+- created a fixed "Mission Control" dashboard panel to display event details without cluttering up the constellation layout
 
 **Challenge encountered:**  
--
+- making event popups fit on floating stars without crowding the screen and blocking lower stars
+- adjusting star coordinate bounds to fit cleanly alongside the fixed dashboard UI
+- ensuring smooth rocket rotation and path transitions between constellation nodes
 
 **CSARCH2 concept explained:**  
-- 
+- core memory constraints, hardware interrupts, preemptive priority scheduling, real-time task shedding, and system fault recovery
 
 ---
 
