@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 export default function ConstellationTimeline() {
   const [activeStep, setActiveStep] = useState(-1);
+  const [burstStar, setBurstStar] = useState(null);
 
 
   const events = [
@@ -40,18 +41,14 @@ export default function ConstellationTimeline() {
   const handleStarClick = (id) => {
     if (id === activeStep + 1) {
       setActiveStep(id);
+      setBurstStar(id);
+      setTimeout(() => setBurstStar(null), 560);
     }
   };
 
-   {/* Outer wrapper for mobile horizontal scrolling */}
-   <div style={{ 
-     width: '100%', 
-     overflowX: 'auto', 
-     WebkitOverflowScrolling: 'touch', 
-     paddingBottom: '20px' 
-    }}></div>
+  const isComplete = activeStep >= events.length - 1;
 
-// Calculate angle between current star and next star
+  // Calculate angle between current star and next star
   const getRocketRotation = () => {
     if (activeStep < 0) return 45; // Default starting angle
     if (activeStep >= events.length - 1) return -90; // Point up when finished
@@ -145,13 +142,13 @@ return (
                 {/* Clickable Star */}
                 <button 
                   onClick={() => handleStarClick(ev.id)}
-                  className={`${isVisited ? 'star-glow' : ''} ${isNext ? 'star-flash' : ''}`}
+                  className={burstStar === ev.id ? 'star-burst' : (isComplete && isVisited ? 'star-complete' : (isVisited ? 'star-glow' : (isNext ? 'star-flash' : '')))}
                   style={{
                     position: 'absolute', 
                     transform: 'translate(-50%, -50%)', 
                     zIndex: isNext ? 10 : 5,
-                    width: '32px', 
-                    height: '32px', 
+                    width: isNext && !isComplete ? '44px' : '32px', 
+                    height: isNext && !isComplete ? '44px' : '32px', 
                     backgroundColor: 'transparent',
                     border: 'none',
                     padding: 0,
@@ -169,7 +166,7 @@ return (
                   >
                     <path 
                       d="M 12 2 Q 13 11 22 12 Q 13 13 12 22 Q 11 13 2 12 Q 11 11 12 2 Z"
-                      fill={isVisited ? 'var(--amber)' : (isNext ? 'var(--primary-light)' : 'var(--bg-primary)')} 
+                      fill={isVisited ? 'var(--amber)' : (isNext ? 'white' : 'rgba(255,255,255,0.3)')} 
                       stroke="var(--text-primary)"
                       strokeWidth="1.5"
                     />
@@ -202,12 +199,12 @@ return (
               position: 'absolute',
               left: `${activeStep >= 0 ? events[activeStep].x : events[0].x}%`,
               top: `${activeStep >= 0 ? events[activeStep].y : events[0].y}%`,
-              
               transform: `translate(-50%, -50%) rotate(${getRocketRotation()}deg)`,
-              transition: 'all 1s ease-in-out', 
-              fontSize: '2rem', 
+              transition: 'left 1s ease-in-out, top 1s ease-in-out, transform 0.6s ease-in-out, filter 0.8s ease',
+              fontSize: '2.5rem', 
               zIndex: 50, 
-              pointerEvents: 'none'
+              pointerEvents: 'none',
+              filter: isComplete ? 'drop-shadow(0 0 14px var(--amber))' : 'drop-shadow(0 0 8px rgba(167,139,250,0.6))'
             }}
           >
             🚀
@@ -216,7 +213,8 @@ return (
           {/* Mission Control Information Panel */}
           {activeStep >= 0 && activeStep < events.length && (
             <div 
-              className="card border"
+              className="card border timeline-info-card"
+              key={activeStep}
               style={{
                 position: 'absolute',
                 bottom: 'var(--space-md)',
@@ -227,7 +225,7 @@ return (
                 padding: 'var(--space-md)',
                 borderRadius: 'var(--radius-md)',
                 zIndex: 300,
-                boxShadow: 'var(--shadow-lg)',
+                boxShadow: 'var(--shadow-md)',
                 borderLeft: '4px solid var(--amber)'
               }}
             >
@@ -258,6 +256,7 @@ return (
 
         </div>
       </div>
+      <p className="timeline-scroll-hint">← SWIPE TO EXPLORE THE TIMELINE →</p>
     </div>
   );
 }

@@ -86,11 +86,21 @@
 html{
     scroll-behavior:smooth;
     scroll-padding-top:96px;
+    /* Star field lives on html, not body, because body { overflow-x: hidden }
+       creates a scroll container that breaks background-attachment: fixed */
+    background-color: var(--bg-primary);
+    background-image:
+        radial-gradient(1.5px 1.5px at 40px 80px,  rgba(235,232,244,0.90), transparent),
+        radial-gradient(2px   2px   at 100px 100px, rgba(235,232,244,0.75), transparent),
+        radial-gradient(1px   1px   at 70px 10px,  rgba(235,232,244,0.82), transparent),
+        radial-gradient(2.5px 2.5px at 50px 50px,  rgba(235,232,244,0.62), transparent);
+    background-size: 200px 200px, 350px 350px, 400px 400px, 500px 500px;
+    background-attachment: fixed;
 }
 
 body{
     font-family:var(--font-body);
-    background:var(--bg-primary);
+    background: transparent; /* html provides the base color + star field */
     color:var(--text-primary);
     line-height:1.7;
     overflow-x:hidden;
@@ -201,6 +211,14 @@ section{
     scroll-margin-top:96px;
 }
 
+/* Alternating nebula glow on even sections (Background=2, Timeline=4).
+   Soft centered ellipse that fades to nothing at the edges — seamless with
+   adjacent sections. Lessons(6) and References(7) have their own backgrounds
+   which take priority over this rule. */
+section:nth-child(even){
+    background-image: radial-gradient(ellipse 130% 90% at 50% 50%, rgba(19,19,58,0.38), transparent 65%);
+}
+
 .container{
     max-width:var(--max-width);
     margin:auto;
@@ -240,7 +258,7 @@ section{
     z-index:1000;
 
     backdrop-filter:blur(18px);
-    background: color-mix(in srgb, var(--bg-primary) 75%);
+    background: color-mix(in srgb, var(--bg-primary) 75%, transparent);
     border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
 }
 
@@ -379,22 +397,72 @@ section{
   transform: scale(1.2);
 }
 
+/* Visited star: stays glowing amber */
 .star-glow {
-  filter: drop-shadow(0 0 6px var(--amber));
+  filter: drop-shadow(0 0 8px var(--amber)) drop-shadow(0 0 2px rgba(245,200,0,0.6));
 }
 
+/* Next star to click: prominent amber pulse so user knows where to click */
 .star-flash {
-  animation: flashStar 1.5s infinite alternate;
+  animation: flashStar 1.2s ease-in-out infinite alternate;
 }
 
 @keyframes flashStar {
   0% { 
-    filter: drop-shadow(0 0 2px rgba(167, 139, 250, 0.4)); 
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.55));
     transform: translate(-50%, -50%) scale(1); 
   }
   100% { 
-    filter: drop-shadow(0 0 8px var(--glow-primary)); 
-    transform: translate(-50%, -50%) scale(1.2); 
+    filter: drop-shadow(0 0 18px var(--amber)) drop-shadow(0 0 35px rgba(245,200,0,0.55));
+    transform: translate(-50%, -50%) scale(1.55); 
+  }
+}
+
+/* Click burst feedback — plays once on selection */
+.star-burst {
+  animation: starBurst 0.55s ease-out forwards;
+}
+
+@keyframes starBurst {
+  0%   { filter: drop-shadow(0 0 4px var(--amber));  transform: translate(-50%, -50%) scale(1);   }
+  35%  { filter: drop-shadow(0 0 28px var(--amber)) drop-shadow(0 0 55px rgba(245,200,0,0.65)); transform: translate(-50%, -50%) scale(1.9); }
+  100% { filter: drop-shadow(0 0 10px var(--amber)); transform: translate(-50%, -50%) scale(1.0); }
+}
+
+/* All-stars complete: gentle continuous pulse */
+.star-complete {
+  animation: starComplete 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes starComplete {
+  0%   { filter: drop-shadow(0 0 8px var(--amber));  transform: translate(-50%, -50%) scale(1);    }
+  100% { filter: drop-shadow(0 0 22px var(--amber)) drop-shadow(0 0 44px rgba(245,200,0,0.45)); transform: translate(-50%, -50%) scale(1.22); }
+}
+
+/* Info card slide-in — triggered by key change on activeStep */
+.timeline-info-card {
+  animation: cardSlideIn 0.35s ease-out;
+}
+
+@keyframes cardSlideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Swipe hint — only visible on mobile */
+.timeline-scroll-hint {
+  display: none;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  letter-spacing: 0.12em;
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 768px) {
+  .timeline-scroll-hint {
+    display: block;
   }
 }
 

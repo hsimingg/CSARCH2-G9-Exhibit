@@ -294,7 +294,6 @@ export default function MissionControlSimulation() {
     const [briefingTargetText, setBriefingTargetText] = useState('');
     const [briefingDisplayText, setBriefingDisplayText] = useState('');
     const lastTapRef = useRef(0);
-    const [isMobileFullscreen, setIsMobileFullscreen] = useState(false);
 
     const riskLevel = getRiskLevel(computerLoad);
     const systemStatus = getSystemStatus(currentStage);
@@ -405,15 +404,6 @@ export default function MissionControlSimulation() {
         return () => window.clearInterval(intervalId);
     }, [briefingTargetText, screenPhase]);
 
-    useEffect(() => {
-        if (isMobileFullscreen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => { document.body.style.overflow = ''; };
-    }, [isMobileFullscreen]);
-
     /* ------------ SCORING METRIC ------------ */
     function applyPendingMetrics() {
         const nextLoad = computerLoad + pendingLoadDelta;
@@ -453,7 +443,6 @@ export default function MissionControlSimulation() {
         setBriefingTargetText(briefingSlides[0].text.join('\n'));
         setCurrentStage(STAGES.BRIEFING);
         setScreenPhase('briefingTyping');
-        setIsMobileFullscreen(true);
     }
 
     function restartSimulation() {
@@ -470,7 +459,6 @@ export default function MissionControlSimulation() {
         setBriefingIndex(0);
         setBriefingDisplayText('');
         setBriefingTargetText('');
-        setIsMobileFullscreen(false);
         openStage(STAGES.MENU, '', '');
     }
 
@@ -747,14 +735,7 @@ export default function MissionControlSimulation() {
     const detailText = detailDisplayText || '';
 
     return (
-        <section className={`mc-wrapper${isMobileFullscreen ? ' mc-fullscreen' : ''}`}>
-            {isMobileFullscreen && (
-                <button
-                    className="mc-close-btn"
-                    onClick={() => setIsMobileFullscreen(false)}
-                    aria-label="Exit simulation"
-                >×</button>
-            )}
+        <section className="mc-wrapper">
             <div className="mc-monitor">
                 <div
                     className="mc-screen"
@@ -937,8 +918,8 @@ export default function MissionControlSimulation() {
     border-radius: 28px;
     padding: 1.75rem;
     box-shadow:
-        0 0 28px rgba(0, 255, 65, 0.08),
-        inset 0 0 22px rgba(24, 27, 25, 0.08);
+        0 0 28px rgba(124, 255, 178, 0.06),
+        inset 0 0 22px rgba(20, 30, 35, 0.08);
 }
 
 .mc-screen {
@@ -961,7 +942,7 @@ export default function MissionControlSimulation() {
             transparent 1px,
             transparent 4px
         ),
-        linear-gradient(180deg, #001800 0%, #001300 100%);
+        linear-gradient(180deg, #05181A 0%, #030F11 100%);
     border-radius: 18px;
     padding: 2.3rem 2.1rem 1.8rem;
     box-shadow:
@@ -995,10 +976,10 @@ export default function MissionControlSimulation() {
 .mc-screen,
 .mc-screen * {
     font-family: "VT323", "Courier New", monospace;
-    color: #00ff41;
+    color: #7CFFB2;
     text-shadow:
-        0 0 2px rgba(0, 255, 65, 0.8),
-        0 0 8px rgba(0, 255, 65, 0.35);
+        0 0 2px rgba(124, 255, 178, 0.60),
+        0 0 8px rgba(124, 255, 178, 0.20);
     font-size: clamp(1.05rem, 1.8vw, 1.45rem);
     font-weight: 400;
 }
@@ -1150,8 +1131,8 @@ export default function MissionControlSimulation() {
     align-items: flex-start;
     min-height: 1.5em;
     margin-top: 0;
-    color: #39ff14;
-    text-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
+    color: #8DFCF2;
+    text-shadow: 0 0 8px rgba(141, 252, 242, 0.45);
 }
 
 .mc-label {
@@ -1229,14 +1210,14 @@ export default function MissionControlSimulation() {
 }
 
 .mc-actions button {
-    background: #002b00;
-    border: 1px solid #00ff41;
+    background: #041A1C;
+    border: 1px solid #7CFFB2;
     padding: 0.9rem 1rem;
     line-height: 1.2;
     cursor: pointer;
     box-shadow:
-        0 0 10px rgba(0, 255, 65, 0.14),
-        inset 0 0 10px rgba(0, 255, 65, 0.08);
+        0 0 10px rgba(124, 255, 178, 0.12),
+        inset 0 0 10px rgba(124, 255, 178, 0.06);
 }
 
 .mc-actions button::before {
@@ -1245,8 +1226,8 @@ export default function MissionControlSimulation() {
 }
 
 .mc-actions button:hover {
-    background: #00ff41;
-    color: #002b00;
+    background: #7CFFB2;
+    color: #03111A;
 }
 
 @keyframes mc-pulse {
@@ -1310,7 +1291,7 @@ export default function MissionControlSimulation() {
         inset: 0;
         z-index: 9999;
         padding: 0;
-        background: #0b100c;
+        background: #030D10;
         overflow-y: auto;
         align-items: flex-start;
     }
@@ -1338,21 +1319,21 @@ export default function MissionControlSimulation() {
         z-index: 10000;
         width: 2rem;
         height: 2rem;
-        background: rgba(0, 43, 0, 0.9);
-        border: 1px solid rgba(0, 255, 65, 0.45);
+        background: rgba(3, 18, 20, 0.9);
+        border: 1px solid rgba(124, 255, 178, 0.42);
         border-radius: 50%;
-        color: #00ff41;
+        color: #7CFFB2;
         font-family: "VT323", monospace;
         font-size: 1.5rem;
         line-height: 1;
         cursor: pointer;
         opacity: 0.7;
-        text-shadow: 0 0 6px rgba(0, 255, 65, 0.6);
+        text-shadow: 0 0 6px rgba(124, 255, 178, 0.55);
     }
 
     .mc-close-btn:active {
         opacity: 1;
-        background: rgba(0, 255, 65, 0.15);
+        background: rgba(124, 255, 178, 0.12);
     }
 
     .mc-monitor {

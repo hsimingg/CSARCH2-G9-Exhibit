@@ -40,7 +40,7 @@ const referenceGroups = [
         year: "1998",
         title: "Apollo 11 Lunar Surface Journal: Program Alarms.",
         source: "NASA.",
-        url: "https://www.nasa.gov/wp-content/uploads/static/history//alsj/a11/a11.1201-pa.html",
+        url: "https://www.nasa.gov/wp-content/uploads/static/history/alsj/a11/a11.1201-pa.html",
       },
       {
         authors: "MIT Instrumentation Laboratory",
@@ -307,9 +307,8 @@ const totalRefs = sortedGroups.reduce((n, g) => n + g.items.length, 0);
   .references {
     position: relative;
     isolation: isolate; /* confines the fixed moon's stacking to this section */
-    background: var(--bg-secondary);
-    border-top: 1px solid var(--border);
-    scroll-margin-top: 72px; /* offset for the fixed navbar */
+    background: rgba(6, 6, 15, 0.78); /* match --bg-primary base so color is consistent with rest of page */
+    scroll-margin-top: 96px; /* offset for the fixed navbar */
 
     /* Text centered in the space to the right of the moon — matches Lessons.
        Keep 32vw/48vh/590px equal to HALF the moon width. */
@@ -386,7 +385,7 @@ const totalRefs = sortedGroups.reduce((n, g) => n + g.items.length, 0);
     position: relative;
     padding-left: 2.5rem; /* hanging-indent look */
     padding-bottom: var(--space-sm);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid color-mix(in srgb, var(--primary-light) 22%, var(--border));
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.65;

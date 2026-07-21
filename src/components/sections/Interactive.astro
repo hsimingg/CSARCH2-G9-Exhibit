@@ -27,9 +27,9 @@ import MissionControlSimulation from "./simulation/MissionControlSimulation.jsx"
 
       <p>
         The simulation begins before the decision, then guides the visitor through
-        the same kind of tradeoff Mission Control had to evaluate: whether the
-        alarm was dangerous enough to stop the landing or controlled enough to
-        continue.
+        the same kind of tradeoff Mission Control had to evaluate: <span class="text-purple">whether the
+        alarm was dangerous enough to stop the landing</span> or <span class="text-gold">controlled enough to
+        continue</span>.
       </p>
     </article>
 
@@ -64,12 +64,12 @@ import MissionControlSimulation from "./simulation/MissionControlSimulation.jsx"
 
     <!-- What This Shows card -->
     <article class="interactive-card card anim-reveal anim-delay-5">
-      <h2>What This Shows</h2>
+      <h2><span class="text-purple">What This Shows</span></h2>
       <p>
-        This simulation shows how computer architecture concepts apply in real-time systems. During an overload, the key issue is not only raw speed, but how the system prioritizes tasks, handles errors, and preserves critical operations.
+        This simulation shows how computer architecture concepts apply in <span class="text-gold">real-time systems</span>. During an overload, the key issue is not only raw speed, but how the system prioritizes tasks, handles errors, and preserves critical operations.
       </p>
       <p>
-        The activity connects the Apollo 11 1202 alarm to processor workload, task prioritization, real-time execution, and fault recovery. It shows why good architecture is not just about performance, but about keeping the right tasks running when failure pressure is high.
+        The activity connects the Apollo 11 1202 alarm to processor workload, task prioritization, real-time execution, and fault recovery. It shows why good architecture is <span class="text-gold">not just about performance</span>, but about keeping the right tasks running when failure pressure is high.
       </p>
     </article>
 
@@ -105,10 +105,6 @@ import MissionControlSimulation from "./simulation/MissionControlSimulation.jsx"
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
-  }
-
-  .interactive-header .section-heading {
-    font-size: clamp(1.8rem, 4vw, 2.75rem);
   }
 
   .interactive-header .section-title {
@@ -219,8 +215,8 @@ import MissionControlSimulation from "./simulation/MissionControlSimulation.jsx"
     font-size: 0.78rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #3dff7a;
-    text-shadow: 0 0 10px rgba(61, 255, 122, 0.45);
+    color: #7CFFB2;
+    text-shadow: 0 0 10px rgba(124, 255, 178, 0.35);
   }
 
   .terminal-pip {
@@ -229,8 +225,8 @@ import MissionControlSimulation from "./simulation/MissionControlSimulation.jsx"
     height: 6px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: #3dff7a;
-    box-shadow: 0 0 7px rgba(245, 192, 0, 0.8);
+    background: #7CFFB2;
+    box-shadow: 0 0 7px rgba(124, 255, 178, 0.65);
     animation: pip-blink 1.6s ease-in-out infinite;
   }
 
@@ -257,7 +253,7 @@ import MissionControlSimulation from "./simulation/MissionControlSimulation.jsx"
   .terminal-bridge {
     font-family: var(--font-mono);
     font-size: 0.7rem;
-    color: rgba(61, 255, 122, 0.45);
+    color: rgba(124, 255, 178, 0.40);
     text-align: center;
     padding: 0.35rem 1.5rem 0.45rem;
     margin: 0;

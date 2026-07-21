@@ -186,9 +186,8 @@ const lessons = [
   .lessons {
     position: relative;
     isolation: isolate; /* confines the fixed moon's stacking to this section */
-    background: var(--bg-secondary);
-    border-top: 1px solid var(--border);
-    scroll-margin-top: 72px; /* offset for the fixed navbar */
+    background: rgba(6, 6, 15, 0.78); /* match --bg-primary base so color is consistent with rest of page */
+    scroll-margin-top: 96px; /* offset for the fixed navbar */
 
     /* Content box spans from the moon's right edge to the screen's right edge;
        the inner block is centered inside it (margin: auto), so the text sits in
@@ -228,7 +227,7 @@ const lessons = [
     gap: var(--space-md);
     align-items: start;
     padding: var(--space-md) 0;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid color-mix(in srgb, var(--primary-light) 22%, var(--border));
   }
 
   .lesson__index {
