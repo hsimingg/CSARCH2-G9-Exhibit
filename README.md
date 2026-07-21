@@ -48,13 +48,14 @@ This section documents the group’s final development progress, including secti
 
 **Member:** Denise  
 **What changed:**  
-- 
+- more obvious flickering nodes and current node, larger node in mobile, put the info panel below chip in mobile added relevance of each concept to the mission, added cleaner transitions when hovering and changing info text. 
 
 **Challenge encountered:**  
-- 
+- css stuff. placement of the nodes would change because of the animation but was able to refactor so that the nodes would not stray from their intended placement while animation.
 
 **CSARCH2 concept explained:**  
-- 
+- how computer architecture, organization and hardware all tied together influence the systems behavior and performance
+(feel free to add or expound)
 
 ---
 
@@ -83,13 +84,13 @@ This section documents the group’s final development progress, including secti
 - added story lore in the game to make the user immersed
 
 **Challenge encountered:**  
-- Making the simulation feel like a problem story mission terminal instead of like a simple quiz.
-- Balancing historical accuracy with simplified game mechanics.
-- Making the simulation understandable, responsive, and visually consistent with the rest of the website.
-- Making the layout for mobile responsiveness
+- making the simulation feel like a problem story mission terminal instead of like a simple quiz
+- balancing historical accuracy with simplified game mechanics
+- making the simulation understandable, responsive, and visually consistent with the rest of the website
+- making the layout for mobile responsiveness
 
 **CSARCH2 concept explained:**  
-- Processor workload, task prioritization, real-time execution, error handling, and fault recovery.
+- processor workload, task prioritization, real-time execution, error handling, and fault recovery
 
 ---
 
