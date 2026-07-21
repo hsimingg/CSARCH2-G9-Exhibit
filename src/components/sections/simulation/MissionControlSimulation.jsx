@@ -182,21 +182,19 @@ function getDetailText(stage, context) {
             return 'The alarm indicates an overload condition during lunar descent. The next decision determines whether the system is checked or left under uncertain load.';
 
         case STAGES.TASK1:
-            return alarmDecision === 'continue'
-                ? 'No priority check was performed before continuing. Processor load increases while the system remains uncertain.'
-                : 'Priority data is available. The next task selection will either reduce or increase processor load.';
+            return 'Task notes: Guidance keeps descent path; Display refreshes screens; Radar adds sensor data.';
 
         case STAGES.STATUS1:
             return 'The current load reflects the effect of the first task-priority decision.';
 
         case STAGES.TASK2:
-            return 'Processor load remains active during descent. Critical functions reduce strain, while nonessential tasks increase it.';
+            return "Task notes: Background runs support calculations; Interface updates crew prompts; Navigation tracks Eagle's motion.";
 
         case STAGES.STATUS2:
             return 'The system condition has shifted again based on the selected task priority.';
 
         case STAGES.TASK3:
-            return 'Final priority check. This selection determines the last load adjustment before the GO or ABORT recommendation.';
+            return 'Task notes: Telemetry sends extra readings; Attitude controls orientation; Logging records system behavior.';
 
         case STAGES.FINAL:
             return 'Final analysis is based on the remaining computer load. Manageable load supports GO; unresolved overload supports ABORT.';
