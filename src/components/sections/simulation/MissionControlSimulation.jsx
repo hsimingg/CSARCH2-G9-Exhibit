@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'; //state-> for changing values
+import { useEffect, useRef, useState } from 'react'; //state-> for changing values
 
 const STAGES = { //game flow
     MENU: 'menu',
+    BRIEFING: 'briefing',
     ALARM: 'alarm',
     TASK1: 'task1',
     STATUS1: 'status1',
@@ -13,6 +14,55 @@ const STAGES = { //game flow
     END_SUCCESS: 'ending-success',
     END_DANGER: 'ending-danger',
 };
+
+const briefingSlides = [
+    {
+        mode: 'MISSION BRIEFING',
+        text: [
+            'Hello, Engineer.',
+            "You are entering Mission Control during Apollo 11's powered descent.",
+            'The Lunar Module Eagle has separated from Columbia and is now dropping toward the Moon.',
+            'Neil Armstrong and Buzz Aldrin are inside Eagle. Michael Collins remains in lunar orbit above them.',
+            'The landing is already in motion.'
+        ]
+    },
+    {
+        mode: 'REAL-TIME GUIDANCE',
+        text: [
+            'Eagle is not simply falling.',
+            "The Apollo Guidance Computer is guiding the descent, reading data, updating navigation, and helping control the Lunar Module's movement.",
+            'But this computer has limited memory and processing power.',
+            'It must decide which tasks matter most while the landing continues in real time.'
+        ]
+    },
+    {
+        mode: '1202 PROGRAM ALARM',
+        text: [
+            'A few minutes before landing, the display flashes a 1202 program alarm.',
+            'The alarm does not mean I am dead.',
+            'It means I am overloaded.',
+            'Too many jobs are demanding attention, and I must protect the tasks needed for guidance, navigation, and control.'
+        ]
+    },
+    {
+        mode: 'MISSION CONTROL DECISION',
+        text: [
+            'Mission Control has only seconds to decide what this alarm means.',
+            'If critical tasks are still protected, Eagle may continue.',
+            'If the overload threatens landing control, the safe call is ABORT.',
+            'Your task is to read my status, choose which tasks to protect, and decide whether the mission remains GO.'
+        ]
+    },
+    {
+        mode: 'SYSTEM PRINCIPLE',
+        text: [
+            'Remember this, Engineer:',
+            'A real-time system does not survive by doing everything.',
+            'It survives by doing the most important things first.',
+            'Stand by for the 1202 alarm.'
+        ]
+    }
+];
 
 /* ------------ SYSTEM STATUS ------------ */
 function getRiskLevel(computerLoad) {
@@ -53,6 +103,28 @@ function getSystemStatus(stage) {
             return 'MISSION DANGEROUS OUTCOME';
         default:
             return '1202 ALARM';
+    }
+}
+
+function getStageHeader(stage) {
+    switch (stage) {
+        case STAGES.ALARM:
+            return 'ALARM DETECTED';
+        case STAGES.TASK1:
+        case STAGES.TASK2:
+        case STAGES.TASK3:
+            return 'TASK PRIORITY REVIEW';
+        case STAGES.STATUS1:
+        case STAGES.STATUS2:
+            return 'STATUS CHECK';
+        case STAGES.FINAL:
+            return 'FINAL DECISION';
+        case STAGES.END_ABORT:
+        case STAGES.END_SUCCESS:
+        case STAGES.END_DANGER:
+            return 'MISSION OUTCOME';
+        default:
+            return '';
     }
 }
 
@@ -218,10 +290,16 @@ export default function MissionControlSimulation() {
     const [pendingNextStage, setPendingNextStage] = useState(null);
     const [pendingLoadDelta, setPendingLoadDelta] = useState(0);
     const [pendingEndingMode, setPendingEndingMode] = useState(null);
+    const [briefingIndex, setBriefingIndex] = useState(0);
+    const [briefingTargetText, setBriefingTargetText] = useState('');
+    const [briefingDisplayText, setBriefingDisplayText] = useState('');
+    const lastTapRef = useRef(0);
+    const [isMobileFullscreen, setIsMobileFullscreen] = useState(false);
 
     const riskLevel = getRiskLevel(computerLoad);
     const systemStatus = getSystemStatus(currentStage);
     const buttonConfigs = getStageButtons(currentStage);
+    const stageHeader = getStageHeader(currentStage);
 
     /* ------------ SCREEN SHOW ------------ */
     useEffect(() => {
@@ -306,6 +384,36 @@ export default function MissionControlSimulation() {
         return () => window.clearInterval(intervalId);
     }, [screenPhase, userTargetText]);
 
+    useEffect(() => {
+        if (screenPhase !== 'briefingTyping') {
+            return;
+        }
+
+        let index = 0;
+        setBriefingDisplayText('');
+
+        const intervalId = window.setInterval(() => {
+            index += 1;
+            setBriefingDisplayText(briefingTargetText.slice(0, index));
+
+            if (index >= briefingTargetText.length) {
+                window.clearInterval(intervalId);
+                setScreenPhase('briefingReady');
+            }
+        }, 22);
+
+        return () => window.clearInterval(intervalId);
+    }, [briefingTargetText, screenPhase]);
+
+    useEffect(() => {
+        if (isMobileFullscreen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [isMobileFullscreen]);
+
     /* ------------ SCORING METRIC ------------ */
     function applyPendingMetrics() {
         const nextLoad = computerLoad + pendingLoadDelta;
@@ -340,11 +448,12 @@ export default function MissionControlSimulation() {
         setPendingNextStage(null);
         setPendingLoadDelta(0);
         setPendingEndingMode(null);
-        openStage(
-            STAGES.ALARM,
-            getComputerText(STAGES.ALARM, { alarmDecision: null, finalRecommendation: null }),
-            getDetailText(STAGES.ALARM, { alarmDecision: null, endingMode: 'abortEarly' })
-        );
+        setBriefingIndex(0);
+        setBriefingDisplayText('');
+        setBriefingTargetText(briefingSlides[0].text.join('\n'));
+        setCurrentStage(STAGES.BRIEFING);
+        setScreenPhase('briefingTyping');
+        setIsMobileFullscreen(true);
     }
 
     function restartSimulation() {
@@ -358,7 +467,28 @@ export default function MissionControlSimulation() {
         setPendingEndingMode(null);
         setUserTargetText('...');
         setUserDisplayText('...');
+        setBriefingIndex(0);
+        setBriefingDisplayText('');
+        setBriefingTargetText('');
+        setIsMobileFullscreen(false);
         openStage(STAGES.MENU, '', '');
+    }
+
+    /* ------------ BRIEFING ADVANCE ------------ */
+    function handleBriefingAdvance() {
+        if (briefingIndex < briefingSlides.length - 1) {
+            const nextIndex = briefingIndex + 1;
+            setBriefingIndex(nextIndex);
+            setBriefingDisplayText('');
+            setBriefingTargetText(briefingSlides[nextIndex].text.join('\n'));
+            setScreenPhase('briefingTyping');
+        } else {
+            openStage(
+                STAGES.ALARM,
+                getComputerText(STAGES.ALARM, { alarmDecision: null, finalRecommendation: null }),
+                getDetailText(STAGES.ALARM, { alarmDecision: null, endingMode: 'abortEarly' })
+            );
+        }
     }
 
     /* ------------ NEXT GAME FLOW ------------ */
@@ -617,16 +747,67 @@ export default function MissionControlSimulation() {
     const detailText = detailDisplayText || '';
 
     return (
-        <section className="mc-wrapper">
+        <section className={`mc-wrapper${isMobileFullscreen ? ' mc-fullscreen' : ''}`}>
+            {isMobileFullscreen && (
+                <button
+                    className="mc-close-btn"
+                    onClick={() => setIsMobileFullscreen(false)}
+                    aria-label="Exit simulation"
+                >×</button>
+            )}
             <div className="mc-monitor">
-                <div className="mc-screen">
+                <div
+                    className="mc-screen"
+                    onDoubleClick={() => {
+                        if (screenPhase === 'briefingTyping') {
+                            setBriefingDisplayText(briefingTargetText);
+                            setScreenPhase('briefingReady');
+                        } else if (screenPhase === 'computerTyping') {
+                            setComputerDisplayText(computerTargetText);
+                            setDetailDisplayText(detailTargetText);
+                            setScreenPhase('ready');
+                        } else if (screenPhase === 'detailTyping') {
+                            setDetailDisplayText(detailTargetText);
+                            setScreenPhase('ready');
+                        }
+                    }}
+                    onTouchEnd={(e) => {
+                        const now = Date.now();
+                        if (now - lastTapRef.current < 300) {
+                            e.preventDefault();
+                            if (screenPhase === 'briefingTyping') {
+                                setBriefingDisplayText(briefingTargetText);
+                                setScreenPhase('briefingReady');
+                            } else if (screenPhase === 'computerTyping') {
+                                setComputerDisplayText(computerTargetText);
+                                setDetailDisplayText(detailTargetText);
+                                setScreenPhase('ready');
+                            } else if (screenPhase === 'detailTyping') {
+                                setDetailDisplayText(detailTargetText);
+                                setScreenPhase('ready');
+                            }
+                            lastTapRef.current = 0;
+                        } else {
+                            lastTapRef.current = now;
+                        }
+                    }}
+                >
                     <div className="mc-stage-layout">
                         <div className="mc-stage-body">
+                            {currentStage !== STAGES.MENU && (currentStage === STAGES.BRIEFING || stageHeader) && (
+                                <div className="mc-stage-header">
+                                    <span className="mc-stage-header-label">
+                                        {currentStage === STAGES.BRIEFING
+                                            ? briefingSlides[briefingIndex].mode
+                                            : stageHeader}
+                                    </span>
+                                </div>
+                            )}
                             {currentStage === STAGES.MENU ? (
                                 <div className="mc-menu-stage">
                                     <header className="mc-header">
-                                        <h2 className="mc-title">Mission Control:</h2>
-                                        <h2 className="mc-title">Handle the 1202 Alarm</h2>
+                                        <h2 className="mc-title">MISSION CONTROL</h2>
+                                        <h2 className="mc-title">TERMINAL READY</h2>
                                     </header>
 
                                     <p className="mc-menu-copy">
@@ -637,8 +818,19 @@ export default function MissionControlSimulation() {
                                         <button onClick={startSimulation}>Start</button>
                                     </div>
                                 </div>
+                            ) : currentStage === STAGES.BRIEFING ? (
+                                <div className="mc-briefing-stage" key={briefingIndex}>
+                                    <div className="mc-computer-line">
+                                        <span className="mc-label">COMPUTER:</span>
+                                    </div>
+                                    <div className="mc-briefing-text">
+                                        {briefingDisplayText.split('\n').map((line, i) => (
+                                            <p key={i}>{line}</p>
+                                        ))}
+                                    </div>
+                                </div>
                             ) : (
-                                <div className="mc-main-text">
+                                <div className="mc-main-text" key={currentStage}>
                                     <div className="mc-computer-line">
                                         <span className="mc-label">COMPUTER:</span>
                                         <span>{computerDisplayText}</span>
@@ -687,7 +879,17 @@ export default function MissionControlSimulation() {
 
                         {currentStage !== STAGES.MENU && (
                             <footer className="mc-footer">
-                                {showDecisionButtons ? (
+                                {currentStage === STAGES.BRIEFING && screenPhase === 'briefingReady' ? (
+                                <div className="mc-actions mc-actions-single">
+                                    <button onClick={handleBriefingAdvance}>
+                                        {briefingIndex < briefingSlides.length - 1 ? 'Continue' : 'Begin Decision'}
+                                    </button>
+                                </div>
+                            ) : currentStage === STAGES.BRIEFING ? (
+                                <div className="mc-actions mc-actions-single">
+                                    <p className="mc-skip-hint">[ double-click to skip animation ]</p>
+                                </div>
+                            ) : showDecisionButtons ? (
                                 <div className="mc-actions">
                                     {buttonConfigs.map((button) => (
                                         <button key={button.action} onClick={() => handleDecision(button.action)}>
@@ -698,6 +900,10 @@ export default function MissionControlSimulation() {
                             ) : showEnterButton ? (
                                 <div className="mc-actions mc-actions-single">
                                     <button onClick={handleAdvance}>Enter</button>
+                                </div>
+                            ) : screenPhase === 'computerTyping' || screenPhase === 'detailTyping' ? (
+                                <div className="mc-actions mc-actions-single">
+                                    <p className="mc-skip-hint">[ double-click to skip animation ]</p>
                                 </div>
                             ) : (
                                 <div className="mc-actions mc-actions-empty" aria-hidden="true" />
@@ -717,13 +923,17 @@ export default function MissionControlSimulation() {
     align-items: center;
     width: 100%;
     padding: 2.5rem 1rem 3rem;
+    position: relative;
+}
+
+.mc-close-btn {
+    display: none;
 }
 
 .mc-monitor {
     width: min(1000px, 88vw);
     height: min(680px, 84vh);
-    background: #0b100c;
-    border: 4px solid #0a120b;
+    border: 1px solid color-mix(in srgb, var(--primary-light) 22%, var(--border));
     border-radius: 28px;
     padding: 1.75rem;
     box-shadow:
@@ -740,6 +950,7 @@ export default function MissionControlSimulation() {
     flex-direction: column;
     padding: 2.3rem 2.1rem 1.8rem;
     box-sizing: border-box;
+    touch-action: manipulation;
     background:
         radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05), transparent 18%),
         radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.03), transparent 16%),
@@ -754,8 +965,8 @@ export default function MissionControlSimulation() {
     border-radius: 18px;
     padding: 2.3rem 2.1rem 1.8rem;
     box-shadow:
-        inset 0 0 24px rgba(15, 184, 57, 0.16),
-        0 0 18px rgba(21, 67, 33, 0.18);
+        inset 0 0 24px rgba(0, 0, 0, 0.16),
+        0 0 18px rgba(49, 21, 67, 0.18);
 }
 
 .mc-screen::before {
@@ -804,6 +1015,64 @@ export default function MissionControlSimulation() {
     font-size: clamp(2rem, 2vw, 2rem);
     line-height: 1.4;
     text-align: center;
+}
+
+.mc-briefing-stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    animation: mc-stage-enter 0.35s ease-out;
+}
+
+.mc-briefing-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-left: 2rem;
+}
+
+.mc-briefing-text p {
+    margin: 0;
+    line-height: 1.55;
+}
+
+@keyframes mc-stage-enter {
+    from { opacity: 0; transform: translateY(5px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.mc-skip-hint {
+    margin: 0;
+    font-size: 0.8em;
+    letter-spacing: 0.08em;
+    text-shadow: none;
+    text-align: center;
+    animation: skip-hint-fade 2.8s ease-in-out infinite;
+}
+
+@keyframes skip-hint-fade {
+    0%, 100% { opacity: 0.08; }
+    50%       { opacity: 0.38; }
+}
+
+.mc-stage-header {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.55rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(0, 255, 65, 0.22);
+}
+
+.mc-stage-header-label {
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+    letter-spacing: 0.2em;
+    opacity: 0.75;
+}
+
+.mc-stage-header-label::before {
+    content: "> ";
+    opacity: 0.55;
 }
     
 .mc-stage-layout {
@@ -856,6 +1125,7 @@ export default function MissionControlSimulation() {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    animation: mc-stage-enter 0.3s ease-out;
 }
 
 .mc-computer-line {
@@ -879,7 +1149,7 @@ export default function MissionControlSimulation() {
     gap: 1rem;
     align-items: flex-start;
     min-height: 1.5em;
-    margin-top: 1.3rem;
+    margin-top: 0;
     color: #39ff14;
     text-shadow: 0 0 8px rgba(57, 255, 20, 0.6);
 }
@@ -904,7 +1174,7 @@ export default function MissionControlSimulation() {
     display: grid;
     gap: 0.7rem;
     margin-top: 0.2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
 }
 
 .mc-load-line {
@@ -1035,10 +1305,60 @@ export default function MissionControlSimulation() {
 }
 
 @media (max-width: 700px) {
+    .mc-wrapper.mc-fullscreen {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        padding: 0;
+        background: #0b100c;
+        overflow-y: auto;
+        align-items: flex-start;
+    }
+
+    .mc-wrapper.mc-fullscreen .mc-monitor {
+        width: 100%;
+        height: 100dvh;
+        min-height: unset;
+        border-radius: 0;
+        border: none;
+    }
+
+    .mc-wrapper.mc-fullscreen .mc-screen {
+        border-radius: 0;
+        padding-bottom: clamp(1.2rem, 3vh, 2rem);
+    }
+
+    .mc-close-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0.6rem;
+        right: 0.7rem;
+        z-index: 10000;
+        width: 2rem;
+        height: 2rem;
+        background: rgba(0, 43, 0, 0.9);
+        border: 1px solid rgba(0, 255, 65, 0.45);
+        border-radius: 50%;
+        color: #00ff41;
+        font-family: "VT323", monospace;
+        font-size: 1.5rem;
+        line-height: 1;
+        cursor: pointer;
+        opacity: 0.7;
+        text-shadow: 0 0 6px rgba(0, 255, 65, 0.6);
+    }
+
+    .mc-close-btn:active {
+        opacity: 1;
+        background: rgba(0, 255, 65, 0.15);
+    }
+
     .mc-monitor {
         width: min(92vw, 430px);
         height: 76vh;
-        min-height: 620px;
+        min-height: 560px;
         padding: 1rem;
         border-radius: 22px;
     }
@@ -1092,6 +1412,7 @@ export default function MissionControlSimulation() {
     }
 
     .mc-detail-text,
+    .mc-briefing-text,
     .mc-status-lines {
         margin-left: 1rem;
     }
