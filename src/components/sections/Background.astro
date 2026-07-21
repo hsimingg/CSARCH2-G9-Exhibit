@@ -2,76 +2,78 @@
   <div class="carousel-viewport">
     <div class="carousel-track" id="slide-track">
       
+      <!-- Slide 1 -->
       <div class="slide">
-        <div class="content-left">
-          <img src="/astronauts.png" alt="Apollo 11 Astronauts" class="slide-img" />
-        </div>
-        <div class="content-right">
+        <div class="slide-wrapper">
           <div class="info-box">
-            <h2>BACKGROUND OF APOLLO 11</h2>
-            <p class="subtitle">The historic mission to land humans on the Moon.</p>
-            
-            <p>
-              Apollo 11 is the American spaceflight mission to land humans on the Moon for the first time 
-              which launched on July 16, 1969 and returned to Earth on July 24, 1969.
-            </p>
-            <p>
-              The Saturn V launch vehicle was crewed by 3 astronauts - Neil Armstrong, Buzz Aldrin, and Michael Collins. 
-              After entering lunar orbit, Armstrong and Aldrin entered the lunar module Eagle with the goal of landing on the moon.
-            </p>
-            
-            <div class="button-group">
-              <button class="btn-prev">← PREV</button>
-              <button class="btn-next">NEXT →</button>
+            <img src="/CSARCH2-G9-Exhibit/astronauts.png" alt="Apollo 11 Astronauts" class="slide-img" />
+            <div class="text-content">
+              <span class="slide-label">01 Mission</span>
+              <h2>MISSION CONTEXT</h2>
+              <p class="subtitle">The historic mission to land humans on the Moon.</p>
+              <p>
+                Apollo 11 is the American spaceflight mission to land humans on the Moon for the first time 
+                which launched on July 16, 1969 and returned to Earth on July 24, 1969.
+              </p>
+              <p>
+                After entering orbit, Armstrong and Aldrin entered the Lunar Module Eagle. 
+                They detached from the main command module and began their high stakes descent toward the Moon's surface.
+              </p>
             </div>
+          </div>
+          <div class="button-group">
+            <button class="btn-prev">← PREV</button>
+            <button class="btn-next">NEXT →</button>
           </div>
         </div>
       </div>
 
+      <!-- Slide 2 -->
       <div class="slide">
-        <div class="content-left">
-          <img src="/eagle.png" alt="Rocket" class="slide-img" />
-        </div>
-        <div class="content-right">
+        <div class="slide-wrapper">
           <div class="info-box">
-            <h2>LUNAR MODULE EAGLE</h2>
-            <p class="subtitle">The lunar lander carrying the first humans to reach the Moon.</p>
-
-            <p>
-              It used its single descent engine to brake and drop toward the lunar surface on a similar trajectory flown by Apollo 10, but it encountered critical problems.
-            </p>
-            <p>
-              They encountered the 1202 alarm and a crater which caused Armstrong to take manual control and consume large amounts of fuel. Despite these threats, they were able to safely land with less than 30 seconds of landing fuel remaining.
-            </p>
-            
-            <div class="button-group">
-              <button class="btn-prev">← PREV</button>
-              <button class="btn-next">NEXT →</button> 
+            <img src="/CSARCH2-G9-Exhibit/eagle.png" alt="Rocket" class="slide-img" />
+            <div class="text-content">
+              <span class="slide-label">02 Descent</span>
+              <h2>THE PROBLEM APPEARS</h2>
+              <p class="subtitle">The 1202 alarm is flashing during the descent.</p>
+              <p>
+                As Eagle descended towards the surface, the Apollo Guidance Computer (AGC) suddenly began flashing a 1202 alarm warning to the astronauts.
+              </p>
+              <p>
+                This alarm indicated that the computer's processing core was heavily overloaded with data. 
+                The system was receiving more information than it could process while trying to manage the complex landing sequence.
+              </p>
             </div>
+          </div>
+          <div class="button-group">
+            <button class="btn-prev">← PREV</button>
+            <button class="btn-next">NEXT →</button> 
           </div>
         </div>
       </div>
 
+      <!-- Slide 3 -->
       <div class="slide">
-        <div class="content-left">
-          <img src="/landing.png" alt="The Moon" class="slide-img" />
-        </div>
-        <div class="content-right">
+        <div class="slide-wrapper">
           <div class="info-box">
-            <h2>THE 1202 ALARM</h2>
-            <p class="subtitle">"Houston, Tranquility Base here, The Eagle has landed."</p>
-
-            <p>
-              The 1202 alarm was a warning code flashed by the Apollo Guidance Computer (AGC) which indicates that the system was overloaded with data and dropping low priority tasks.
-            </p>
-            <p>
-              The astronauts were told not to abort the mission despite the alarms because NASA simulations before the mission showed that a landing is still possible during the 1202 alarms.
-            </p>
-            
-            <div class="button-group">
-              <button class="btn-prev">← PREV</button>
-              <button class="btn-next">NEXT →</button>
+            <img src="/CSARCH2-G9-Exhibit/landing.png" alt="The Moon" class="slide-img" />
+            <div class="text-content">
+              <span class="slide-label">03 Alarm</span>
+              <h2>WHY THEY DIDN’T ABORT</h2>
+              <p class="subtitle">"Houston, Tranquility Base here, The Eagle has landed."</p>
+              <p>
+                Mission Control knew from pre-flight simulations that a 1202 alarm did not mean the AGC was broken and endangering the mission.
+              </p>
+              <p>
+                The AGC was automatically dropping low priority tasks to focus all of its processing power on keeping the module flying. 
+                Mission Control confidently made the call: GO.
+              </p>
             </div>
+          </div>
+          <div class="button-group">
+            <button class="btn-prev">← PREV</button>
+            <button class="btn-next">NEXT →</button>
           </div>
         </div>
       </div>
@@ -96,32 +98,22 @@
   .carousel-track {
     display: flex; 
     width: 100%;
+    align-items: stretch;
     transition: transform 0.8s ease-in-out; 
   }
 
   .slide {
     min-width: 100%; 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-  }
-
-  .content-left {
-    flex: 1;
-    display: flex;
     justify-content: center;
   }
 
-  .slide-img {
+  .slide-wrapper {
     width: 100%;
-    max-width: 500px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px #06060F;
-  }
-
-  .content-right {
-    flex: 1;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 
   .info-box {
@@ -130,12 +122,37 @@
     border-radius: 12px;
     padding: 2.5rem;
     box-shadow: 0 10px 30px #1E1E45;
+    display: flex;
+    align-items: center; 
+    gap: 3rem; 
+    flex-grow: 1;
+  }
+
+  .slide-img {
+    width: 45%; 
+    max-width: 450px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px #06060F;
+  }
+
+  .text-content {
+    flex: 1;
+  }
+
+  .slide-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #A78BFA;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
   }
 
   h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: white;
+    color: #EBE8F4;
     line-height: 1.2;
   }
 
@@ -155,7 +172,8 @@
 
   .button-group {
     display: flex;
-    gap: 1rem;
+    justify-content: space-between; 
+    width: 100%;
     margin-top: 1.5rem;
   }
 
@@ -166,8 +184,8 @@
     cursor: pointer;
     border-radius: 4px;
     background-color: transparent;
-    color: #A855F7;
-    border: 2px solid #A855F7;
+    color: #7C3AED;
+    border: 2px solid #7C3AED;
     transition: all 0.3s ease;
   }
 
@@ -175,28 +193,36 @@
     background-color: #0B0C1E;
   }
 
-  // For mobile users
-  @media (max-width: 768px) {
+  /* For mobile users */
+  @media (max-width: 900px) {
     .background-section {
       padding: 3rem 1.5rem;
     }
-    
-    .slide {
-      flex-direction: column;
-      text-align: center;
-      gap: 2rem;
-    }
 
     .info-box {
+      flex-direction: column; 
       padding: 1.5rem;
+      gap: 1.5rem;
+      text-align: left;
+    }
+
+    .slide-img {
+      width: 100%; 
+      max-width: 100%;
     }
 
     h2 {
-      font-size: 1.8rem; 
+      font-size: clamp(1.5rem, 6vw, 2rem); 
     }
 
     .button-group {
-      justify-content: center;
+      flex-direction: row; 
+      gap: 1rem;
+    }
+
+    .btn-prev, .btn-next {
+      flex: 1; 
+      text-align: center;
     }
   }
 </style>
