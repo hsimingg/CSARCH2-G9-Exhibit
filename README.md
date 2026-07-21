@@ -21,13 +21,15 @@ This section documents the group’s final development progress, including secti
 
 **Member:** Mikael  
 **What changed:**  
-- 
+- added a transparent rocket image
+- added new effects during rocket launch
+- fixed mobile layout
 
 **Challenge encountered:**  
-- 
+- implementing the animated rocket with particles and ensuring it auto scrolls to the next section without causing visual glitches across different screen sizes.
 
 **CSARCH2 concept explained:**  
-- 
+- introduction to a real life situation which integrates computer architecture and organization
 
 ---
 
@@ -35,13 +37,16 @@ This section documents the group’s final development progress, including secti
 
 **Member:** Mikael  
 **What changed:**  
-- 
+- refined the 3 slide interactive carousel detailing the Apollo 11, the LM Eagle, and the 1202 alarm.
+- changed the information in each slide into a narrative type storytelling.
+- fixed UI elements
 
 **Challenge encountered:**  
-- 
+- building the loop logic for the carousel slides so that they can infinitely move to the next or previous slide.
+- applying the UI to fit a mobile layout.
 
 **CSARCH2 concept explained:**  
-- 
+- processor data overload, real-time task management, processing time for critical functions
 ---
 
 #### Architecture Concept Section
