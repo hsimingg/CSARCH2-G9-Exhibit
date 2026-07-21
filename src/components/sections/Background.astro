@@ -84,6 +84,10 @@
 </section>
 
 <style>
+  *, *::before, *::after {
+  box-sizing: border-box;
+  }
+
   .background-section {
     padding: var(--space-2xl) 8%;
     min-height: 80vh;
@@ -113,18 +117,20 @@
   }
 
   .slide {
-    min-width: 100%;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
     display: flex;
     justify-content: center;
-    flex-shrink: 0;
   }
 
   .slide-wrapper {
     width: 100%;
-    max-width: var(--max-width);
+    max-width: 1100px;
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow-x: hidden;
   }
 
   .info-box {
