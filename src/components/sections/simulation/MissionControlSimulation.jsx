@@ -306,6 +306,7 @@ export default function MissionControlSimulation() {
     const [briefingTargetText, setBriefingTargetText] = useState('');
     const [briefingDisplayText, setBriefingDisplayText] = useState('');
     const lastTapRef = useRef(0);
+    const [isMobileFullscreen, setIsMobileFullscreen] = useState(false);
 
     const riskLevel = getRiskLevel(computerLoad);
     const systemStatus = getSystemStatus(currentStage);
@@ -416,6 +417,17 @@ export default function MissionControlSimulation() {
         return () => window.clearInterval(intervalId);
     }, [briefingTargetText, screenPhase]);
 
+    useEffect(() => {
+        // Only lock body scroll on actual mobile viewports (≤700px).
+        // On desktop/normal screens the page should stay scrollable.
+        if (isMobileFullscreen && window.innerWidth <= 700) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => { document.body.style.overflow = ''; };
+    }, [isMobileFullscreen]);
+
     /* ------------ SCORING METRIC ------------ */
     function applyPendingMetrics() {
         const nextLoad = computerLoad + pendingLoadDelta;
@@ -455,6 +467,7 @@ export default function MissionControlSimulation() {
         setBriefingTargetText(briefingSlides[0].text.join('\n'));
         setCurrentStage(STAGES.BRIEFING);
         setScreenPhase('briefingTyping');
+        setIsMobileFullscreen(true);
     }
 
     function restartSimulation() {
@@ -471,6 +484,7 @@ export default function MissionControlSimulation() {
         setBriefingIndex(0);
         setBriefingDisplayText('');
         setBriefingTargetText('');
+        setIsMobileFullscreen(false);
         openStage(STAGES.MENU, '', '');
     }
 
@@ -760,7 +774,14 @@ export default function MissionControlSimulation() {
     const detailText = detailDisplayText || '';
 
     return (
-        <section className="mc-wrapper">
+        <section className={`mc-wrapper${isMobileFullscreen ? ' mc-fullscreen' : ''}`}>
+            {isMobileFullscreen && (
+                <button
+                    className="mc-close-btn"
+                    onClick={() => setIsMobileFullscreen(false)}
+                    aria-label="Exit simulation"
+                >×</button>
+            )}
             <div className={`mc-monitor${currentStage === STAGES.END_VICTORY ? ' mc-victory-glow' : ''}`}>
                 <div
                     className="mc-screen"
