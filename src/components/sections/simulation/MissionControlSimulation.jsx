@@ -13,6 +13,7 @@ const STAGES = { //game flow
     END_ABORT: 'ending-aborted',
     END_SUCCESS: 'ending-success',
     END_DANGER: 'ending-danger',
+    END_VICTORY: 'ending-victory',
 };
 
 const briefingSlides = [
@@ -101,6 +102,8 @@ function getSystemStatus(stage) {
             return 'MISSION DESCENT SUCCESSFUL';
         case STAGES.END_DANGER:
             return 'MISSION DANGEROUS OUTCOME';
+        case STAGES.END_VICTORY:
+            return 'LUNAR LANDING SUCCESSFUL';
         default:
             return '1202 ALARM';
     }
@@ -123,6 +126,8 @@ function getStageHeader(stage) {
         case STAGES.END_SUCCESS:
         case STAGES.END_DANGER:
             return 'MISSION OUTCOME';
+        case STAGES.END_VICTORY:
+            return 'TOUCHDOWN CONFIRMED';
         default:
             return '';
     }
@@ -169,6 +174,9 @@ function getComputerText(stage, context) {
                 ? 'GO confirmed too early. Warning: system verification was incomplete.'
                 : 'GO confirmed against recommendation. Warning: overload risk remains unresolved.';
 
+        case STAGES.END_VICTORY:
+            return 'Excellent work, Engineer. You kept the system focused under overload and gave Mission Control enough confidence to continue the descent. ';
+
         default:
             return '';
     }
@@ -211,6 +219,9 @@ function getDetailText(stage, context) {
             return endingMode === 'dangerBeforeFinal'
                 ? 'The descent continues before the computer status is fully verified. Under unresolved overload, critical landing tasks may lose processing priority.'
                 : 'The descent continues despite the ABORT recommendation. The computer remains overloaded, increasing the risk that critical landing functions cannot be maintained.';
+
+        case STAGES.END_VICTORY:
+            return 'TRANSMISSION RECEIVED: "The Eagle has landed."';
 
         default:
             return '';
@@ -262,8 +273,11 @@ function getStageButtons(stage) {
                 { label: 'Abort Descent', action: 'abort' },
             ];
         case STAGES.END_ABORT:
-        case STAGES.END_SUCCESS:
         case STAGES.END_DANGER:
+            return [{ label: 'Restart Simulation', action: 'restart' }];
+        case STAGES.END_SUCCESS:
+            return [{ label: 'Continue', action: 'victory' }];
+        case STAGES.END_VICTORY:
             return [{ label: 'Restart Simulation', action: 'restart' }];
         default:
             return [];
@@ -712,9 +726,22 @@ export default function MissionControlSimulation() {
 
         if (
             currentStage === STAGES.END_ABORT ||
-            currentStage === STAGES.END_SUCCESS ||
-            currentStage === STAGES.END_DANGER
+            currentStage === STAGES.END_DANGER ||
+            currentStage === STAGES.END_VICTORY
         ) {
+            if (action === 'restart') {
+                restartSimulation();
+            }
+        }
+
+        if (currentStage === STAGES.END_SUCCESS) {
+            if (action === 'victory') {
+                openStage(
+                    STAGES.END_VICTORY,
+                    getComputerText(STAGES.END_VICTORY, { alarmDecision, finalRecommendation, endingMode }),
+                    getDetailText(STAGES.END_VICTORY, { alarmDecision, finalRecommendation, endingMode })
+                );
+            }
             if (action === 'restart') {
                 restartSimulation();
             }
@@ -734,7 +761,7 @@ export default function MissionControlSimulation() {
 
     return (
         <section className="mc-wrapper">
-            <div className="mc-monitor">
+            <div className={`mc-monitor${currentStage === STAGES.END_VICTORY ? ' mc-victory-glow' : ''}`}>
                 <div
                     className="mc-screen"
                     onDoubleClick={() => {
@@ -823,30 +850,41 @@ export default function MissionControlSimulation() {
 
                                             {showStatus && (
                                                 <div className="mc-status-lines">
-                                                    <p>System Status: {systemStatus}</p>
-                                                        <p className="mc-load-line">
-                                                            <span>Computer Load: {computerLoad}%</span>
-                                                            {loadDirection !== 0 && (
-                                                                <span
-                                                                    className={`mc-load-arrow mc-load-arrow-${
-                                                                        loadDirection > 0 ? 'up' : 'down'
-                                                                    }`}
-                                                                    aria-hidden="true"
-                                                                >
-                                                                    {loadDirection > 0 ? '↑' : '↓'}
-                                                                </span>
-                                                            )}
-                                                        </p>
-                                                    <p>Risk Level: {riskLevel}</p>
-                                                    {currentStage === STAGES.FINAL && <p>Recommendation: {finalRecommendation ?? 'PENDING'}</p>}
+                                                    {currentStage === STAGES.END_VICTORY ? (
+                                                        <>
+                                                            <p>System Status: LUNAR LANDING SUCCESSFUL</p>
+                                                            <p>Computer Load: STABLE</p>
+                                                            <p>Risk Level: CLEARED</p>
+                                                            <p>Mission Result: MISSION COMPLETE</p>
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <p>System Status: {systemStatus}</p>
+                                                                <p className="mc-load-line">
+                                                                    <span>Computer Load: {computerLoad}%</span>
+                                                                    {loadDirection !== 0 && (
+                                                                        <span
+                                                                            className={`mc-load-arrow mc-load-arrow-${
+                                                                                loadDirection > 0 ? 'up' : 'down'
+                                                                            }`}
+                                                                            aria-hidden="true"
+                                                                        >
+                                                                            {loadDirection > 0 ? '↑' : '↓'}
+                                                                        </span>
+                                                                    )}
+                                                                </p>
+                                                            <p>Risk Level: {riskLevel}</p>
+                                                            {currentStage === STAGES.FINAL && <p>Recommendation: {finalRecommendation ?? 'PENDING'}</p>}
+                                                        </>
+                                                    )}
                                                 </div>
                                             )}
 
                                             {showWaitingPrompt && (
                                                 <div className="mc-user-line">
                                                     <span className="mc-label">{'>'}</span>
-                                                    <span className={showDecisionButtons ? 'mc-waiting-dots' : ''}>
-                                                        {showDecisionButtons ? '...' : userDisplayText}
+                                                    <span className={showDecisionButtons && currentStage !== STAGES.END_VICTORY ? 'mc-waiting-dots' : ''}>
+                                                        {currentStage === STAGES.END_VICTORY ? 'Mission cleared.' : (showDecisionButtons ? '...' : userDisplayText)}
                                                     </span>
                                                 </div>
                                             )}
@@ -918,6 +956,31 @@ export default function MissionControlSimulation() {
     box-shadow:
         0 0 28px rgba(124, 255, 178, 0.06),
         inset 0 0 22px rgba(20, 30, 35, 0.08);
+    transition: border-color 0.8s ease, box-shadow 0.8s ease;
+}
+
+.mc-victory-glow {
+    border-color: rgba(245, 200, 0, 0.45) !important;
+    box-shadow:
+        0 0 32px rgba(245, 200, 0, 0.14),
+        0 0 64px rgba(245, 200, 0, 0.06),
+        inset 0 0 22px rgba(20, 30, 35, 0.08) !important;
+    animation: victoryPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes victoryPulse {
+    0%, 100% {
+        box-shadow:
+            0 0 32px rgba(245, 200, 0, 0.14),
+            0 0 64px rgba(245, 200, 0, 0.06),
+            inset 0 0 22px rgba(20, 30, 35, 0.08);
+    }
+    50% {
+        box-shadow:
+            0 0 52px rgba(245, 200, 0, 0.26),
+            0 0 96px rgba(245, 200, 0, 0.10),
+            inset 0 0 22px rgba(20, 30, 35, 0.08);
+    }
 }
 
 .mc-screen {
